@@ -1,0 +1,22 @@
+easy_admin:
+  entities:
+    Article:
+      class: App\Entity\Article
+      list:
+        fields:
+          - 'title'
+          - 'slug'
+          - 'vignette'
+          - 'categorie'
+          - 'tags'
+      form:
+        fields:
+          - {property: 'title' }
+          - {property: 'vignette' }
+          - {property: 'text',type: 'FOS\CKEditorBundle\Form\Type\CKEditorType', type_options: { config_name: 'advanced_config' } }
+          - {property: 'tags' }
+          - {property: 'published' }
+          - {property: 'categorie' }
+        actions:
+          - {name: 'edit', icon: 'pencil', label: false, css_class: 'btn btn-secondary'}
+          - {name: 'delete', icon: 'trash', label: false, css_class: 'btn btn-danger'}

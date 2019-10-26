@@ -1,0 +1,11 @@
+easy_admin:
+  entities:
+    User:
+      class: App\Entity\User
+      password_encoding: { algorithm: 'bcrypt', cost: 12 }
+      form:
+        fields:
+          - {property: 'email'}
+          - { property: 'password', type: 'text', type_options: { required: false } }
+          - { property: 'plainPassword', type: 'text', type_options: { required: false } }
+          - { property: 'role', type: 'choice', type_options: { multiple: false, choices: { 'ROLE_USER': 'ROLE_USER', 'ROLE_ADMIN': 'ROLE_ADMIN' } } }

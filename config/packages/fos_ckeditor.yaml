@@ -1,0 +1,11 @@
+# Read the documentation: https://symfony.com/doc/current/bundles/FOSCKEditorBundle/index.html
+fos_ck_editor:
+    input_sync: true
+    default_config: simple_config
+    configs:
+        simple_config:
+            toolbar:
+                - { name: "styles", items: ['Bold', 'Italic', 'BulletedList', 'Link'] }
+        advanced_config:
+            toolbar:
+

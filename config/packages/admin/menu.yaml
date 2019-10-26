@@ -1,0 +1,16 @@
+easy_admin:
+  design:
+    form_theme: # Both themes are for ckeditor integration
+      - "@EasyAdmin/form/bootstrap_4.html.twig"
+      - "@FOSCKEditor/Form/ckeditor_widget.html.twig"
+    menu:
+      - label: 'Portfolio'
+        icon: 'newspaper-o'
+        children:
+          - {entity: 'Article', icon: 'newspaper-o', label: 'Projets'}
+          - {entity: 'Categorie', icon: 'inbox', label: 'Categories'}
+          - {entity: 'Tags',  icon: 'tags', label: 'Tags'}
+      - label: 'Gestion'
+        icon: 'cog'
+        children:
+          - {entity: 'User',  icon: 'user', label: 'Utilisateurs'}

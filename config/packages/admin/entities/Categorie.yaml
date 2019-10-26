@@ -1,0 +1,13 @@
+easy_admin:
+  entities:
+    Categorie:
+      class: App\Entity\Categorie
+      list:
+        fields:
+          - 'name'
+          - 'slug'
+          - 'articles'
+      form:
+          fields:
+            - {property: 'name',type: 'FOS\CKEditorBundle\Form\Type\CKEditorType'}
+            - {property: 'slug'}
