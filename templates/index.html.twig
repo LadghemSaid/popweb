@@ -1,0 +1,76 @@
+{% extends 'base.html.twig' %}
+{% block title %}
+  Accueil
+{% endblock %}
+{% block style_custom %}
+    <style>
+
+    </style>
+{% endblock %}
+{% block body %}
+
+    <div class="margium">
+        <p style="display:block; max-width: 720px; margin: auto; font-size:large; padding: 70px 15px 30px 15px; text-align:justify;">
+            Nous sommes une agence web fictive formée de 8 étudiants de la licence CréaWeb de Lens. Nous réalisation des sites web ainsi que certains contenus numérique pour des associations et les start-ups.
+        </p>
+    </div>
+    <div id="segond-segment" class="margium">
+        <img src="{{ asset("pho/surmesure.svg") }}" alt="sur mesure">
+        <div id ="description-seg">
+            <h3>Sur mesure</h3>
+            <p>
+                Nous concevons des sites web sur mesures pour répondre au mieux à vos besoins ! Adapté à vos besoins, votre site web sera plus pertinent. Vous vous démarqueriez des autres nous travaillons pour rendre votre site mémorable.                    </p>
+        </div>
+    </div>
+    <div id="segond-segment" class="margium">
+        <img src="{{ asset("pho/top.svg") }}" alt="sur mesure">
+        <div id ="description-seg">
+            <h3>Au top</h3>
+            <p>
+                Réalisation de qualité : design, chargement, SEO, ergonomie, technique. Notre équipe est capable d'intervenir sur tous les aspects d'un site web, ainsi celui-ci n'a plus de secret pour nous.                    </p>
+        </div>
+    </div>
+    <div id="troisieme-segment">
+        <div class="espace">
+            <div class="margium">
+                <h2>Nos réalisation antérieures </h2>
+                <div id="liste">
+                    <a href="https://www.noiseless-rock.fr/" target="_blank"  class="card">
+                        <img src="{{ asset("pho/noiseless.svg") }}"/>
+                        <h4>Noiseless </h4>
+                    </a>
+                    <a href="http://www.musikin.ovh" target="_blank" class="card">
+                        <img src="{{ asset("pho/musikin.svg") }}"/>
+                        <h4>Musik'in </h4>
+                    </a>
+                    <a href="#" class="card">
+                        <img src="{{ asset("pho/none.svg") }}">
+                        <h4>Ne </h4>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="quatrieme-segment">
+        <div class="margium">
+
+            <h2 class="c">Une question, un projet n'hésitez pas !</h2>
+            <p class="c">Nous reviendrons vers vous dans de bref délais</p>
+
+                {{ form_start(formContact) }}
+                {{ form_row(formContact.fullName , {'attr': {'class': '','placeholder':"Votre nom" }, 'label': 'Votre nom' }) }}
+                {{ form_row(formContact.fromEmail , {'attr': {'class': '','placeholder':"Votre email" }, 'label': 'Votre email'}) }}
+                {{ form_row(formContact.message , {'attr': {'class': '','placeholder':"Votre message ..." }, 'label': 'Message','placeholder':"Votre message ..."}) }}
+
+                <div class="form-group row">
+                    <div class="col-sm-10">
+                        <div style="text-align:center;"><input type="submit"  value="Envoyer le message !" /></div>
+                    </div>
+                </div>
+
+                {{ form_end(formContact) }}
+
+        </div>
+    </div>
+
+{% endblock %}

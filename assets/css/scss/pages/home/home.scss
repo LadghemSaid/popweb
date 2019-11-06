@@ -1,0 +1,352 @@
+body {
+  margin:0px;
+  font-family:'Open Sans', sans-serif;
+  display: flex;
+  flex-direction: column;
+}
+.contenu {
+  flex: 1;
+}
+*{
+  box-sizing: border-box;
+  line-height: 180%;
+}
+a {
+  text-decoration: none;
+  color: black;
+}
+a.primaire {
+  padding: 12px 22px;
+  border-radius: 5px;
+  cursor:pointer;
+  background-color: #F60052;
+  color: white;
+}
+.c {
+  text-align: center;
+}
+header {
+  position: absolute;
+  top:0;
+  left: 0;
+  right: 0;
+  z-index: 3000;
+  background-color: rgba(0, 16, 62, 0.0);
+  color: white;
+}
+header a {
+  color: white;
+}
+header img {
+  height: 100px;
+  padding: 15px;
+}
+.menu-du-header a {
+  text-decoration: none;
+  color: white;
+  background-color: #111111;
+  padding: 16px 8px 8px 8px;
+  font-size: medium;
+  display: block;
+}
+.menu-du-header_here a {
+  text-decoration: none;
+  color: white;
+  background-color: #111111;
+  padding: 16px 8px 12px 8px;
+  font-size: medium;
+  display: block;
+  border-bottom:2px white solid ;
+}
+.al {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+.al img {
+  width: 100%;
+  max-width: 300px;
+  padding: 60px 0px;
+}
+.ne {
+  background-color: #f5f5f5;
+  padding: 18px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+}
+.ne a {
+  color: #F60052;
+  font-weight: bold;
+}
+.he {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.ne p {
+  text-align: justify;
+}
+.ne span {
+  margin-left: auto;
+}
+.ne img {
+  height: 38px;
+  margin-right: 13px;
+}
+/* soulignage effect */
+.menu-du-header a:after {
+  position: relative;
+  content: " ";
+  display: block;
+  left: 0;
+  top: 4px;
+  width: 0px;
+  height: 2px;
+  background: #fff;
+  transition: all 0.3s ease;
+}
+.menu-du-header a:hover:after {
+  width: 100%;
+}
+/* soulignage effet (fin) */
+.margium {
+  display: block;
+  max-width: 1000px;
+  margin-right: auto;
+  margin-left: auto;
+}
+.margium-s {
+  display: block;
+  max-width: 720px;
+  margin-right: auto;
+  margin-left: auto;
+}
+.espace{
+  margin: 0px 15px;
+}
+#menu-du-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+#menu-du-header a {
+  padding: 8px;
+  margin: 0px 8px;
+}
+#marge-du-header {
+  margin-right: auto;
+  margin-left: auto;
+  width: 100%;
+  max-width: 1050px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center
+}
+#description {
+  padding: 40px 40px;
+  display: inline-block;
+}
+#description p {
+  max-width: 350px;
+  text-align: justify;
+}
+#segond-segment div{
+  flex: 1;
+}
+#segond-segment {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding:  50px 0px 50px 0px;
+}
+#segond-segment img {
+  width: 100%;
+  flex: 0.5;
+}
+#description-seg {
+  margin: 40px;
+  line-height: 170%;
+  flex: 1.5;
+}
+#troisieme-segment {
+  margin-top: 50px;
+  padding: 50px 0px 70px 0px;
+  background-color: rgba(0, 16, 62, 1);
+  color: white;
+}
+#troisieme-segment h2 {
+  margin-bottom: 50px;
+  text-align: center;
+}
+#liste {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.card img {
+  max-width: 320px;
+  width: 280px;
+  border-radius: 8px;
+  border-bottom: 8px #F60052 solid;
+}
+.card {
+  background-color: transparent;
+  color: white;
+}
+.card h4, .card p {
+  margin-left: 12px;
+  margin-right: 12px;
+  text-align: center;
+}
+#quatrieme-segment {
+  background-color: #f5f5f5;
+  padding: 40px 50px;
+}
+input, textarea {
+  padding: 12px 22px;
+  font-size: medium;
+  background-color:#f5f5f5;
+  color: black;
+  border:2px solid #cfcfcf;
+  width: 100%;
+  max-width: 480px;
+  font-family:'Open Sans', sans-serif;
+  border-radius: 5px;
+}
+input[type="submit"]{
+  cursor:pointer;
+  background-color: #F60052;
+  border:0px;
+  color: white;
+}
+.c {
+  text-align: center;
+}
+#quatrieme-segment form {
+  margin-top: 32px;
+  margin-bottom: 35px;
+}
+footer {
+  background-color: #000;
+  color: #cccccc;
+  flex: 0;
+  padding: 12px;
+  display: flex;
+  justify-content: space-around;
+}
+#marge_footer {
+  max-width: 720px;
+  width: 100%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+picture img {
+  width: 100%;
+}
+#menu-du-header a {
+  border-bottom: 3px #F60052 solid;
+}
+#foot {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+}
+.social {
+  display: flex;
+  justify-content: space-around;
+}
+.social img {
+  width: 38px;
+  padding: 7px;
+}
+img#logofooter {
+  height: 62px;
+  padding: 12px;
+}
+@media (max-width: 512px), handheld {
+  #foot {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+  }
+}
+#foot p {
+  line-height: 150%;
+}
+.colone {
+  flex-direction: column;
+  display: flex;
+}
+#col1 {
+  flex: 0.6;
+}
+@media (max-width: 650px), handheld {
+  footer {
+    flex-direction: column;
+    padding: 15px 25px 0px 25px;
+  }
+  .colone {
+    margin-bottom: 28px;
+  }
+  #marge-du-header {
+    margin-right: auto;
+    margin-left: auto;
+    width: 100%;
+    max-width: 1050px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center
+  }
+  #menu-du-header a {
+    border-bottom: 3px #F60052 solid;
+  }
+}
+@media (max-width: 720px), handheld {
+
+  #description {
+    padding: 40px 20px;
+    display: block;
+    width: 100%;
+  }
+  #segond-segment {
+    display: flex;
+    flex-direction: column;
+    padding: 0px;
+  }
+  #segond-segment img {
+    padding: 0px 70px;
+    max-width: 430px;
+  }
+  #description-seg {
+    margin: -30px  40px 40px 40px;
+    line-height: 170%;
+    flex: 1.5;
+  }
+}
+@media (max-width: 1022px), handheld {
+  #liste {
+    display: flex;
+    flex-direction: column;
+  }
+  #troisieme-segment h2 {
+    text-align: center;
+  }
+  #troisieme-segment h2 {
+    text-align: center;
+  }
+  .card {
+    margin-bottom: 23px;
+    display: contents;
+  }
+  .card img {
+    max-width: 400px;
+    width:100% !important;
+  }
+}

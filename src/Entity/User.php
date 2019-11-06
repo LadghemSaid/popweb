@@ -23,6 +23,11 @@ class User implements UserInterface
     private $email;
 
     /**
+     * @ORM\Column(type="string", length=180,)
+     */
+    private $username;
+
+    /**
      * @ORM\Column(type="json")
      */
     private $roles = [];
@@ -41,7 +46,7 @@ class User implements UserInterface
     private $plainPassword;
 
     /**
-     * @ORM\Column(name="salt", type="string")
+     * @ORM\Column(name="salt", type="string", nullable=true)
      */
     private $salt;
 
@@ -84,15 +89,7 @@ class User implements UserInterface
         return $this;
     }
 
-    /**
-     * A visual identifier that represents this user.
-     *
-     * @see UserInterface
-     */
-    public function getUsername(): string
-    {
-        return (string) $this->email;
-    }
+
 
     /**
      * @see UserInterface
@@ -148,7 +145,7 @@ class User implements UserInterface
     /**
      * @return string
      */
-    public function getPlainPassword(): string
+    public function getPlainPassword()
     {
         return $this->plainPassword;
     }
@@ -156,11 +153,26 @@ class User implements UserInterface
     /**
      * @param string $plainPassword
      */
-    public function setPlainPassword(string $plainPassword): void
+    public function setPlainPassword(string $plainPassword)
     {
         $this->plainPassword = $plainPassword;
     }
 
+    /**
+     * @return mixed
+     */
+    public function getUsername()
+    {
+        return $this->username;
+    }
+
+    /**
+     * @param mixed $username
+     */
+    public function setUsername($username): void
+    {
+        $this->username = $username;
+    }
 
 
 }
