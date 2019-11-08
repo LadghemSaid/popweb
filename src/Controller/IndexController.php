@@ -33,7 +33,7 @@ class IndexController extends AbstractController
 
             $mailer->send($message);
 
-            $this->addFlash('success', 'Message was send');
+            $this->addFlash('success', 'Message was sent');
 
             return $this->redirectToRoute('index');
         }
