@@ -6,9 +6,9 @@
         <div id="menu-du-header">
 
             <a class="nav-link" href="{{path('article.index')}}">Blog <span class="sr-only">(current)</span></a>
-            <a href="#">À propos</a>
-            <a href="#">Recrutement</a>
-            <a href="#quatrieme-segment">Contactez-nous</a>
+            <a href="{{path('about')}}">À propos</a>
+            <a href="{{path('jobs')}}">Recrutement</a>
+            <a href="{{path('index')}}#quatrieme-segment">Contactez-nous</a>
             {% if app.user %}
 
                 <a class=" {% if current_menu is defined and current_menu == 'logout' %}active{% endif %}" href="{{ path('app_logout') }}">Se déconnecter</a>
