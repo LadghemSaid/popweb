@@ -52,4 +52,24 @@ class IndexController extends AbstractController
             'formContact' => $form->createView(),
         ]);
     }
+
+    /**
+     * @Route("/jobs", name="jobs")
+     */
+    public function showJobs()
+    {
+        return $this->render('page/jobs.html.twig', [
+        ]);
+    }
+
+
+    /**
+     * @Route("/about", name="about")
+     */
+    public function showAbout()
+    {
+        return $this->render('page/about.html.twig', [
+        ]);
+    }
+
 }
