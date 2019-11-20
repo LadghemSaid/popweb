@@ -25,10 +25,20 @@ class IndexController extends AbstractController
             $message = (new \Swift_Message('Une personne contact l\'agence ! '))
                 ->setFrom($contactFormData['fromEmail'])
                 ->setTo('said.ladghem@gmail.com')
+
                 ->setBody(
-                    $contactFormData['message'],
-                    'text/plain'
+                    $this->renderView(
+                    // templates/emails/registration.html.twig
+                        '/emails/contact.html.twig',
+                        [
+                            'name' => $contactFormData['fullName'],
+                            'mail' => $contactFormData['fromEmail'],
+                            'message' => $contactFormData['message']
+                            ]
+                    ),
+                    'text/html'
                 )
+
             ;
 
             $mailer->send($message);
