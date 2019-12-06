@@ -29,7 +29,7 @@ class Categorie
     private $slug;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Article", mappedBy="categorie")
+     * @ORM\OneToMany(targetEntity="Project", mappedBy="categorie")
      */
     private $articles;
 
@@ -68,14 +68,14 @@ class Categorie
     }
 
     /**
-     * @return Collection|Article[]
+     * @return Collection|Project[]
      */
     public function getArticles(): Collection
     {
         return $this->articles;
     }
 
-    public function addArticle(Article $article): self
+    public function addArticle(Project $article): self
     {
         if (!$this->articles->contains($article)) {
             $this->articles[] = $article;
@@ -85,7 +85,7 @@ class Categorie
         return $this;
     }
 
-    public function removeArticle(Article $article): self
+    public function removeArticle(Project $article): self
     {
         if ($this->articles->contains($article)) {
             $this->articles->removeElement($article);

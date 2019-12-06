@@ -35,6 +35,12 @@
             <div class="margium">
                 <h2>Nos réalisation antérieures </h2>
                 <div id="liste">
+                    {% for project in projects %}
+                    <a href="https://www.noiseless-rock.fr/" target="_blank"  class="card">
+                        <img src="{{ asset("pho/noiseless.svg") }}"/>
+                        <h4>Noiseless </h4>
+                    </a>
+                    {% endfor %}
                     <a href="https://www.noiseless-rock.fr/" target="_blank"  class="card">
                         <img src="{{ asset("pho/noiseless.svg") }}"/>
                         <h4>Noiseless </h4>

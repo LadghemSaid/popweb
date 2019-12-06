@@ -1,4 +1,9 @@
 easy_admin:
+  user:
+    # this method/property must return the string representation of the user
+    # (Symfony will look for getusername(), isusername(), ..., and 'username' property)
+    name_property_path: 'username'
+    display_avatar: false
   design:
     form_theme: # Both themes are for ckeditor integration
       - "@EasyAdmin/form/bootstrap_4.html.twig"

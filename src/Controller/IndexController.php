@@ -17,6 +17,7 @@ class IndexController extends AbstractController
     {
         $form = $this->createForm(ContactType::class);
         $form->handleRequest($request);
+        $projects = [];
 
         if ($form->isSubmitted() && $form->isValid()) {
 
@@ -28,8 +29,7 @@ class IndexController extends AbstractController
                 ->setBody(
                     $contactFormData['message'],
                     'text/plain'
-                )
-            ;
+                );
 
             $mailer->send($message);
 
@@ -40,6 +40,23 @@ class IndexController extends AbstractController
 
         return $this->render('index.html.twig', [
             'formContact' => $form->createView(),
+            'projects' => $projects,
         ]);
+    }
+
+    /**
+     * @Route("/jobs", name="jobs')
+     */
+    public function jobsIndex()
+    {
+        return $this->render('jobs/jobs.html.twig');
+    }
+
+    /**
+     * @Route("/about" , name="about')
+     */
+    public function aboutIndex()
+    {
+        return $this->render('about/about.html.twig');
     }
 }

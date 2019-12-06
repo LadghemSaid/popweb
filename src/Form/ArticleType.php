@@ -2,7 +2,7 @@
 
 namespace App\Form;
 
-use App\Entity\Article;
+use App\Entity\Project;
 use App\Entity\Categorie;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
@@ -45,7 +45,7 @@ class ArticleType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults([
-            'data_class' => Article::class,
+            'data_class' => Project::class,
             'translation_domain' => 'forms'
         ]);
     }
@@ -53,7 +53,7 @@ class ArticleType extends AbstractType
     public function getChoices($value)
     {
         if ($value == 'STATUS') {
-            $choices = Article::STATUS;
+            $choices = Project::STATUS;
         }
 
 

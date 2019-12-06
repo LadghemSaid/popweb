@@ -29,7 +29,7 @@ class Tag
     private $slug;
 
     /**
-     * @ORM\ManyToMany(targetEntity="App\Entity\Article", mappedBy="tags")
+     * @ORM\ManyToMany(targetEntity="Project", mappedBy="tags")
      */
     private $articles;
 
@@ -75,14 +75,14 @@ class Tag
     }
 
     /**
-     * @return Collection|Article[]
+     * @return Collection|Project[]
      */
     public function getArticles(): Collection
     {
         return $this->articles;
     }
 
-    public function addArticle(Article $article): self
+    public function addArticle(Project $article): self
     {
         if (!$this->articles->contains($article)) {
             $this->articles[] = $article;
@@ -92,7 +92,7 @@ class Tag
         return $this;
     }
 
-    public function removeArticle(Article $article): self
+    public function removeArticle(Project $article): self
     {
         if ($this->articles->contains($article)) {
             $this->articles->removeElement($article);

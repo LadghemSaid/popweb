@@ -30,7 +30,7 @@ class Comment
     private $user;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Article", inversedBy="comments")
+     * @ORM\ManyToOne(targetEntity="Project", inversedBy="comments")
      * @ORM\JoinColumn(nullable=false)
      */
     private $article;
@@ -81,12 +81,12 @@ class Comment
         return $this;
     }
 
-    public function getArticle(): ?Article
+    public function getArticle(): ?Project
     {
         return $this->article;
     }
 
-    public function setArticle(?Article $article): self
+    public function setArticle(?Project $article): self
     {
         $this->article = $article;
 

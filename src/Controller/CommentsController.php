@@ -2,10 +2,10 @@
 
 namespace App\Controller;
 
-use App\Entity\Article;
+use App\Entity\Project;
 use App\Entity\Comment;
 use App\Form\CommentType;
-use App\Repository\ArticleRepository;
+use App\Repository\ProjectRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -18,12 +18,12 @@ class CommentsController extends AbstractController
      * @Route("/add/comment/{article}", name="add.comment", methods={"POST"})
      * @param Request $req
      * @param Security $security
-     * @param $articleid
-     * @param ArticleRepository $articleRepo
+     * @param $projectid
+     * @param ArticleRepository $projectRepo
      * @return \Symfony\Component\HttpFoundation\RedirectResponse
      * @throws \Exception
      */
-    public function add(Request $req, Security $security, $article, ArticleRepository $articleRepo)
+    public function add(Request $req, Security $security, $project, ProjectRepository $projectRepo)
     {
         $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
         $comment = new Comment();
@@ -32,11 +32,11 @@ class CommentsController extends AbstractController
         $form->handleRequest($req);
         if ($form->isSubmitted() && $form->isValid()) {
 
-            $article2= $articleRepo->find($article);
+            $project2= $projectRepo->find($project);
             $com = $form->getData();
 
             $com->setUser($security->getUser())
-                ->setArticle($article2)
+                ->setArticle($project2)
                 ->setCreatedAt(new \DateTime())
                 ->setApproved(true);
             //dd($com);
@@ -44,7 +44,7 @@ class CommentsController extends AbstractController
             $em->persist($com);
             $em->flush();
 
-            return $this->redirectToRoute('article.show', array('slug'=>$article2->getSlug(),'id'=>$article));
+            return $this->redirectToRoute('project.show', array('slug'=>$project2->getSlug(),'id'=>$project));
 
         }
     }
@@ -56,12 +56,12 @@ class CommentsController extends AbstractController
     {
         $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
         if($security->getUser() === $comment->getUser()){
-            $article = $comment->getArticle();
+            $project = $comment->getArticle();
             $em =  $this->getDoctrine()->getManager();
             $em->remove($comment);
             $em->flush();
         }
-        return $this->redirectToRoute('article.show', array('slug'=>$article->getSlug(),'id'=>$article->getId()));
+        return $this->redirectToRoute('project.show', array('slug'=>$project->getSlug(),'id'=>$project->getId()));
 
         //dd($comment);
 
