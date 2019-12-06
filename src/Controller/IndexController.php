@@ -17,7 +17,6 @@ class IndexController extends AbstractController
     {
         $form = $this->createForm(ContactType::class);
         $form->handleRequest($request);
-        $projects = [];
 
         if ($form->isSubmitted() && $form->isValid()) {
 
@@ -26,10 +25,21 @@ class IndexController extends AbstractController
             $message = (new \Swift_Message('Une personne contact l\'agence ! '))
                 ->setFrom($contactFormData['fromEmail'])
                 ->setTo('said.ladghem@gmail.com')
+
                 ->setBody(
-                    $contactFormData['message'],
-                    'text/plain'
-                );
+                    $this->renderView(
+                    // templates/emails/registration.html.twig
+                        '/emails/contact.html.twig',
+                        [
+                            'name' => $contactFormData['fullName'],
+                            'mail' => $contactFormData['fromEmail'],
+                            'message' => $contactFormData['message']
+                            ]
+                    ),
+                    'text/html'
+                )
+
+            ;
 
             $mailer->send($message);
 
@@ -40,23 +50,26 @@ class IndexController extends AbstractController
 
         return $this->render('index.html.twig', [
             'formContact' => $form->createView(),
-            'projects' => $projects,
         ]);
     }
 
     /**
-     * @Route("/jobs", name="jobs')
+     * @Route("/jobs", name="jobs")
      */
-    public function jobsIndex()
+    public function showJobs()
     {
-        return $this->render('jobs/jobs.html.twig');
+        return $this->render('page/jobs.html.twig', [
+        ]);
     }
 
+
     /**
-     * @Route("/about" , name="about')
+     * @Route("/about", name="about")
      */
-    public function aboutIndex()
+    public function showAbout()
     {
-        return $this->render('about/about.html.twig');
+        return $this->render('page/about.html.twig', [
+        ]);
     }
+
 }
