@@ -31,11 +31,11 @@ class Categorie
     /**
      * @ORM\OneToMany(targetEntity="Project", mappedBy="categorie")
      */
-    private $articles;
+    private $projects;
 
     public function __construct()
     {
-        $this->articles = new ArrayCollection();
+        $this->projects = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -70,28 +70,28 @@ class Categorie
     /**
      * @return Collection|Project[]
      */
-    public function getArticles(): Collection
+    public function getProjects(): Collection
     {
-        return $this->articles;
+        return $this->projects;
     }
 
-    public function addArticle(Project $article): self
+    public function addProject(Project $project): self
     {
-        if (!$this->articles->contains($article)) {
-            $this->articles[] = $article;
-            $article->setCategorie($this);
+        if (!$this->projects->contains($project)) {
+            $this->projects[] = $project;
+            $project->setCategorie($this);
         }
 
         return $this;
     }
 
-    public function removeArticle(Project $article): self
+    public function removeProject(Project $project): self
     {
-        if ($this->articles->contains($article)) {
-            $this->articles->removeElement($article);
+        if ($this->projects->contains($project)) {
+            $this->projects->removeElement($project);
             // set the owning side to null (unless already changed)
-            if ($article->getCategorie() === $this) {
-                $article->setCategorie(null);
+            if ($project->getCategorie() === $this) {
+                $project->setCategorie(null);
             }
         }
 

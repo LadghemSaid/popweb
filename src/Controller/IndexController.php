@@ -50,6 +50,7 @@ class IndexController extends AbstractController
 
         return $this->render('index.html.twig', [
             'formContact' => $form->createView(),
+            'projects' => [],
         ]);
     }
 
@@ -58,7 +59,7 @@ class IndexController extends AbstractController
      */
     public function showJobs()
     {
-        return $this->render('page/jobs.html.twig', [
+        return $this->render('/jobs/jobs.html.twig', [
         ]);
     }
 
@@ -68,7 +69,7 @@ class IndexController extends AbstractController
      */
     public function showAbout()
     {
-        return $this->render('page/about.html.twig', [
+        return $this->render('/about/about.html.twig', [
         ]);
     }
 

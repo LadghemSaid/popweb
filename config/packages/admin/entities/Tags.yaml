@@ -6,7 +6,7 @@ easy_admin:
         fields:
           - 'name'
           - 'slug'
-          - 'articles'
+          - 'projects'
       form:
         fields:
           - {property: 'name',type: 'FOS\CKEditorBundle\Form\Type\CKEditorType'}

@@ -10,4 +10,4 @@ easy_admin:
       password_encoding: { algorithm: 'bcrypt', cost: 12 }
       form:
         fields:
-          - { property: 'roles', type: 'choice', type_options: { multiple: true, choices: { 'ROLE_USER': 'ROLE_USER', 'ROLE_ADMIN': , 'ROLE_SUPER_ADMIN': 'ROLE_SUPER_ADMIN', 'ROLE_WRITER': 'ROLE_WRITER' } } }
+          - { property: 'roles', type: 'choice', type_options: { multiple: true, choices: { 'ROLE_USER': 'ROLE_USER', 'ROLE_ADMIN': 'ROLE_ADMIN', 'ROLE_SUPER_ADMIN': 'ROLE_SUPER_ADMIN', 'ROLE_WRITER': 'ROLE_WRITER' } } }

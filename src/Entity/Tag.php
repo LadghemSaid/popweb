@@ -31,11 +31,11 @@ class Tag
     /**
      * @ORM\ManyToMany(targetEntity="Project", mappedBy="tags")
      */
-    private $articles;
+    private $projects;
 
     public function __construct()
     {
-        $this->articles = new ArrayCollection();
+        $this->projects = new ArrayCollection();
     }
 
 
@@ -77,26 +77,26 @@ class Tag
     /**
      * @return Collection|Project[]
      */
-    public function getArticles(): Collection
+    public function getProjects(): Collection
     {
-        return $this->articles;
+        return $this->projects;
     }
 
-    public function addArticle(Project $article): self
+    public function addProject(Project $project): self
     {
-        if (!$this->articles->contains($article)) {
-            $this->articles[] = $article;
-            $article->addTag($this);
+        if (!$this->projects->contains($project)) {
+            $this->projects[] = $project;
+            $project->addTag($this);
         }
 
         return $this;
     }
 
-    public function removeArticle(Project $article): self
+    public function removeProject(Project $project): self
     {
-        if ($this->articles->contains($article)) {
-            $this->articles->removeElement($article);
-            $article->removeTag($this);
+        if ($this->projects->contains($project)) {
+            $this->projects->removeElement($project);
+            $project->removeTag($this);
         }
 
         return $this;

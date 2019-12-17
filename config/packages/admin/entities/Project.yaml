@@ -1,7 +1,7 @@
 easy_admin:
   entities:
-    Article:
-      class: App\Entity\Article
+    Project:
+      class: App\Entity\Project
       list:
         fields:
           - 'title'

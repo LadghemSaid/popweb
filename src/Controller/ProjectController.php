@@ -43,7 +43,6 @@ class ProjectController extends AbstractController
         return $this->render('project/index.html.twig', [
             'current_menu' => 'projects',
             'projects' => $projects,
-            'projects' => $projects,
         ]);
     }
 

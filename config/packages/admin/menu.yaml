@@ -12,7 +12,7 @@ easy_admin:
       - label: 'Portfolio'
         icon: 'newspaper-o'
         children:
-          - {entity: 'Article', icon: 'newspaper-o', label: 'Projets'}
+          - {entity: 'Project', icon: 'newspaper-o', label: 'Projets'}
           - {entity: 'Categorie', icon: 'inbox', label: 'Categories'}
           - {entity: 'Tags',  icon: 'tags', label: 'Tags'}
       - label: 'Gestion'

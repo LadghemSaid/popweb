@@ -40,7 +40,7 @@ class Project
 
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Categorie", inversedBy="articles")
+     * @ORM\ManyToOne(targetEntity="App\Entity\Categorie", inversedBy="projects")
      * @ORM\JoinColumn(nullable=false)
      */
     private $categorie;
@@ -51,7 +51,7 @@ class Project
     private $published;
 
     /**
-     * @ORM\ManyToMany(targetEntity="App\Entity\Tag", inversedBy="articles")
+     * @ORM\ManyToMany(targetEntity="App\Entity\Tag", inversedBy="projects")
      */
     private $tags;
 
