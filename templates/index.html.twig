@@ -1,7 +1,7 @@
 {% extends 'base.html.twig' %}
-{% block title %}
-  Accueil
-{% endblock %}
+{% block title %}Agence Web - PopWeb{% endblock %}
+{% block meta_description %}<meta name="description" content="Agence web à Lens. Conception et développement de sites sur mesure. Communication digitale, référencement SEO Google."/>{% endblock %}
+{% block meta_keywords %}<meta name="keywords" content="Agence web de communication web marketing, stratégie digitale à Lens, France, creation site internet, agence de développement web, Création site internet, Lens, Lille, France, creation site internet, 59, 62, Nord Pas de Calais, Nord, Haut de France, création site internet vitrine, community management entreprise, community management personnel, création boutique en ligne, site internet, site web, création site internet boutique en ligne, Création site web, 75, Paris, Création site web e commerce, agence de référencement, agence seo, seo, référencement naturel, web marketing, agence web, agence de communication, vidéo promotionnelle, vidéo commercial, création site catalogue, création site internet responsive, généré du trafic sur mon site internet, première page google, référencement google, création de site internet france, conseil et webdesign, référencement internet, agence web, site internet responsive, site responsive, création et optimisation de site web, web design et développement de site internet, communication digitale, webmarketing, création site internet boutique en ligne, boutique en ligne, créer boutique en ligne, refonte boutique en ligne, refonte site internet e-commerce, responsive web design, refonte site internet responsive, site adaptable, site internet, site web, création site internet, création site web, responsive, création site internet e-commerce"/>{% endblock %}
 {% block style_custom %}
     <style>
 
@@ -37,20 +37,20 @@
                 <div id="liste">
                     {% for project in projects %}
                     <a href="https://www.noiseless-rock.fr/" target="_blank"  class="card">
-                        <img src="{{ asset("pho/noiseless.svg") }}"/>
+                        <img src="{{ asset("pho/noiseless.svg") }}" alt="noiseless projet"/>
                         <h4>Noiseless </h4>
                     </a>
                     {% endfor %}
                     <a href="https://www.noiseless-rock.fr/" target="_blank"  class="card">
-                        <img src="{{ asset("pho/noiseless.svg") }}"/>
+                        <img src="{{ asset("pho/noiseless.svg") }}" alt="noiseless projet"/>
                         <h4>Noiseless </h4>
                     </a>
                     <a href="http://www.musikin.ovh" target="_blank" class="card">
-                        <img src="{{ asset("pho/musikin.svg") }}"/>
+                        <img src="{{ asset("pho/musikin.svg") }}" alt="muskikin projet"/>
                         <h4>Musik'in </h4>
                     </a>
                     <a href="#" class="card">
-                        <img src="{{ asset("pho/none.svg") }}">
+                        <img src="{{ asset("pho/none.svg") }}" alt="autre projet">
                         <h4>Ne </h4>
                     </a>
                 </div>

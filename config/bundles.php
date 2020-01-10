@@ -19,5 +19,5 @@ return [
     AlterPHP\EasyAdminExtensionBundle\EasyAdminExtensionBundle::class => ['all' => true],
     Symfony\WebpackEncoreBundle\WebpackEncoreBundle::class => ['all' => true],
     Knp\Bundle\TimeBundle\KnpTimeBundle::class => ['all' => true],
-    \Kurokei\RecaptchaBundle\RecaptchaBundle::class =>['all' => true],
+    Kurokei\RecaptchaBundle\RecaptchaBundle::class => ['all' => true],
 ];
