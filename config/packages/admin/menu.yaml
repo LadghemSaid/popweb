@@ -13,9 +13,11 @@ easy_admin:
         icon: 'newspaper-o'
         children:
           - {entity: 'Project', icon: 'newspaper-o', label: 'Projets'}
-          - {entity: 'Categorie', icon: 'inbox', label: 'Categories'}
-          - {entity: 'Tags',  icon: 'tags', label: 'Tags'}
+          - {entity: 'Job', icon: 'bullhorn', label: 'Recrutements'}
+
       - label: 'Gestion'
         icon: 'cog'
         children:
+          - {entity: 'Categorie', icon: 'inbox', label: 'Categories'}
+          - {entity: 'Tags',  icon: 'tags', label: 'Tags'}
           - {entity: 'User',  icon: 'user', label: 'Utilisateurs'}

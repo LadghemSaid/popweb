@@ -29,11 +29,7 @@ class Comment
      */
     private $user;
 
-    /**
-     * @ORM\ManyToOne(targetEntity="Project", inversedBy="comments")
-     * @ORM\JoinColumn(nullable=false)
-     */
-    private $article;
+
 
     /**
      * @ORM\Column(type="datetime")
@@ -44,6 +40,16 @@ class Comment
      * @ORM\Column(type="boolean")
      */
     private $approved;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Project", inversedBy="comments")
+     */
+    private $project;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Job", inversedBy="comments")
+     */
+    private $job;
 
 
 
@@ -81,17 +87,7 @@ class Comment
         return $this;
     }
 
-    public function getArticle(): ?Project
-    {
-        return $this->article;
-    }
 
-    public function setArticle(?Project $article): self
-    {
-        $this->article = $article;
-
-        return $this;
-    }
 
     public function getCreatedAt(): ?\DateTimeInterface
     {
@@ -113,6 +109,30 @@ class Comment
     public function setApproved(bool $approved): self
     {
         $this->approved = $approved;
+
+        return $this;
+    }
+
+    public function getProject(): ?Project
+    {
+        return $this->project;
+    }
+
+    public function setProject(?Project $project): self
+    {
+        $this->project = $project;
+
+        return $this;
+    }
+
+    public function getJob(): ?Job
+    {
+        return $this->job;
+    }
+
+    public function setJob(?Job $job): self
+    {
+        $this->job = $job;
 
         return $this;
     }

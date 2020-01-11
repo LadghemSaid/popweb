@@ -1,32 +1,24 @@
 easy_admin:
   entities:
-    Project:
-      class: App\Entity\Project
+    Job:
+      class: App\Entity\Job
       show:
         fields:
           - {property: 'title' }
-          - {property: 'image', type: 'image', base_path: '%app.path.project_images%' }
-          - {property: 'tags' }
+          - {property: 'image', type: 'image', base_path: '%app.path.job_images%' }
           - {property: 'published' }
-          - {property: 'favorite' }
-          - {property: 'categorie' }
       list:
         fields:
           - 'title'
           - 'slug'
-          - {property: 'image', type: 'image', base_path: '%app.path.project_images%' }
-          - 'categorie'
-          - 'tags'
+          - {property: 'image', type: 'image', base_path: '%app.path.job_images%' }
       form:
         fields:
           - {property: 'title' }
           - {property: 'imageFile', type: 'file' }
           - {property: 'text',type: 'FOS\CKEditorBundle\Form\Type\CKEditorType', type_options: { config_name: 'advanced_config' } }
-          - {property: 'tags' }
-          - {property: 'categorie' }
           - {property: 'slug' }
           - {property: 'published' }
-          - {property: 'favorite' }
         actions:
           - {name: 'edit', icon: 'pencil', label: false, css_class: 'btn btn-secondary'}
           - {name: 'delete', icon: 'trash', label: false, css_class: 'btn btn-danger'}

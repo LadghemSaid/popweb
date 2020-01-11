@@ -10,10 +10,10 @@ use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 
 /**
- * @ORM\Entity(repositoryClass="App\Repository\ProjectRepository")
+ * @ORM\Entity(repositoryClass="App\Repository\JobRepository")
  * @Vich\Uploadable
  */
-class Project
+class Job
 {
     /**
      * @ORM\Id()
@@ -39,26 +39,9 @@ class Project
 
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Categorie", inversedBy="projects")
-     * @ORM\JoinColumn(nullable=true)
-     */
-    private $categorie;
-
-    /**
      * @ORM\Column(type="boolean")
      */
     private $published;
-
-    /**
-     * @ORM\Column(type="boolean")
-     */
-    private $favorite;
-
-
-    /**
-     * @ORM\ManyToMany(targetEntity="App\Entity\Tag", inversedBy="projects")
-     */
-    private $tags;
 
 
     /**
@@ -68,7 +51,7 @@ class Project
     private $image;
 
     /**
-     * @Vich\UploadableField(mapping="project_images", fileNameProperty="image")
+     * @Vich\UploadableField(mapping="job_images", fileNameProperty="image")
      * @var File
      */
     private $imageFile;
@@ -80,7 +63,7 @@ class Project
     private $updatedAt;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Comment", mappedBy="project")
+     * @ORM\OneToMany(targetEntity="App\Entity\Comment", mappedBy="job")
      */
     private $comments;
 
@@ -167,17 +150,7 @@ class Project
         return $this->title;
     }
 
-    public function getCategorie(): ?Categorie
-    {
-        return $this->categorie;
-    }
 
-    public function setCategorie(?Categorie $categorie): self
-    {
-        $this->categorie = $categorie;
-
-        return $this;
-    }
 
     public function getPublished(): ?bool
     {
@@ -192,48 +165,6 @@ class Project
     }
 
     /**
-     * @return Collection|Tag[]
-     */
-    public function getTags(): Collection
-    {
-        return $this->tags;
-    }
-
-    public function addTag(Tag $tag): self
-    {
-        if (!$this->tags->contains($tag)) {
-            $this->tags[] = $tag;
-        }
-
-        return $this;
-    }
-
-    public function removeTag(Tag $tag): self
-    {
-        if ($this->tags->contains($tag)) {
-            $this->tags->removeElement($tag);
-        }
-
-        return $this;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getFavorite()
-    {
-        return $this->favorite;
-    }
-
-    /**
-     * @param mixed $favorite
-     */
-    public function setFavorite($favorite): void
-    {
-        $this->favorite = $favorite;
-    }
-
-    /**
      * @return Collection|Comment[]
      */
     public function getComments(): Collection
@@ -245,7 +176,7 @@ class Project
     {
         if (!$this->comments->contains($comment)) {
             $this->comments[] = $comment;
-            $comment->setProject($this);
+            $comment->setJob($this);
         }
 
         return $this;
@@ -256,27 +187,13 @@ class Project
         if ($this->comments->contains($comment)) {
             $this->comments->removeElement($comment);
             // set the owning side to null (unless already changed)
-            if ($comment->getProject() === $this) {
-                $comment->setProject(null);
+            if ($comment->getJob() === $this) {
+                $comment->setJob(null);
             }
         }
 
         return $this;
     }
 
-    /**
-     * @return \DateTime
-     */
-    public function getUpdatedAt(): \DateTime
-    {
-        return $this->updatedAt;
-    }
 
-    /**
-     * @param \DateTime $updatedAt
-     */
-    public function setUpdatedAt(\DateTime $updatedAt): void
-    {
-        $this->updatedAt = $updatedAt;
-    }
 }

@@ -6,6 +6,7 @@ use App\Entity\Project;
 use App\Entity\Comment;
 use App\Form\CommentType;
 use App\Repository\ProjectRepository;
+use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -14,16 +15,23 @@ use Symfony\Component\Security\Core\Security;
 
 class CommentsController extends AbstractController
 {
+    private $em;
+    public function __construct(EntityManagerInterface $em)
+    {
+        $this->em = $em;
+
+    }
+
     /**
-     * @Route("/add/comment/{article}", name="add.comment", methods={"POST"})
+     * @Route("/add/project/comment/{id}", name="add.comment", methods={"POST"})
      * @param Request $req
      * @param Security $security
      * @param $projectid
-     * @param ArticleRepository $projectRepo
+     * @param ProjectRepository $projectRepo
      * @return \Symfony\Component\HttpFoundation\RedirectResponse
      * @throws \Exception
      */
-    public function add(Request $req, Security $security, $project, ProjectRepository $projectRepo)
+    public function add(Request $req, Security $security,$id, ProjectRepository $projectRepo)
     {
         $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
         $comment = new Comment();
@@ -32,36 +40,34 @@ class CommentsController extends AbstractController
         $form->handleRequest($req);
         if ($form->isSubmitted() && $form->isValid()) {
 
-            $project2= $projectRepo->find($project);
+            $project2= $projectRepo->find($id);
             $com = $form->getData();
 
             $com->setUser($security->getUser())
-                ->setArticle($project2)
+                ->setProject($project2)
                 ->setCreatedAt(new \DateTime())
                 ->setApproved(true);
             //dd($com);
-            $em =  $this->getDoctrine()->getManager();
-            $em->persist($com);
-            $em->flush();
+            $this->em->persist($com);
+            $this->em->flush();
 
-            return $this->redirectToRoute('project.show', array('slug'=>$project2->getSlug(),'id'=>$project));
+            return $this->redirectToRoute('project.show', array('slug'=>$project2->getSlug(),'id'=>$id));
 
         }
     }
 
     /**
-     * @Route("/delete/comment/{comment}", name="delete.comment", methods={"GET"})
+     * @Route("/delete/project/comment/{comment}", name="delete.comment", methods={"GET"})
      */
     public function delete(Comment $comment, Security $security)
     {
         $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
         if($security->getUser() === $comment->getUser()){
-            $project = $comment->getArticle();
-            $em =  $this->getDoctrine()->getManager();
-            $em->remove($comment);
-            $em->flush();
+            $project = $comment->getProject();
+            $this->em->remove($comment);
+            $this->em->flush();
         }
-        return $this->redirectToRoute('project.show', array('slug'=>$project->getSlug(),'id'=>$project->getId()));
+        return $this->redirectToRoute('project.show', array('slug'=>$project->getSlug()));
 
         //dd($comment);
 
@@ -77,8 +83,7 @@ class CommentsController extends AbstractController
            // dd($form);
         if ($form->isSubmitted() && $form->isValid()) {
             $comment->setTextComment($form["textComment"]->getData());
-            $em =  $this->getDoctrine()->getManager();
-            $em->flush();
+            $this->em->flush();
 
         }
         return new Response;
