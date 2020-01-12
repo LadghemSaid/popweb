@@ -45,7 +45,7 @@ class ProjectController extends AbstractController
         ]);
     }
 
-    
+
     /**
      * @Route("/project/{slug}" , name="project.show", requirements={"slug"="[a-z0-9\-]*"})
      * @param Project $project
@@ -70,14 +70,8 @@ class ProjectController extends AbstractController
 
         ]);
 
-
-
-
-
         $project = $this->repository->find($project);
-        $comments = $commentsRepository->findBy(
-            array('project' => $project->getId()),
-            array('created_at' => 'DESC'));
+        $comments = $commentsRepository->findProjectComment( $project->getId(), 'DESC');
         //dd($comments);
         //$catedories = project::CATEGORIE;
 
@@ -92,5 +86,5 @@ class ProjectController extends AbstractController
 
     }
 
-    
+
 }

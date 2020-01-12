@@ -17,7 +17,8 @@ class IndexController extends AbstractController
      */
     public function index(Request $request, \Swift_Mailer $mailer,ProjectRepository $projectRepo)
     {
-        $treeLastProjects = $projectRepo->findTreeLast();
+        $favoriteProjects = $projectRepo->findFavorite();
+        $projects = $projectRepo->findAllExecptFavorite();
         $form = $this->createForm(ContactType::class);
         $form->handleRequest($request);
 
@@ -54,18 +55,12 @@ class IndexController extends AbstractController
         //dd($treeLastProjects);
         return $this->render('index.html.twig', [
             'formContact' => $form->createView(),
-            'projects' => $treeLastProjects,
+            'favoriteProjects' => $favoriteProjects,
+            'projects' => $projects,
         ]);
     }
 
-    /**
-     * @Route("/jobs", name="jobs")
-     */
-    public function showJobs()
-    {
-        return $this->render('/jobs/jobs.html.twig', [
-        ]);
-    }
+
 
 
     /**

@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Project;
 use App\Entity\Comment;
 use App\Form\CommentType;
+use App\Repository\JobRepository;
 use App\Repository\ProjectRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -23,15 +24,13 @@ class CommentsController extends AbstractController
     }
 
     /**
-     * @Route("/add/project/comment/{id}", name="add.comment", methods={"POST"})
+     * @Route("/add/comment/{id}", name="add.comment", methods={"POST"})
      * @param Request $req
      * @param Security $security
-     * @param $projectid
-     * @param ProjectRepository $projectRepo
      * @return \Symfony\Component\HttpFoundation\RedirectResponse
      * @throws \Exception
      */
-    public function add(Request $req, Security $security,$id, ProjectRepository $projectRepo)
+    public function add(Request $req, Security $security,$id, ProjectRepository $projectRepo, JobRepository $jobRepo)
     {
         $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
         $comment = new Comment();
@@ -39,35 +38,66 @@ class CommentsController extends AbstractController
         $form = $this->createForm(CommentType::class, $comment);
         $form->handleRequest($req);
         if ($form->isSubmitted() && $form->isValid()) {
-
-            $project2= $projectRepo->find($id);
+            $referer = explode('/',$req->headers->get('referer'));
             $com = $form->getData();
+            //dd($jobRepo->find($id));
+            if($referer[3] === "job"){
+                $post= $jobRepo->find($id);
+                $com->setUser($security->getUser())
+                    ->setJob($post)
+                    ->setCreatedAt(new \DateTime())
+                    ->setApproved(false);
+                $this->em->persist($com);
+                $this->em->flush();
 
-            $com->setUser($security->getUser())
-                ->setProject($project2)
-                ->setCreatedAt(new \DateTime())
-                ->setApproved(true);
+                return $this->redirectToRoute('job.show', array('slug'=>$post->getSlug()));
+            }else if($referer[3] === "project"){
+                $post= $projectRepo->find($id);
+                $com->setUser($security->getUser())
+                    ->setProject($post)
+                    ->setCreatedAt(new \DateTime())
+                    ->setApproved(false);
+                $this->em->persist($com);
+                $this->em->flush();
+
+                return $this->redirectToRoute('project.show', array('slug'=>$post->getSlug()));
+            }
+
+
+
+
             //dd($com);
-            $this->em->persist($com);
-            $this->em->flush();
 
-            return $this->redirectToRoute('project.show', array('slug'=>$project2->getSlug(),'id'=>$id));
 
         }
     }
 
     /**
-     * @Route("/delete/project/comment/{comment}", name="delete.comment", methods={"GET"})
+     * @Route("/delete/comment/{comment}", name="delete.comment", methods={"GET"})
      */
-    public function delete(Comment $comment, Security $security)
+    public function delete(Comment $comment, Security $security,Request $req)
     {
         $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
         if($security->getUser() === $comment->getUser()){
-            $project = $comment->getProject();
-            $this->em->remove($comment);
-            $this->em->flush();
+            $referer = explode('/',$req->headers->get('referer'));
+            //dd($jobRepo->find($id));
+            if($referer[3] === "job"){
+                $post = $comment->getJob();
+                $this->em->remove($comment);
+                $this->em->flush();
+                return $this->redirectToRoute('job.show', array('slug'=>$post->getSlug()));
+
+            }
+            else if($referer[3] === "project"){
+                $post = $comment->getProject();
+                $this->em->remove($comment);
+                $this->em->flush();
+                return $this->redirectToRoute('project.show', array('slug'=>$post->getSlug()));
+
+            }
+
         }
-        return $this->redirectToRoute('project.show', array('slug'=>$project->getSlug()));
+        return $this->redirectToRoute('job.show', array('slug'=>$post->getSlug()));
 
         //dd($comment);
 

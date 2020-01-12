@@ -40,7 +40,7 @@ class JobController extends AbstractController
     public function index()
     {
         $jobs = $this->repository->findAll(); //On récupère les jobs
-        return $this->render('job/index.html.twig', [
+        return $this->render('jobs/index.html.twig', [
             'current_menu' => 'jobs',
             'jobs' => $jobs,
         ]);
@@ -48,7 +48,7 @@ class JobController extends AbstractController
 
     
     /**
-     * @Route("/job/{slug}/{id}" , name="job.show", requirements={"id"="\d+","slug"="[a-z0-9\-]*"})
+     * @Route("/job/{slug}" , name="job.show", requirements={"slug"="[a-z0-9\-]*"})
      * @param Job $job
      * @param string $slug
      * @param CommentRepository $commentsRepository
@@ -59,7 +59,6 @@ class JobController extends AbstractController
         if ($job->getSlug() !== $slug) {
 
             return $this->redirectToRoute('job.show', [
-                'id' => $job->getId(),
                 'slug' => $job->getSlug()
 
             ], 301);
@@ -67,7 +66,7 @@ class JobController extends AbstractController
 
         $comment = new Comment();
         $formComment = $this->createForm(CommentType::class, $comment, [
-            'action' => $this->generateUrl('add.comment', array('job' => $job->getId())),
+            'action' => $this->generateUrl('add.comment', array('id' => $job->getId())),
         ]);
 
 
@@ -75,13 +74,11 @@ class JobController extends AbstractController
 
 
         $job = $this->repository->find($job);
-        $comments = $commentsRepository->findBy(
-            array('job' => $job->getId()),
-            array('created_at' => 'DESC'));
+        $comments = $commentsRepository->findJobComment( $job->getId(), 'DESC');
         //dd($comments);
         //$catedories = job::CATEGORIE;
 
-        return $this->render('job/show.html.twig', [
+        return $this->render('jobs/show.html.twig', [
             'current_menu' => 'jobs',
             'job' => $job,
             //'categories' => $catedories,

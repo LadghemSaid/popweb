@@ -12,12 +12,14 @@ easy_admin:
           - 'title'
           - 'slug'
           - {property: 'image', type: 'image', base_path: '%app.path.job_images%' }
+          - 'published'
       form:
         fields:
           - {property: 'title' }
           - {property: 'imageFile', type: 'file' }
           - {property: 'text',type: 'FOS\CKEditorBundle\Form\Type\CKEditorType', type_options: { config_name: 'advanced_config' } }
           - {property: 'slug' }
+          - {property: 'allowComments' }
           - {property: 'published' }
         actions:
           - {name: 'edit', icon: 'pencil', label: false, css_class: 'btn btn-secondary'}

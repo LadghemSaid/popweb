@@ -1,0 +1,29 @@
+easy_admin:
+  entities:
+    Comment:
+      class: App\Entity\Comment
+      show:
+        fields:
+          - {property: 'approved' }
+          - {property: 'textComment' }
+          - {property: 'user' }
+          - {property: 'createdAt' }
+          - {property: 'project' }
+          - {property: 'job' }
+      list:
+        fields:
+          -  'approved'
+          -  'created_at'
+          -  'textComment'
+          -  'user'
+          -  'project'
+          -  'job'
+
+
+      form:
+        fields:
+          - {property: 'approved' }
+          - {property: 'textComment' }
+        actions:
+          - {name: 'edit', icon: 'pencil', label: false, css_class: 'btn btn-secondary'}
+          - {name: 'delete', icon: 'trash', label: false, css_class: 'btn btn-danger'}

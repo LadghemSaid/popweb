@@ -12,8 +12,9 @@ easy_admin:
       - label: 'Portfolio'
         icon: 'newspaper-o'
         children:
-          - {entity: 'Project', icon: 'newspaper-o', label: 'Projets'}
+          - {entity: 'Project', icon: 'code', label: 'Projets'}
           - {entity: 'Job', icon: 'bullhorn', label: 'Recrutements'}
+          - {entity: 'Comment', icon: 'comment', label: 'Commentaires'}
 
       - label: 'Gestion'
         icon: 'cog'

@@ -84,6 +84,11 @@ class Project
      */
     private $comments;
 
+    /**
+     * @ORM\Column(type="array", nullable=true)
+     */
+    private $allowComment = [];
+
     // ...
 
     public function setImageFile(File $image = null)
@@ -278,5 +283,17 @@ class Project
     public function setUpdatedAt(\DateTime $updatedAt): void
     {
         $this->updatedAt = $updatedAt;
+    }
+
+    public function getAllowComment(): ?array
+    {
+        return $this->allowComment;
+    }
+
+    public function setAllowComment(?array $allowComment): self
+    {
+        $this->allowComment = $allowComment;
+
+        return $this;
     }
 }

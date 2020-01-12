@@ -1,5 +1,5 @@
 // Fichier imports.scsss
-//@import 'helpers/reset.scss';
+@import 'helpers/reset.scss';
 @import url('https://fonts.googleapis.com/css?family=Darker+Grotesque&display=swap');
 @import 'helpers/typo/all.css';
 @import 'mixins/mixins.scss';
@@ -18,3 +18,4 @@
 @import 'pages/home/home.scss';
 @import 'pages/login/login.scss';
 @import 'pages/register/register.scss';
+@import 'pages/job/job.scss';

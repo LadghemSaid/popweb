@@ -6,6 +6,7 @@
     <style>
 
     </style>
+
 {% endblock %}
 {% block body %}
 
@@ -38,19 +39,32 @@
         <div class="espace">
             <div class="margium">
                 <h2>Nos réalisation antérieures </h2>
-                <div id="liste">
-                    {% for project in projects %}
+                <div class="liste">
+                    {% for project in favoriteProjects %}
                         <a href="{{ path('project.show', {'slug':project.slug} ) }}" target="_blank" class="card">
                             <img class="d-block w-100 lazyload "
                                  src="{{ asset("img/low_res.jpg") }}"
                                  data-src="/uploads/images/projects/{{ project.image }}"
                                  alt="AlternateText"
                               />
-                            <h4>Project n° </h4>
+                            <h4>{{ project.title }} </h4>
                         </a>
                     {% endfor %}
 
                 </div>
+                <div class="hidden">
+                    {% for project in projects %}
+                        <a href="{{ path('project.show', {'slug':project.slug} ) }}" target="_blank" class="card">
+                            <img class="d-block w-100 lazyload "
+                                 src="{{ asset("img/low_res.jpg") }}"
+                                 data-src="/uploads/images/projects/{{ project.image }}"
+                                 alt="AlternateText"
+                            />
+                            <h4>{{ project.title }} </h4>
+                        </a>
+                    {% endfor %}
+                </div>
+                <a href="#" onclick="unhide(event)"><span class="icon-center fa fa-chevron-down">VOIR PLUS</span></a>
             </div>
         </div>
     </div>
@@ -75,29 +89,59 @@
 {% endblock %}
 
 {% block javascripts %}
+    <script  type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
     <script>
-        $(function () {
-            $(window).scroll(function () {
-                var id = $('.item-list').last().attr('id');
-                if ($(window).scrollTop() === $(document).height() - $(window).height()) {
-                    // $.mockjaxClear();
-                    $.ajax({
-                        type: "get",
-                        url: Routing.generate("annonce-ajax-next", {id}),
-                        beforeSend: function () {
-                            $('.loader').show();
-                        },
-                        success: function (data) {
-                            if (data['view'].length !== 0) {
-                                $('.item-list').last().after(data['view']);
-                                $('.loader').hide();
-                            } else {
-                                $('.loader').hide();
-                            }
-                        }
-                    });
+        function unhide(e){
+            e.preventDefault();
+            if( e.target.classList.contains('active')){
+                $('.hidden')[0].style.maxHeight  = '0px';
+                e.target.innerText = 'VOIR PLUS';
+                e.target.classList.toggle('fa-chevron-down');
+                e.target.classList.toggle('fa-chevron-up');
+                e.target.classList.toggle('active');
+            }else{
+                $('.hidden')[0].style.maxHeight  = '2500px';
+                e.target.innerText = 'VOIR MOINS';
+                e.target.classList.toggle('fa-chevron-down');
+                e.target.classList.toggle('fa-chevron-up');
+                e.target.classList.toggle('active');
+            }
+
+        }
+        $('.liste').slick({
+            dots: true,
+            infinite: true,
+            speed: 300,
+            slidesToShow: 3,
+            slidesToScroll: 3,
+            responsive: [
+                {
+                    breakpoint: 1024,
+                    settings: {
+                        slidesToShow: 3,
+                        slidesToScroll: 3,
+                        infinite: true,
+                        dots: true
+                    }
+                },
+                {
+                    breakpoint: 600,
+                    settings: {
+                        slidesToShow: 2,
+                        slidesToScroll: 2
+                    }
+                },
+                {
+                    breakpoint: 480,
+                    settings: {
+                        slidesToShow: 1,
+                        slidesToScroll: 1
+                    }
                 }
-            });
+                // You can unslick at a given breakpoint now by adding:
+                // settings: "unslick"
+                // instead of a settings object
+            ]
         });
     </script>
 {% endblock %}

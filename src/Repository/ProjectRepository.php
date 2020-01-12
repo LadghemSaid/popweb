@@ -51,13 +51,27 @@ class ProjectRepository extends ServiceEntityRepository
     /**
      * @return Project[] Returns an array of Article objects
      */
-    public function findTreeLast()
+    public function findFavorite()
     {
        return $this->createQueryBuilder('project')
             ->andWhere('project.favorite = true')
             ->andWhere('project.published = true')
             ->orderBy('project.updatedAt', 'ASC')
-            ->setMaxResults(3)
+            //->setMaxResults(3)
+            ->getQuery()
+            ->getResult()
+            ;
+    }
+
+    /**
+     * @return Project[] Returns an array of Article objects
+     */
+    public function findAllExecptFavorite()
+    {
+        return $this->createQueryBuilder('project')
+            ->andWhere('project.favorite = false')
+            ->andWhere('project.published = true')
+            ->orderBy('project.updatedAt', 'ASC')
             ->getQuery()
             ->getResult()
             ;

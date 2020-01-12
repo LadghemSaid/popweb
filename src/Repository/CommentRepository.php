@@ -30,8 +30,29 @@ class CommentRepository extends ServiceEntityRepository
             ->setParameter('val', $value)
             ->setMaxResults(10)
             ->getQuery()
-            ->getResult()
-        ;
+            ->getResult();
+    }
+
+    public function findProjectComment($id, $order)
+    {
+        return $this->createQueryBuilder('comment')
+            ->andWhere('comment.project = :val')
+            ->andWhere('comment.approved = 1')
+            ->setParameter('val', $id)
+            ->orderBy('comment.created_at' ,$order)
+            ->getQuery()
+            ->getResult();
+    }
+
+    public function findJobComment($id, $order)
+    {
+        return $this->createQueryBuilder('comment')
+            ->andWhere('comment.job = :val')
+            ->andWhere('comment.approved = 1')
+            ->setParameter('val', $id)
+            ->orderBy('comment.created_at' ,$order)
+            ->getQuery()
+            ->getResult();
     }
 
 
