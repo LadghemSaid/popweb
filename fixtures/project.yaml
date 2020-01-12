@@ -41,19 +41,20 @@ App\Entity\Project:
     text: <fr_FR:text(200)>
     tags: '3x @tag*'
     published: 'true'
+    allowComment: ['allowComment','']
     slug: <fr_FR:slug()>
     favorite: <boolean(50)>
     updatedAt: <dateTime()>
 
 App\Entity\Comment:
-  comment_{1..15}:
+  comment_{1..30}:
     text_comment: <fr_FR:text(100)>
     createdAt: <dateTime()>
     approved: <boolean(50)>
     user: '@user_1'
     project:  '@project_*'
 
-  comment_{15..30}:
+  comment_{30..60}:
     text_comment: <fr_FR:text(100)>
     createdAt: <dateTime()>
     approved: <boolean(50)>

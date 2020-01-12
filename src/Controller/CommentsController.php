@@ -43,20 +43,28 @@ class CommentsController extends AbstractController
             //dd($jobRepo->find($id));
             if($referer[3] === "job"){
                 $post= $jobRepo->find($id);
+                $commentValidatingAuto = false;
+                if(array_search('commentValidatingAuto',$post->getAllowComment())){
+                    $commentValidatingAuto = true;
+                }
                 $com->setUser($security->getUser())
                     ->setJob($post)
                     ->setCreatedAt(new \DateTime())
-                    ->setApproved(false);
+                    ->setApproved($commentValidatingAuto);
                 $this->em->persist($com);
                 $this->em->flush();
 
                 return $this->redirectToRoute('job.show', array('slug'=>$post->getSlug()));
             }else if($referer[3] === "project"){
                 $post= $projectRepo->find($id);
+                $commentValidatingAuto = false;
+                if(array_search('commentValidatingAuto',$post->getAllowComment())){
+                    $commentValidatingAuto = true;
+                }
                 $com->setUser($security->getUser())
                     ->setProject($post)
                     ->setCreatedAt(new \DateTime())
-                    ->setApproved(false);
+                    ->setApproved($commentValidatingAuto);
                 $this->em->persist($com);
                 $this->em->flush();
 

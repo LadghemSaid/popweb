@@ -46,7 +46,7 @@ class JobController extends AbstractController
         ]);
     }
 
-    
+
     /**
      * @Route("/job/{slug}" , name="job.show", requirements={"slug"="[a-z0-9\-]*"})
      * @param Job $job
@@ -69,25 +69,27 @@ class JobController extends AbstractController
             'action' => $this->generateUrl('add.comment', array('id' => $job->getId())),
         ]);
 
-
-
-
-
         $job = $this->repository->find($job);
-        $comments = $commentsRepository->findJobComment( $job->getId(), 'DESC');
-        //dd($comments);
-        //$catedories = job::CATEGORIE;
+        $comments = $commentsRepository->findJobComment($job->getId(), 'DESC');
+
+        $commentOptions = $job->getAllowComment();
+        $allowComment = false;
+        if (isset($commentOptions) && array_search('allowComment', $commentOptions) !== null) {
+            $allowComment = true;
+
+        }
 
         return $this->render('jobs/show.html.twig', [
             'current_menu' => 'jobs',
             'job' => $job,
             //'categories' => $catedories,
             'formComment' => $formComment->createView(),
-            'comments' => $comments
+            'comments' => $comments,
+            'allowComment' => $allowComment
 
         ]);
 
     }
 
-    
+
 }

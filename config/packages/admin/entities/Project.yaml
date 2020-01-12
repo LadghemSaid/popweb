@@ -27,7 +27,7 @@ easy_admin:
           - {property: 'tags' }
           - {property: 'categorie' }
           - {property: 'slug' }
-          - {property: 'allowComment',  type: 'choice', type_options: { multiple: true, choices: { 'ROLE_USER': 'ROLE_USER', 'ROLE_MODERATOR': 'ROLE_MODERATOR', 'ROLE_ADMIN': 'ROLE_ADMIN' } } }
+          - {property: 'allowComment',  type: 'choice', type_options: { multiple: true, choices: { 'Afficher les commentaires': 'allowComment', 'Valider les commentaires automatiquement': 'commentValidatingAuto' } } }
           - {property: 'published' }
           - {property: 'favorite' }
         actions:

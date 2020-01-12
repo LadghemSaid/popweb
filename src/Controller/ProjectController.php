@@ -72,15 +72,21 @@ class ProjectController extends AbstractController
 
         $project = $this->repository->find($project);
         $comments = $commentsRepository->findProjectComment( $project->getId(), 'DESC');
-        //dd($comments);
-        //$catedories = project::CATEGORIE;
 
+        $commentOptions =  $project->getAllowComment();
+        $allowComment= false;
+        if( isset($commentOptions)&& array_search('allowComment', $commentOptions) !== null ){
+            $allowComment = true;
+
+        }
+       // dd($allowComment,$commentValidatingAuto );
         return $this->render('project/show.html.twig', [
             'current_menu' => 'projects',
             'project' => $project,
             //'categories' => $catedories,
             'formComment' => $formComment->createView(),
-            'comments' => $comments
+            'comments' => $comments,
+            'allowComment' => $allowComment,
 
         ]);
 

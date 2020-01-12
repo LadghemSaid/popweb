@@ -1,50 +1,51 @@
-{% if app.user %}
-    {{ form_start(formComment,{'attr': {'class': 'commentForm'}}) }}
-    {{ form_row(formComment.textComment,{'attr': {'class': 'commentForm__textarea'}}) }}
-    {{ form_row(formComment.submit,{'attr': {'class': 'commentForm__submit'}}) }}
-    {{ form_end(formComment) }}
-{% endif %}
+{% if allowComment %}
+    {% if app.user %}
+        {{ form_start(formComment,{'attr': {'class': 'commentForm'}}) }}
+        {{ form_row(formComment.textComment,{'attr': {'class': 'commentForm__textarea'}}) }}
+        {{ form_row(formComment.submit,{'attr': {'class': 'commentForm__submit'}}) }}
+        {{ form_end(formComment) }}
+    {% endif %}
 
-<section class="comments">
-    {% for comment in comments %}
+    <section class="comments">
+        {% for comment in comments %}
 
-        <article class="comment" id="commentId-{{ comment.id }}">
-            <a class="comment__img" href="#non">
-                <img src="https://api.adorable.io/avatars/50/{{ comment.user.username }}@adorable.io.png" alt=""
-                     width="50" height="50">
-            </a>
-            <div class="comment__body">
+            <article class="comment" id="commentId-{{ comment.id }}">
+                <a class="comment__img" href="#non">
+                    <img src="https://api.adorable.io/avatars/50/{{ comment.user.username }}@adorable.io.png" alt=""
+                         width="50" height="50">
+                </a>
+                <div class="comment__body">
 
-                <div class="comment__header">
+                    <div class="comment__header">
 
-                    <a href="#non" class="comment__author">{{ comment.user.username }}</a>
-                    <span class="comment__createdat">{{ comment.createdAt| ago }}</span>
-                    {% if comment.user == app.user %}
-                        <ul class="comment__actions">
-                            <li class="comment__edit"><a id="{{ comment.id }}" href="#" onclick="edit(event)"
-                                                         class="btn btn-primary btn-sm"><i class="fa fa-cog"></i></a>
-                            </li>
-                            <li class="comment__edit--validate"><a id="{{ comment.id }}" href="#"
-                                                                   onclick="submitEditComment(event)"
-                                                                   class="btn btn-primary btn-sm"><i
-                                            class="fas fa-check"></i></a></li>
-                            <li class="comment__delete"><a href="{{ path('delete.comment',{'comment' : comment.id}) }}"
-                                                           class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></a>
-                            </li>
-                        </ul>
-                    {% endif %}
+                        <a href="#non" class="comment__author">{{ comment.user.username }}</a>
+                        <span class="comment__createdat">{{ comment.createdAt| ago }}</span>
+                        {% if comment.user == app.user %}
+                            <ul class="comment__actions">
+                                <li class="comment__edit"><a id="{{ comment.id }}" href="#" onclick="edit(event)"
+                                                             class="btn btn-primary btn-sm"><i class="fa fa-cog"></i></a>
+                                </li>
+                                <li class="comment__edit--validate"><a id="{{ comment.id }}" href="#"
+                                                                       onclick="submitEditComment(event)"
+                                                                       class="btn btn-primary btn-sm"><i
+                                                class="fas fa-check"></i></a></li>
+                                <li class="comment__delete"><a href="{{ path('delete.comment',{'comment' : comment.id}) }}"
+                                                               class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></a>
+                                </li>
+                            </ul>
+                        {% endif %}
+                    </div>
+                    <div class="comment__text">
+                        <p>{{ comment.textComment }}</p>
+                    </div>
+
                 </div>
-                <div class="comment__text">
-                    <p>{{ comment.textComment }}</p>
-                </div>
 
-            </div>
+            </article>
+        {% endfor %}
+    </section>
 
-        </article>
-    {% endfor %}
-</section>
-
-{% block javascripts %}
+    {% block javascripts %}
     <script>
         function edit(e) {
 
@@ -87,4 +88,6 @@
         }
 
     </script>
-{% endblock %}
+    {% endblock %}
+
+{% endif %}
