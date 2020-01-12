@@ -3,6 +3,7 @@ easy_admin:
     User:
       class: App\Entity\User
       list:
+        actions: ['-new']
         fields:
           - 'username'
           - 'email'

@@ -11,6 +11,7 @@ easy_admin:
           - {property: 'project' }
           - {property: 'job' }
       list:
+        actions: ['-new']
         fields:
           -  'approved'
           -  'created_at'
