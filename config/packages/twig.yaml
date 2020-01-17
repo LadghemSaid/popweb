@@ -5,6 +5,6 @@ twig:
     debug: '%kernel.debug%'
     strict_variables: '%kernel.debug%'
     globals:
-        app.path.job_images: '%env(string:UPLOAD_PATH_JOBS)%'
-        app.path.project_images: '%env(string:UPLOAD_PATH_PROJECTS)%'
+        app_path_jobs_images: '%env(string:UPLOAD_PATH_JOBS)%'
+        app_path_projects_images: '%env(string:UPLOAD_PATH_PROJECTS)%'
 
