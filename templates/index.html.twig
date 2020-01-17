@@ -44,7 +44,7 @@
                         <a href="{{ path('project.show', {'slug':project.slug} ) }}" target="_blank" class="card">
                             <img class="d-block w-100 lazyload "
                                  src="{{ asset("img/low_res.jpg") }}"
-                                 data-src="/uploads/images/projects/{{ project.image }}"
+                                 data-src="{{ app.path.project_images }}/{{ project.image }}"
                                  alt="AlternateText"
                               />
                             <h4>{{ project.title }} </h4>
@@ -57,7 +57,7 @@
                         <a href="{{ path('project.show', {'slug':project.slug} ) }}" target="_blank" class="card">
                             <img class="d-block w-100 lazyload "
                                  src="{{ asset("img/low_res.jpg") }}"
-                                 data-src="/uploads/images/projects/{{ project.image }}"
+                                 data-src="{{ app.path.project_images }}/{{ project.image }}"
                                  alt="AlternateText"
                             />
                             <h4>{{ project.title }} </h4>
