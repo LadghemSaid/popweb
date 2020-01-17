@@ -28,7 +28,7 @@ App\Entity\Tag:
 App\Entity\Job:
   job_{1..10}:
     title: <fr_FR:catchPhrase()> <current()>
-    image: '1901930_660893120720358_6203393212668124566_n.jpg'
+    image: 'img1.jpg'
     text: <fr_FR:text(200)>
     published: 'true'
     slug: <fr_FR:slug()>
@@ -37,7 +37,7 @@ App\Entity\Job:
 App\Entity\Project:
   project_{1..10}:
     title: <fr_FR:catchPhrase()> <current()>
-    image: '1901930_660893120720358_6203393212668124566_n.jpg'
+    image: 'img2.jpg'
     text: <fr_FR:text(200)>
     tags: '3x @tag*'
     published: 'true'
