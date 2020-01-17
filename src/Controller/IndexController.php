@@ -4,6 +4,8 @@ namespace App\Controller;
 
 
 use App\Form\ContactType;
+use App\Repository\ProjectRepository;
+use Doctrine\ORM\EntityManager;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
@@ -13,8 +15,10 @@ class IndexController extends AbstractController
     /**
      * @Route("/", name="index")
      */
-    public function index(Request $request, \Swift_Mailer $mailer)
+    public function index(Request $request, \Swift_Mailer $mailer,ProjectRepository $projectRepo)
     {
+        $favoriteProjects = $projectRepo->findFavorite();
+        $projects = $projectRepo->findAllExecptFavorite();
         $form = $this->createForm(ContactType::class);
         $form->handleRequest($request);
 
@@ -48,20 +52,15 @@ class IndexController extends AbstractController
             return $this->redirectToRoute('index');
         }
 
+        //dd($treeLastProjects);
         return $this->render('index.html.twig', [
             'formContact' => $form->createView(),
-            'projects' => [],
+            'favoriteProjects' => $favoriteProjects,
+            'projects' => $projects,
         ]);
     }
 
-    /**
-     * @Route("/jobs", name="jobs")
-     */
-    public function showJobs()
-    {
-        return $this->render('/jobs/jobs.html.twig', [
-        ]);
-    }
+
 
 
     /**

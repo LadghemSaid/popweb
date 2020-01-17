@@ -19,7 +19,7 @@ a.primaire {
   padding: 12px 22px;
   border-radius: 5px;
   cursor:pointer;
-  background-color: #F60052;
+  background-color: $red;
   color: white;
 }
 .c {
@@ -75,7 +75,7 @@ header img {
   border-radius: 5px;
 }
 .ne a {
-  color: #F60052;
+  color: $red;
   font-weight: bold;
 }
 .he {
@@ -128,11 +128,12 @@ header img {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  a {
+    padding: 8px;
+    margin: 0px 8px;
+  }
 }
-#menu-du-header a {
-  padding: 8px;
-  margin: 0px 8px;
-}
+
 #marge-du-header {
   margin-right: auto;
   margin-left: auto;
@@ -151,19 +152,20 @@ header img {
   max-width: 350px;
   text-align: justify;
 }
-#segond-segment div{
-  flex: 1;
-}
+
 #segond-segment {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
   padding:  50px 0px 50px 0px;
-}
-#segond-segment img {
-  width: 100%;
-  flex: 0.5;
+  div{
+    flex: 1;
+  }
+  img {
+    width: 100%;
+    flex: 0.5;
+  }
 }
 #description-seg {
   margin: 40px;
@@ -172,25 +174,49 @@ header img {
 }
 #troisieme-segment {
   margin-top: 50px;
-  padding: 50px 0px 70px 0px;
+  padding: 50px 0px 50px 0px;
   background-color: rgba(0, 16, 62, 1);
   color: white;
+  h2 {
+    margin-bottom: 50px;
+    text-align: center;
+  }
+  .icon-center{
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    &:before{
+      font-size: 2rem;
+
+    }
+  }
+  a{
+    color:white;
+    &:hover{
+      color: $red;
+    }
+  }
 }
-#troisieme-segment h2 {
-  margin-bottom: 50px;
-  text-align: center;
-}
-#liste {
+
+.liste {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
 }
+.hidden{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  max-height: 0px;
+  overflow: hidden;
+  transition: all .5s ease-in-out;
+}
 .card img {
   max-width: 320px;
   width: 280px;
   border-radius: 8px;
-  border-bottom: 8px #F60052 solid;
+  border-bottom: 8px $red solid;
 }
 .card {
   background-color: transparent;
@@ -218,7 +244,7 @@ input, textarea {
 }
 input[type="submit"]{
   cursor:pointer;
-  background-color: #F60052;
+  background-color: $red;
   border:0px;
   color: white;
 }
@@ -248,7 +274,7 @@ picture img {
   width: 100%;
 }
 #menu-du-header a {
-  border-bottom: 3px #F60052 solid;
+  border-bottom: 3px $red solid;
 }
 #foot {
   display: flex;
@@ -305,7 +331,7 @@ img#logofooter {
     align-items: center
   }
   #menu-du-header a {
-    border-bottom: 3px #F60052 solid;
+    border-bottom: 3px $red solid;
   }
 }
 @media (max-width: 720px), handheld {
