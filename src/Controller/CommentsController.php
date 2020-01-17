@@ -102,7 +102,8 @@ class CommentsController extends AbstractController
             }
 
         }
-        return $this->redirectToRoute('job.show', array('slug' => $post->getSlug()));
+
+        return $this->redirect($req->headers->get('referer'));
 
         //dd($comment);
 
