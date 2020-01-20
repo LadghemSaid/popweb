@@ -1,7 +1,9 @@
 <?php
 namespace App\Controller;
 
+use App\Entity\Project;
 use App\Entity\User;
+use Cocur\Slugify\Slugify;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\EasyAdminController;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
@@ -33,6 +35,12 @@ class AdminController extends EasyAdminController
         //$passwordEncoderFactory = $this->get('security.encoder_factory');
         //$encoder = $passwordEncoderFactory->getEncoder($user);
         return $this->encoder->encodePassword($password, $user->getSalt());
+    }
+    public function prePersistProjectEntity(Project $project)
+    {
+        $slugifyTitle = new Slugify();
+        $project->setSlug($slugifyTitle->slugify($project->getTitle()));
+        dd($slugifyTitle->slugify($project->getTitle()));
     }
 
 }

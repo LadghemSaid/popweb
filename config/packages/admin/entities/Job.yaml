@@ -1,0 +1,26 @@
+easy_admin:
+  entities:
+    Job:
+      class: App\Entity\Job
+      show:
+        fields:
+          - {property: 'title' }
+          - {property: 'image', type: 'image', base_path: '%app.path.job_images%' }
+          - {property: 'published' }
+      list:
+        fields:
+          - 'title'
+          - 'slug'
+          - {property: 'image', type: 'image', base_path: '%app.path.job_images%' }
+          - 'published'
+      form:
+        fields:
+          - {property: 'title' }
+          - {property: 'imageFile', type: 'file' }
+          - {property: 'text',type: 'FOS\CKEditorBundle\Form\Type\CKEditorType', type_options: { config_name: 'advanced_config' } }
+          - {property: 'slug' }
+          - {property: 'allowComments' }
+          - {property: 'published' }
+        actions:
+          - {name: 'edit', icon: 'pencil', label: false, css_class: 'btn btn-secondary'}
+          - {name: 'delete', icon: 'trash', label: false, css_class: 'btn btn-danger'}

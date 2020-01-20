@@ -9,5 +9,5 @@ easy_admin:
           - 'projects'
       form:
         fields:
-          - {property: 'name',type: 'FOS\CKEditorBundle\Form\Type\CKEditorType'}
+          - {property: 'name'}
           - {property: 'slug'}

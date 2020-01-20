@@ -8,7 +8,6 @@ use App\Form\CommentType;
 use App\Repository\ProjectRepository;
 use App\Repository\CommentRepository;
 use App\Repository\UserRepository;
-use Msalsas\VotingBundle\Service\Voter;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
@@ -46,9 +45,9 @@ class ProjectController extends AbstractController
         ]);
     }
 
-    
+
     /**
-     * @Route("/project/{slug}/{id}" , name="project.show", requirements={"id"="\d+","slug"="[a-z0-9\-]*"})
+     * @Route("/project/{slug}" , name="project.show", requirements={"slug"="[a-z0-9\-]*"})
      * @param Project $project
      * @param string $slug
      * @param CommentRepository $commentsRepository
@@ -67,30 +66,31 @@ class ProjectController extends AbstractController
 
         $comment = new Comment();
         $formComment = $this->createForm(CommentType::class, $comment, [
-            'action' => $this->generateUrl('add.comment', array('project' => $project->getId())),
+            'action' => $this->generateUrl('add.comment', array('id' => $project->getId())),
+
         ]);
 
-
-
-
-
         $project = $this->repository->find($project);
-        $comments = $commentsRepository->findBy(
-            array('project' => $project->getId()),
-            array('created_at' => 'DESC'));
-        //dd($comments);
-        //$catedories = project::CATEGORIE;
+        $comments = $commentsRepository->findProjectComment( $project->getId(), 'DESC');
 
+        $commentOptions =  $project->getAllowComment();
+        $allowComment= false;
+        if( isset($commentOptions)&& array_search('allowComment', $commentOptions) !== null ){
+            $allowComment = true;
+
+        }
+       // dd($allowComment,$commentValidatingAuto );
         return $this->render('project/show.html.twig', [
             'current_menu' => 'projects',
             'project' => $project,
             //'categories' => $catedories,
             'formComment' => $formComment->createView(),
-            'comments' => $comments
+            'comments' => $comments,
+            'allowComment' => $allowComment,
 
         ]);
 
     }
 
-    
+
 }

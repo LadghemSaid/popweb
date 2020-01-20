@@ -1,0 +1,61 @@
+# Logfile created on 2020-01-17 16:43:48 +0100 by logger.rb/66358
+  INFO ---------------------------------------------------------------------------
+  INFO START 2020-01-17 16:43:48 +0100 cap production deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [bd718faf] Running /usr/bin/env mkdir -p /tmp as deployer-agent@34.77.181.91
+ DEBUG [bd718faf] Command: /usr/bin/env mkdir -p /tmp
+  INFO [93fc58ae] Running /usr/bin/env #<StringIO:0x00000000059af998> /tmp/git-ssh-popweb2-production-ladgh.sh as deployer-agent@34.77.181.91
+ DEBUG [93fc58ae] Command: /usr/bin/env #<StringIO:0x00000000059af998> /tmp/git-ssh-popweb2-production-ladgh.sh
+  INFO [9ebe1319] Running /usr/bin/env chmod 700 /tmp/git-ssh-popweb2-production-ladgh.sh as deployer-agent@34.77.181.91
+ DEBUG [9ebe1319] Command: /usr/bin/env chmod 700 /tmp/git-ssh-popweb2-production-ladgh.sh
+  INFO [bfa8b380] Running /usr/bin/env git ls-remote git@github.com:LadghemSaid/popweb.git HEAD as deployer-agent@34.77.181.91
+ DEBUG [bfa8b380] Command: ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-popweb2-production-ladgh.sh" ; /usr/bin/env git ls-remote git@github.com:LadghemSaid/popweb.git HEAD )
+  INFO [956e8561] Running /usr/bin/env mkdir -p /var/www/popweb2/shared /var/www/popweb2/releases as deployer-agent@34.77.181.91
+ DEBUG [956e8561] Command: /usr/bin/env mkdir -p /var/www/popweb2/shared /var/www/popweb2/releases
+ DEBUG [06acbf23] Running [ -f /var/www/popweb2/current/REVISION ] as deployer-agent@34.77.181.91
+ DEBUG [06acbf23] Command: [ -f /var/www/popweb2/current/REVISION ]
+ DEBUG [59f9b107] Running /usr/bin/env cat /var/www/popweb2/current/REVISION 2>/dev/null as deployer-agent@34.77.181.91
+ DEBUG [59f9b107] Command: /usr/bin/env cat /var/www/popweb2/current/REVISION 2>/dev/null
+ DEBUG [737720e3] Running [ -f /var/www/popweb2/repo/HEAD ] as deployer-agent@34.77.181.91
+ DEBUG [737720e3] Command: [ -f /var/www/popweb2/repo/HEAD ]
+  INFO The repository mirror is at /var/www/popweb2/repo
+ DEBUG [7e37bc49] Running if test ! -d /var/www/popweb2/repo; then echo "Directory does not exist '/var/www/popweb2/repo'" 1>&2; false; fi as deployer-agent@34.77.181.91
+ DEBUG [7e37bc49] Command: if test ! -d /var/www/popweb2/repo; then echo "Directory does not exist '/var/www/popweb2/repo'" 1>&2; false; fi
+  INFO [3413f980] Running /usr/bin/env git remote set-url origin git@github.com:LadghemSaid/popweb.git as deployer-agent@34.77.181.91
+ DEBUG [3413f980] Command: cd /var/www/popweb2/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-popweb2-production-ladgh.sh" ; /usr/bin/env git remote set-url origin git@github.com:LadghemSaid/popweb.git )
+  INFO [0c16f51a] Running /usr/bin/env git remote update --prune as deployer-agent@34.77.181.91
+ DEBUG [0c16f51a] Command: cd /var/www/popweb2/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-popweb2-production-ladgh.sh" ; /usr/bin/env git remote update --prune )
+ DEBUG [ac511d6b] Running if test ! -d /var/www/popweb2/repo; then echo "Directory does not exist '/var/www/popweb2/repo'" 1>&2; false; fi as deployer-agent@34.77.181.91
+ DEBUG [ac511d6b] Command: if test ! -d /var/www/popweb2/repo; then echo "Directory does not exist '/var/www/popweb2/repo'" 1>&2; false; fi
+  INFO [de4431b3] Running /usr/bin/env mkdir -p /var/www/popweb2/releases/20200117154348 as deployer-agent@34.77.181.91
+ DEBUG [de4431b3] Command: cd /var/www/popweb2/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-popweb2-production-ladgh.sh" ; /usr/bin/env mkdir -p /var/www/popweb2/releases/20200117154348 )
+  INFO [21e6050f] Running /usr/bin/env git archive master | /usr/bin/env tar -x -f - -C /var/www/popweb2/releases/20200117154348 as deployer-agent@34.77.181.91
+ DEBUG [21e6050f] Command: cd /var/www/popweb2/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-popweb2-production-ladgh.sh" ; /usr/bin/env git archive master | /usr/bin/env tar -x -f - -C /var/www/popweb2/releases/20200117154348 )
+ DEBUG [96aec483] Running if test ! -d /var/www/popweb2/repo; then echo "Directory does not exist '/var/www/popweb2/repo'" 1>&2; false; fi as deployer-agent@34.77.181.91
+ DEBUG [96aec483] Command: if test ! -d /var/www/popweb2/repo; then echo "Directory does not exist '/var/www/popweb2/repo'" 1>&2; false; fi
+ DEBUG [ec7cc8ed] Running /usr/bin/env git rev-list --max-count=1 master as deployer-agent@34.77.181.91
+ DEBUG [ec7cc8ed] Command: cd /var/www/popweb2/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-popweb2-production-ladgh.sh" ; /usr/bin/env git rev-list --max-count=1 master )
+ DEBUG [2f17ddc6] Running if test ! -d /var/www/popweb2/releases/20200117154348; then echo "Directory does not exist '/var/www/popweb2/releases/20200117154348'" 1>&2; false; fi as deployer-agent@34.77.181.91
+ DEBUG [2f17ddc6] Command: if test ! -d /var/www/popweb2/releases/20200117154348; then echo "Directory does not exist '/var/www/popweb2/releases/20200117154348'" 1>&2; false; fi
+  INFO [9679f101] Running /usr/bin/env echo "" > REVISION as deployer-agent@34.77.181.91
+ DEBUG [9679f101] Command: cd /var/www/popweb2/releases/20200117154348 && /usr/bin/env echo "" > REVISION
+  INFO [83e10c28] Running /usr/bin/env ln -s /var/www/popweb2/releases/20200117154348 /var/www/popweb2/releases/current as deployer-agent@34.77.181.91
+ DEBUG [83e10c28] Command: /usr/bin/env ln -s /var/www/popweb2/releases/20200117154348 /var/www/popweb2/releases/current
+  INFO [9968a49b] Running /usr/bin/env mv /var/www/popweb2/releases/current /var/www/popweb2 as deployer-agent@34.77.181.91
+ DEBUG [9968a49b] Command: /usr/bin/env mv /var/www/popweb2/releases/current /var/www/popweb2
+ DEBUG [f55b2bd1] Running /usr/bin/env ls -x /var/www/popweb2/releases as deployer-agent@34.77.181.91
+ DEBUG [f55b2bd1] Command: /usr/bin/env ls -x /var/www/popweb2/releases
+ DEBUG [8cf21853] Running if test ! -d /var/www/popweb2/releases; then echo "Directory does not exist '/var/www/popweb2/releases'" 1>&2; false; fi as deployer-agent@34.77.181.91
+ DEBUG [8cf21853] Command: if test ! -d /var/www/popweb2/releases; then echo "Directory does not exist '/var/www/popweb2/releases'" 1>&2; false; fi
+  INFO [5d4755d4] Running /usr/bin/env echo "Branch master (at ) deployed as release 20200117154348 by ladgh" >> /var/www/popweb2/revisions.log as deployer-agent@34.77.181.91
+ DEBUG [5d4755d4] Command: cd /var/www/popweb2/releases && /usr/bin/env echo "Branch master (at ) deployed as release 20200117154348 by ladgh" >> /var/www/popweb2/revisions.log
+  INFO ---------------------------------------------------------------------------
+  INFO START 2020-01-17 16:45:39 +0100 cap production deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [44ae10fc] Running /usr/bin/env mkdir -p /tmp as deployer-agent@34.77.181.91
+ DEBUG [44ae10fc] Command: /usr/bin/env mkdir -p /tmp
+  INFO ---------------------------------------------------------------------------
+  INFO START 2020-01-18 11:51:54 +0100 cap production deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [c627e1e5] Running /usr/bin/env mkdir -p /tmp as deathqt1@34.77.181.91
+ DEBUG [c627e1e5] Command: /usr/bin/env mkdir -p /tmp

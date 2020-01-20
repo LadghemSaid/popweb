@@ -1,0 +1,49 @@
+{% extends '/base.html.twig' %}
+
+{% block title %}
+    Recrutement
+{% endblock %}
+
+{% block style_custom %}
+
+    <style>
+
+    </style>
+{% endblock %}
+{% block body %}
+    <div class="container">
+        <div class="jumbotron">
+            <h1>Nous recrutons</h1>
+        </div>
+        <div class="job-container">
+
+        {% for job in jobs %}
+
+
+                    <a href="{{ path('job.show',{'slug':job.slug}) }}" class="job-item">
+                        <img class="d-block lazyload "
+                             src="{{ asset("img/low_res.jpg") }}"
+                             data-src="{{ app_path_jobs_images }}{{ job.image }}"
+                             alt="AlternateText"
+                             />
+                        <h2>
+                           {{ job.title }}
+                        </h2>
+                    </a>
+
+
+        {% endfor %}
+        </div>
+
+    </div>
+
+
+{% endblock %}
+
+
+  {% block javascripts %}
+      <script>
+
+
+      </script>
+  {% endblock %}

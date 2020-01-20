@@ -10,10 +10,10 @@
 
         {% endblock %}
 
-        {% block style_custom %}
-
-        {% endblock %}
         {{ encore_entry_link_tags('app') }}
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.min.css" />
+
     </head>
     <body>
 
@@ -31,14 +31,15 @@
 
     {%  include "footer.html.twig" %}
 
+
+
+
+        <script  src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script  src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+        <script  src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+        <script  src="{{ asset("js/lazysizes.min.js") }}" ></script>
+        <script  src="{{ asset("build/app.js") }}"></script>
         {% block javascripts %}{% endblock %}
-
-
-        <script defer src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-        <script defer src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
-        <script defer src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
-        <script src="{{ asset("js/lazysizes.min.js") }}" async=""></script>
-        <script src="{{ asset("build/app.js") }}" async=""></script>
 
     </body>
 </html>

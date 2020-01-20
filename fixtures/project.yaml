@@ -1,0 +1,65 @@
+App\Entity\User:
+  user_1:
+    username: 'admin'
+    email: 'admin@admin.fr'
+    password: <encodePassword(@user_1, 'admin')>
+    roles: [ROLE_ADMIN]
+  user_2:
+    username: 'writer'
+    email: 'writer@writer.fr'
+    password: <encodePassword(@user_2, 'writer')>
+    roles: [ROLE_WRITER]
+  user_3:
+    username: 'user'
+    email: 'user@user.fr'
+    password: <encodePassword(@user_3, 'user')>
+    roles: []
+
+App\Entity\Categorie:
+  categorie_{1..10}:
+    name: <fr_FR:word()>
+    slug: <fr_FR:slug()>
+
+App\Entity\Tag:
+  tag_{1..10}:
+    name: <fr_FR:word()>
+    slug: <fr_FR:slug()>
+
+App\Entity\Job:
+  job_{1..10}:
+    title: <fr_FR:catchPhrase()> <current()>
+    image: 'img1.jpg'
+    text: <fr_FR:text(200)>
+    published: 'true'
+    slug: <fr_FR:slug()>
+    updatedAt: <dateTime()>
+
+App\Entity\Project:
+  project_{1..10}:
+    title: <fr_FR:catchPhrase()> <current()>
+    image: 'img2.jpg'
+    text: <fr_FR:text(200)>
+    tags: '3x @tag*'
+    published: 'true'
+    allowComment: ['allowComment','']
+    slug: <fr_FR:slug()>
+    favorite: <boolean(50)>
+    updatedAt: <dateTime()>
+
+App\Entity\Comment:
+  comment_{1..30}:
+    text_comment: <fr_FR:text(100)>
+    createdAt: <dateTime()>
+    approved: <boolean(50)>
+    user: '@user_1'
+    project:  '@project_*'
+
+  comment_{30..60}:
+    text_comment: <fr_FR:text(100)>
+    createdAt: <dateTime()>
+    approved: <boolean(50)>
+    user: '@user_1'
+    job: '@job_*'
+
+
+

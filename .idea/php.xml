@@ -2,9 +2,6 @@
 <project version="4">
   <component name="PhpIncludePathManager">
     <include_path>
-      <path value="$PROJECT_DIR$/vendor/psr/http-message" />
-      <path value="$PROJECT_DIR$/vendor/psr/simple-cache" />
-      <path value="$PROJECT_DIR$/vendor/alterphp/easyadmin-extension-bundle" />
       <path value="$PROJECT_DIR$/vendor/friendsofsymfony/ckeditor-bundle" />
       <path value="$PROJECT_DIR$/vendor/composer" />
       <path value="$PROJECT_DIR$/vendor/twig/extensions" />
@@ -29,7 +26,6 @@
       <path value="$PROJECT_DIR$/vendor/doctrine/inflector" />
       <path value="$PROJECT_DIR$/vendor/doctrine/dbal" />
       <path value="$PROJECT_DIR$/vendor/doctrine/common" />
-      <path value="$PROJECT_DIR$/vendor/doctrine/doctrine-cache-bundle" />
       <path value="$PROJECT_DIR$/vendor/doctrine/doctrine-bundle" />
       <path value="$PROJECT_DIR$/vendor/doctrine/annotations" />
       <path value="$PROJECT_DIR$/vendor/doctrine/collections" />
@@ -108,22 +104,30 @@
       <path value="$PROJECT_DIR$/vendor/egulias/email-validator" />
       <path value="$PROJECT_DIR$/vendor/sensio/framework-extra-bundle" />
       <path value="$PROJECT_DIR$/vendor/psr/link" />
-      <path value="$PROJECT_DIR$/vendor/league/uri-manipulations" />
-      <path value="$PROJECT_DIR$/vendor/league/uri-interfaces" />
       <path value="$PROJECT_DIR$/vendor/twig/twig" />
-      <path value="$PROJECT_DIR$/vendor/league/uri-hostname-parser" />
       <path value="$PROJECT_DIR$/vendor/psr/log" />
-      <path value="$PROJECT_DIR$/vendor/league/uri-components" />
-      <path value="$PROJECT_DIR$/vendor/league/uri-schemes" />
-      <path value="$PROJECT_DIR$/vendor/league/uri-parser" />
       <path value="$PROJECT_DIR$/vendor/easycorp/easyadmin-bundle" />
       <path value="$PROJECT_DIR$/vendor/psr/container" />
       <path value="$PROJECT_DIR$/vendor/psr/cache" />
-      <path value="$PROJECT_DIR$/vendor/fig/link-util" />
       <path value="$PROJECT_DIR$/vendor/symfony/webpack-encore-bundle" />
       <path value="$PROJECT_DIR$/vendor/knplabs/knp-time-bundle" />
       <path value="$PROJECT_DIR$/vendor/symfony/templating" />
       <path value="$PROJECT_DIR$/vendor/google/recaptcha" />
+      <path value="$PROJECT_DIR$/vendor/symfony/error-handler" />
+      <path value="$PROJECT_DIR$/vendor/jms/metadata" />
+      <path value="$PROJECT_DIR$/vendor/vich/uploader-bundle" />
+      <path value="$PROJECT_DIR$/vendor/behat/transliterator" />
+      <path value="$PROJECT_DIR$/vendor/cocur/slugify" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/data-fixtures" />
+      <path value="$PROJECT_DIR$/vendor/nelmio/alice" />
+      <path value="$PROJECT_DIR$/vendor/myclabs/deep-copy" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/diff" />
+      <path value="$PROJECT_DIR$/vendor/theofidry/alice-data-fixtures" />
+      <path value="$PROJECT_DIR$/vendor/fzaninotto/faker" />
+      <path value="$PROJECT_DIR$/vendor/hautelook/alice-bundle" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/comparator" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/exporter" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/recursion-context" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="7.1" />
