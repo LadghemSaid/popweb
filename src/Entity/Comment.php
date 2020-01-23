@@ -23,11 +23,7 @@ class Comment
      */
     private $textComment;
 
-    /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\User", inversedBy="comments")
-     * @ORM\JoinColumn(nullable=false)
-     */
-    private $user;
+
 
 
 
@@ -50,6 +46,21 @@ class Comment
      * @ORM\ManyToOne(targetEntity="App\Entity\Job", inversedBy="comments")
      */
     private $job;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Article", inversedBy="comments")
+     */
+    private $article;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $email;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $username;
 
 
 
@@ -75,17 +86,6 @@ class Comment
         return $this;
     }
 
-    public function getUser(): ?User
-    {
-        return $this->user;
-    }
-
-    public function setUser(?User $user): self
-    {
-        $this->user = $user;
-
-        return $this;
-    }
 
 
 
@@ -133,6 +133,42 @@ class Comment
     public function setJob(?Job $job): self
     {
         $this->job = $job;
+
+        return $this;
+    }
+
+    public function getArticle(): ?Article
+    {
+        return $this->article;
+    }
+
+    public function setArticle(?Article $article): self
+    {
+        $this->article = $article;
+
+        return $this;
+    }
+
+    public function getEmail(): ?string
+    {
+        return $this->email;
+    }
+
+    public function setEmail(string $email): self
+    {
+        $this->email = $email;
+
+        return $this;
+    }
+
+    public function getUsername(): ?string
+    {
+        return $this->username;
+    }
+
+    public function setUsername(string $username): self
+    {
+        $this->username = $username;
 
         return $this;
     }

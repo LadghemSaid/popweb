@@ -6,6 +6,7 @@ use App\Entity\Project;
 use App\Entity\Comment;
 use App\Form\CommentType;
 use App\Repository\JobRepository;
+use App\Repository\ArticleRepository;
 use App\Repository\ProjectRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -31,9 +32,9 @@ class CommentsController extends AbstractController
      * @return \Symfony\Component\HttpFoundation\RedirectResponse
      * @throws \Exception
      */
-    public function add(Request $req, Security $security, $id, ProjectRepository $projectRepo, JobRepository $jobRepo)
+    public function add(Request $req,$id, ProjectRepository $projectRepo, JobRepository $jobRepo, ArticleRepository $articleRepo)
     {
-        $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
+        //$this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
         $comment = new Comment();
 
         $form = $this->createForm(CommentType::class, $comment);
@@ -48,8 +49,7 @@ class CommentsController extends AbstractController
                 if (array_search('commentValidatingAuto', $post->getAllowComment())) {
                     $commentValidatingAuto = true;
                 }
-                $com->setUser($security->getUser())
-                    ->setJob($post)
+                $com->setJob($post)
                     ->setCreatedAt(new \DateTime())
                     ->setApproved($commentValidatingAuto);
                 $this->em->persist($com);
@@ -63,14 +63,27 @@ class CommentsController extends AbstractController
                 if (array_search('commentValidatingAuto', $post->getAllowComment())) {
                     $commentValidatingAuto = true;
                 }
-                $com->setUser($security->getUser())
-                    ->setProject($post)
+                $com->setProject($post)
                     ->setCreatedAt(new \DateTime())
                     ->setApproved($commentValidatingAuto);
                 $this->em->persist($com);
                 $this->em->flush();
 
                 return $this->redirectToRoute('project.show', array('slug' => $post->getSlug()));
+
+            } else if ($referer[3] === "article" && getenv('APP_ENV') == 'dev' || $referer[4] === "article" && getenv('APP_ENV') == 'prod' ) {
+                $post = $articleRepo->find($id);
+                $commentValidatingAuto = false;
+                if (array_search('commentValidatingAuto', $post->getAllowComment())) {
+                    $commentValidatingAuto = true;
+                }
+                $com->setArticle($post)
+                    ->setCreatedAt(new \DateTime())
+                    ->setApproved($commentValidatingAuto);
+                $this->em->persist($com);
+                $this->em->flush();
+
+                return $this->redirectToRoute('article.show', array('slug' => $post->getSlug()));
 
             }
 
@@ -83,7 +96,7 @@ class CommentsController extends AbstractController
      */
     public function delete(Comment $comment, Security $security, Request $req)
     {
-        $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
+     //   $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
         if ($security->getUser() === $comment->getUser()) {
             $referer = explode('/', $req->headers->get('referer'));
             //dd($jobRepo->find($id));

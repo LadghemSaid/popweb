@@ -6,6 +6,7 @@
 parameters:
     app.path.job_images: '%env(string:UPLOAD_PATH_JOBS)%'
     app.path.project_images: '%env(string:UPLOAD_PATH_PROJECTS)%'
+    app.path.article_images: '%env(string:UPLOAD_PATH_ARTICLES)%'
 
 services:
     # default configuration for services in *this* file
