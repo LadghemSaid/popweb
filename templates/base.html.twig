@@ -2,10 +2,13 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
+
+      <title>{% block title %} Popweb ─ Agence web à Lens{% endblock %}</title>
+         <meta name=viewport content="width=device-width, initial-scale=1">
         {% block gtag %}{% endblock %}
         {% block meta_description %}{% endblock %}
         {% block meta_keywords %}{% endblock %}
+
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
         {% block stylesheets %}
 
@@ -14,7 +17,11 @@
         {{ encore_entry_link_tags('app') }}
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.min.css" />
-
+		
+		<link rel="icon" type="image/png" href="img/favicon.png" />
+        <meta name="theme-color" content="#00103e">
+        <meta property="og:image" content="img/icon.png" />
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
     </head>
     <body>
 
