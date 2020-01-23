@@ -33,14 +33,14 @@ class ArticleController extends AbstractController
     /**
      * Liste l'ensemble des articles triés par date de publication pour une page donnée.
      *
-     * @Route("/articles/", name="article.index")
+     * @Route("/articles/", name="articles.index")
      * @Template("XxxYyyBundle:Front/article:index.html.twig")
      * @return \Symfony\Component\HttpFoundation\Response
      */
     public function index(ArticleRepository $articlerepo)
     {
         $articles = $articlerepo->findAll(); //On récupère les articles
-        dd($articles);
+        //dump($articles);
         //Pour 1 -> ...find($id);   avec une valeur de champ -> ...findOneBy(['title'=>'Article Du vendredi 13']);
         return $this->render('article/index.html.twig', [
             'current_menu' => 'articles',
