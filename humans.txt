@@ -1,0 +1,44 @@
+/* TEAM */
+
+                            
+Mon rôle sur ce projet: Agence Web
+
+                            
+Site: e-mail, lien vers un formulaire de contact, etc.
+
+                            
+Twitter: votre compte Twitter
+
+                            
+Location: Lens, France
+
+                         
+                 
+                        [...]
+						
+
+							
+/* THANKS */
+
+							
+Name: POP WEB
+
+						
+                 
+                        [...]
+                        
+
+                            
+/* SITE */
+
+                            
+Last update:  2020/01/23
+
+                            
+Standards: HTML5, CSS3, SYMPHONY
+
+                            
+Components: Modernizr, jQuery, etc.
+
+                            
+Software: Logiciels utilisés pour le développement

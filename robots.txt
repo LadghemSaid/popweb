@@ -1,0 +1,7 @@
+User-agent: Googlebot
+Disallow: 
+
+User-agent: *
+Disallow: /test
+
+Sitemap: http://34.77.181.91/popweb//sitemap.xml
