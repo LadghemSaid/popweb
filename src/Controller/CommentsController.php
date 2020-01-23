@@ -17,6 +17,7 @@ use Symfony\Component\Security\Core\Security;
 class CommentsController extends AbstractController
 {
     private $em;
+
     public function __construct(EntityManagerInterface $em)
     {
         $this->em = $em;
@@ -30,7 +31,7 @@ class CommentsController extends AbstractController
      * @return \Symfony\Component\HttpFoundation\RedirectResponse
      * @throws \Exception
      */
-    public function add(Request $req, Security $security,$id, ProjectRepository $projectRepo, JobRepository $jobRepo)
+    public function add(Request $req, Security $security, $id, ProjectRepository $projectRepo, JobRepository $jobRepo)
     {
         $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
         $comment = new Comment();
@@ -38,13 +39,13 @@ class CommentsController extends AbstractController
         $form = $this->createForm(CommentType::class, $comment);
         $form->handleRequest($req);
         if ($form->isSubmitted() && $form->isValid()) {
-            $referer = explode('/',$req->headers->get('referer'));
+            $referer = explode('/', $req->headers->get('referer'));
             $com = $form->getData();
             //dd($jobRepo->find($id));
-            if($referer[3] === "job"){
-                $post= $jobRepo->find($id);
+            if ($referer[3] === "job" && getenv('APP_ENV') == 'dev' || $referer[4] === "job" && getenv('APP_ENV') == 'prod' ) {
+                $post = $jobRepo->find($id);
                 $commentValidatingAuto = false;
-                if(array_search('commentValidatingAuto',$post->getAllowComment())){
+                if (array_search('commentValidatingAuto', $post->getAllowComment())) {
                     $commentValidatingAuto = true;
                 }
                 $com->setUser($security->getUser())
@@ -54,11 +55,12 @@ class CommentsController extends AbstractController
                 $this->em->persist($com);
                 $this->em->flush();
 
-                return $this->redirectToRoute('job.show', array('slug'=>$post->getSlug()));
-            }else if($referer[3] === "project"){
-                $post= $projectRepo->find($id);
+                return $this->redirectToRoute('job.show', array('slug' => $post->getSlug()));
+            } else if ($referer[3] === "project" && getenv('APP_ENV') == 'dev' || $referer[4] === "project" && getenv('APP_ENV') == 'prod' ) {
+
+                $post = $projectRepo->find($id);
                 $commentValidatingAuto = false;
-                if(array_search('commentValidatingAuto',$post->getAllowComment())){
+                if (array_search('commentValidatingAuto', $post->getAllowComment())) {
                     $commentValidatingAuto = true;
                 }
                 $com->setUser($security->getUser())
@@ -68,44 +70,40 @@ class CommentsController extends AbstractController
                 $this->em->persist($com);
                 $this->em->flush();
 
-                return $this->redirectToRoute('project.show', array('slug'=>$post->getSlug()));
+                return $this->redirectToRoute('project.show', array('slug' => $post->getSlug()));
+
             }
 
-
-
-
-            //dd($com);
-
-
+            return $this->redirect($req->headers->get('referer'));
         }
     }
 
     /**
      * @Route("/delete/comment/{comment}", name="delete.comment", methods={"GET"})
      */
-    public function delete(Comment $comment, Security $security,Request $req)
+    public function delete(Comment $comment, Security $security, Request $req)
     {
         $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
-        if($security->getUser() === $comment->getUser()){
-            $referer = explode('/',$req->headers->get('referer'));
+        if ($security->getUser() === $comment->getUser()) {
+            $referer = explode('/', $req->headers->get('referer'));
             //dd($jobRepo->find($id));
-            if($referer[3] === "job"){
+            if ($referer[3] === "job") {
                 $post = $comment->getJob();
                 $this->em->remove($comment);
                 $this->em->flush();
-                return $this->redirectToRoute('job.show', array('slug'=>$post->getSlug()));
+                return $this->redirectToRoute('job.show', array('slug' => $post->getSlug()));
 
-            }
-            else if($referer[3] === "project"){
+            } else if ($referer[3] === "project") {
                 $post = $comment->getProject();
                 $this->em->remove($comment);
                 $this->em->flush();
-                return $this->redirectToRoute('project.show', array('slug'=>$post->getSlug()));
+                return $this->redirectToRoute('project.show', array('slug' => $post->getSlug()));
 
             }
 
         }
-        return $this->redirectToRoute('job.show', array('slug'=>$post->getSlug()));
+
+        return $this->redirect($req->headers->get('referer'));
 
         //dd($comment);
 
@@ -114,11 +112,12 @@ class CommentsController extends AbstractController
     /**
      * @Route("/comment/edit/{comment}", name="comment_edit")
      */
-    public function edit(Comment $comment,Request $request){
+    public function edit(Comment $comment, Request $request)
+    {
 
         $form = $this->createForm(CommentType::class, $comment);
         $form->handleRequest($request);
-           // dd($form);
+        // dd($form);
         if ($form->isSubmitted() && $form->isValid()) {
             $comment->setTextComment($form["textComment"]->getData());
             $this->em->flush();

@@ -4,4 +4,7 @@ twig:
     default_path: '%kernel.project_dir%/templates'
     debug: '%kernel.debug%'
     strict_variables: '%kernel.debug%'
+    globals:
+        app_path_jobs_images: '%env(string:UPLOAD_PATH_JOBS)%'
+        app_path_projects_images: '%env(string:UPLOAD_PATH_PROJECTS)%'
 

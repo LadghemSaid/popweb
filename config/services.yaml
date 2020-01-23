@@ -4,8 +4,8 @@
 # Put parameters here that don't need to change on each machine where the app is deployed
 # https://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:
-    app.path.job_images: /uploads/images/jobs
-    app.path.project_images: /uploads/images/projects
+    app.path.job_images: '%env(string:UPLOAD_PATH_JOBS)%'
+    app.path.project_images: '%env(string:UPLOAD_PATH_PROJECTS)%'
 
 services:
     # default configuration for services in *this* file

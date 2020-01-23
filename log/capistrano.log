@@ -1,0 +1,743 @@
+# Logfile created on 2020-01-17 16:43:48 +0100 by logger.rb/66358
+  INFO ---------------------------------------------------------------------------
+  INFO START 2020-01-17 16:43:48 +0100 cap production deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [bd718faf] Running /usr/bin/env mkdir -p /tmp as deployer-agent@34.77.181.91
+ DEBUG [bd718faf] Command: /usr/bin/env mkdir -p /tmp
+  INFO [93fc58ae] Running /usr/bin/env #<StringIO:0x00000000059af998> /tmp/git-ssh-popweb2-production-ladgh.sh as deployer-agent@34.77.181.91
+ DEBUG [93fc58ae] Command: /usr/bin/env #<StringIO:0x00000000059af998> /tmp/git-ssh-popweb2-production-ladgh.sh
+  INFO [9ebe1319] Running /usr/bin/env chmod 700 /tmp/git-ssh-popweb2-production-ladgh.sh as deployer-agent@34.77.181.91
+ DEBUG [9ebe1319] Command: /usr/bin/env chmod 700 /tmp/git-ssh-popweb2-production-ladgh.sh
+  INFO [bfa8b380] Running /usr/bin/env git ls-remote git@github.com:LadghemSaid/popweb.git HEAD as deployer-agent@34.77.181.91
+ DEBUG [bfa8b380] Command: ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-popweb2-production-ladgh.sh" ; /usr/bin/env git ls-remote git@github.com:LadghemSaid/popweb.git HEAD )
+  INFO [956e8561] Running /usr/bin/env mkdir -p /var/www/popweb2/shared /var/www/popweb2/releases as deployer-agent@34.77.181.91
+ DEBUG [956e8561] Command: /usr/bin/env mkdir -p /var/www/popweb2/shared /var/www/popweb2/releases
+ DEBUG [06acbf23] Running [ -f /var/www/popweb2/current/REVISION ] as deployer-agent@34.77.181.91
+ DEBUG [06acbf23] Command: [ -f /var/www/popweb2/current/REVISION ]
+ DEBUG [59f9b107] Running /usr/bin/env cat /var/www/popweb2/current/REVISION 2>/dev/null as deployer-agent@34.77.181.91
+ DEBUG [59f9b107] Command: /usr/bin/env cat /var/www/popweb2/current/REVISION 2>/dev/null
+ DEBUG [737720e3] Running [ -f /var/www/popweb2/repo/HEAD ] as deployer-agent@34.77.181.91
+ DEBUG [737720e3] Command: [ -f /var/www/popweb2/repo/HEAD ]
+  INFO The repository mirror is at /var/www/popweb2/repo
+ DEBUG [7e37bc49] Running if test ! -d /var/www/popweb2/repo; then echo "Directory does not exist '/var/www/popweb2/repo'" 1>&2; false; fi as deployer-agent@34.77.181.91
+ DEBUG [7e37bc49] Command: if test ! -d /var/www/popweb2/repo; then echo "Directory does not exist '/var/www/popweb2/repo'" 1>&2; false; fi
+  INFO [3413f980] Running /usr/bin/env git remote set-url origin git@github.com:LadghemSaid/popweb.git as deployer-agent@34.77.181.91
+ DEBUG [3413f980] Command: cd /var/www/popweb2/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-popweb2-production-ladgh.sh" ; /usr/bin/env git remote set-url origin git@github.com:LadghemSaid/popweb.git )
+  INFO [0c16f51a] Running /usr/bin/env git remote update --prune as deployer-agent@34.77.181.91
+ DEBUG [0c16f51a] Command: cd /var/www/popweb2/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-popweb2-production-ladgh.sh" ; /usr/bin/env git remote update --prune )
+ DEBUG [ac511d6b] Running if test ! -d /var/www/popweb2/repo; then echo "Directory does not exist '/var/www/popweb2/repo'" 1>&2; false; fi as deployer-agent@34.77.181.91
+ DEBUG [ac511d6b] Command: if test ! -d /var/www/popweb2/repo; then echo "Directory does not exist '/var/www/popweb2/repo'" 1>&2; false; fi
+  INFO [de4431b3] Running /usr/bin/env mkdir -p /var/www/popweb2/releases/20200117154348 as deployer-agent@34.77.181.91
+ DEBUG [de4431b3] Command: cd /var/www/popweb2/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-popweb2-production-ladgh.sh" ; /usr/bin/env mkdir -p /var/www/popweb2/releases/20200117154348 )
+  INFO [21e6050f] Running /usr/bin/env git archive master | /usr/bin/env tar -x -f - -C /var/www/popweb2/releases/20200117154348 as deployer-agent@34.77.181.91
+ DEBUG [21e6050f] Command: cd /var/www/popweb2/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-popweb2-production-ladgh.sh" ; /usr/bin/env git archive master | /usr/bin/env tar -x -f - -C /var/www/popweb2/releases/20200117154348 )
+ DEBUG [96aec483] Running if test ! -d /var/www/popweb2/repo; then echo "Directory does not exist '/var/www/popweb2/repo'" 1>&2; false; fi as deployer-agent@34.77.181.91
+ DEBUG [96aec483] Command: if test ! -d /var/www/popweb2/repo; then echo "Directory does not exist '/var/www/popweb2/repo'" 1>&2; false; fi
+ DEBUG [ec7cc8ed] Running /usr/bin/env git rev-list --max-count=1 master as deployer-agent@34.77.181.91
+ DEBUG [ec7cc8ed] Command: cd /var/www/popweb2/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-popweb2-production-ladgh.sh" ; /usr/bin/env git rev-list --max-count=1 master )
+ DEBUG [2f17ddc6] Running if test ! -d /var/www/popweb2/releases/20200117154348; then echo "Directory does not exist '/var/www/popweb2/releases/20200117154348'" 1>&2; false; fi as deployer-agent@34.77.181.91
+ DEBUG [2f17ddc6] Command: if test ! -d /var/www/popweb2/releases/20200117154348; then echo "Directory does not exist '/var/www/popweb2/releases/20200117154348'" 1>&2; false; fi
+  INFO [9679f101] Running /usr/bin/env echo "" > REVISION as deployer-agent@34.77.181.91
+ DEBUG [9679f101] Command: cd /var/www/popweb2/releases/20200117154348 && /usr/bin/env echo "" > REVISION
+  INFO [83e10c28] Running /usr/bin/env ln -s /var/www/popweb2/releases/20200117154348 /var/www/popweb2/releases/current as deployer-agent@34.77.181.91
+ DEBUG [83e10c28] Command: /usr/bin/env ln -s /var/www/popweb2/releases/20200117154348 /var/www/popweb2/releases/current
+  INFO [9968a49b] Running /usr/bin/env mv /var/www/popweb2/releases/current /var/www/popweb2 as deployer-agent@34.77.181.91
+ DEBUG [9968a49b] Command: /usr/bin/env mv /var/www/popweb2/releases/current /var/www/popweb2
+ DEBUG [f55b2bd1] Running /usr/bin/env ls -x /var/www/popweb2/releases as deployer-agent@34.77.181.91
+ DEBUG [f55b2bd1] Command: /usr/bin/env ls -x /var/www/popweb2/releases
+ DEBUG [8cf21853] Running if test ! -d /var/www/popweb2/releases; then echo "Directory does not exist '/var/www/popweb2/releases'" 1>&2; false; fi as deployer-agent@34.77.181.91
+ DEBUG [8cf21853] Command: if test ! -d /var/www/popweb2/releases; then echo "Directory does not exist '/var/www/popweb2/releases'" 1>&2; false; fi
+  INFO [5d4755d4] Running /usr/bin/env echo "Branch master (at ) deployed as release 20200117154348 by ladgh" >> /var/www/popweb2/revisions.log as deployer-agent@34.77.181.91
+ DEBUG [5d4755d4] Command: cd /var/www/popweb2/releases && /usr/bin/env echo "Branch master (at ) deployed as release 20200117154348 by ladgh" >> /var/www/popweb2/revisions.log
+  INFO ---------------------------------------------------------------------------
+  INFO START 2020-01-17 16:45:39 +0100 cap production deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [44ae10fc] Running /usr/bin/env mkdir -p /tmp as deployer-agent@34.77.181.91
+ DEBUG [44ae10fc] Command: /usr/bin/env mkdir -p /tmp
+  INFO ---------------------------------------------------------------------------
+  INFO START 2020-01-18 11:51:54 +0100 cap production deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [c627e1e5] Running /usr/bin/env mkdir -p /tmp as deathqt1@34.77.181.91
+ DEBUG [c627e1e5] Command: /usr/bin/env mkdir -p /tmp
+  INFO ---------------------------------------------------------------------------
+  INFO START 2020-01-18 18:05:22 +0100 cap production deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [abff53f2] Running /usr/bin/env mkdir -p /tmp as deathqt1@34.77.181.91
+ DEBUG [abff53f2] Command: /usr/bin/env mkdir -p /tmp
+  INFO ---------------------------------------------------------------------------
+  INFO START 2020-01-20 20:33:14 +0100 cap production deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [9de2d908] Running /usr/bin/env mkdir -p /tmp as deathqt1@34.77.181.91
+ DEBUG [9de2d908] Command: /usr/bin/env mkdir -p /tmp
+  INFO ---------------------------------------------------------------------------
+  INFO START 2020-01-20 20:37:11 +0100 cap production deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [5523959f] Running /usr/bin/env mkdir -p /tmp as deathqt1@34.77.181.91
+ DEBUG [5523959f] Command: /usr/bin/env mkdir -p /tmp
+  INFO ---------------------------------------------------------------------------
+  INFO START 2020-01-20 21:05:28 +0100 cap production deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [7f4212ae] Running /usr/bin/env mkdir -p /tmp as Marjorie@34.77.181.91
+ DEBUG [7f4212ae] Command: /usr/bin/env mkdir -p /tmp
+  INFO ---------------------------------------------------------------------------
+  INFO START 2020-01-20 21:08:51 +0100 cap production deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [9113d266] Running /usr/bin/env mkdir -p /tmp as Marjorie@34.77.181.91
+ DEBUG [9113d266] Command: /usr/bin/env mkdir -p /tmp
+  INFO ---------------------------------------------------------------------------
+  INFO START 2020-01-20 21:30:23 +0100 cap production deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [2a58599d] Running /usr/bin/env mkdir -p /tmp as Marjorie@34.77.181.91
+ DEBUG [2a58599d] Command: /usr/bin/env mkdir -p /tmp
+  INFO ---------------------------------------------------------------------------
+  INFO START 2020-01-20 21:33:59 +0100 cap production deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [14f08afe] Running /usr/bin/env mkdir -p /tmp as Marjorie@34.77.181.91
+ DEBUG [14f08afe] Command: /usr/bin/env mkdir -p /tmp
+  INFO ---------------------------------------------------------------------------
+  INFO START 2020-01-20 21:49:27 +0100 cap production deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [d90cf3c4] Running /usr/bin/env mkdir -p /tmp as Marjorie@34.77.181.91
+ DEBUG [d90cf3c4] Command: /usr/bin/env mkdir -p /tmp
+  INFO ---------------------------------------------------------------------------
+  INFO START 2020-01-20 21:51:25 +0100 cap production deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [5e30c368] Running /usr/bin/env mkdir -p /tmp as Marjorie@34.77.181.91
+ DEBUG [5e30c368] Command: /usr/bin/env mkdir -p /tmp
+  INFO ---------------------------------------------------------------------------
+  INFO START 2020-01-20 21:51:56 +0100 cap production deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [e5178503] Running /usr/bin/env mkdir -p /tmp as Marjorie@34.77.181.91
+ DEBUG [e5178503] Command: /usr/bin/env mkdir -p /tmp
+  INFO ---------------------------------------------------------------------------
+  INFO START 2020-01-20 21:52:34 +0100 cap production deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [1d118f20] Running /usr/bin/env mkdir -p /tmp as Marjorie@34.77.181.91
+ DEBUG [1d118f20] Command: /usr/bin/env mkdir -p /tmp
+  INFO ---------------------------------------------------------------------------
+  INFO START 2020-01-20 21:52:49 +0100 cap production deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [c505340e] Running /usr/bin/env mkdir -p /tmp as Marjorie@34.77.181.91
+ DEBUG [c505340e] Command: /usr/bin/env mkdir -p /tmp
+  INFO ---------------------------------------------------------------------------
+  INFO START 2020-01-20 21:57:55 +0100 cap production deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [7348c90d] Running /usr/bin/env mkdir -p /tmp as Marjorie@34.77.181.91
+ DEBUG [7348c90d] Command: /usr/bin/env mkdir -p /tmp
+  INFO ---------------------------------------------------------------------------
+  INFO START 2020-01-20 22:11:06 +0100 cap production deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [f7957ec5] Running /usr/bin/env mkdir -p /tmp as Marjorie-ED@34.77.181.91
+ DEBUG [f7957ec5] Command: /usr/bin/env mkdir -p /tmp
+  INFO ---------------------------------------------------------------------------
+  INFO START 2020-01-20 22:11:52 +0100 cap production deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [e98e747f] Running /usr/bin/env mkdir -p /tmp as Marjorie-ED@34.77.181.91
+ DEBUG [e98e747f] Command: /usr/bin/env mkdir -p /tmp
+  INFO ---------------------------------------------------------------------------
+  INFO START 2020-01-20 22:12:06 +0100 cap production deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [cbd25208] Running /usr/bin/env mkdir -p /tmp as Marjorie-ED@34.77.181.91
+ DEBUG [cbd25208] Command: /usr/bin/env mkdir -p /tmp
+  INFO ---------------------------------------------------------------------------
+  INFO START 2020-01-20 22:13:30 +0100 cap production deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [872a6d14] Running /usr/bin/env mkdir -p /tmp as Marjorie-ED@34.77.181.91
+ DEBUG [872a6d14] Command: /usr/bin/env mkdir -p /tmp
+  INFO ---------------------------------------------------------------------------
+  INFO START 2020-01-20 22:14:04 +0100 cap production deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [a8a93d01] Running /usr/bin/env mkdir -p /tmp as Marjorie-ED@34.77.181.91
+ DEBUG [a8a93d01] Command: /usr/bin/env mkdir -p /tmp
+  INFO ---------------------------------------------------------------------------
+  INFO START 2020-01-20 22:15:09 +0100 cap production deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [3fb46ef0] Running /usr/bin/env mkdir -p /tmp as Marjorie-ED@34.77.181.91
+ DEBUG [3fb46ef0] Command: /usr/bin/env mkdir -p /tmp
+  INFO ---------------------------------------------------------------------------
+  INFO START 2020-01-20 22:16:04 +0100 cap production deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [e11ef65a] Running /usr/bin/env mkdir -p /tmp as Marjorie-ED@34.77.181.91
+ DEBUG [e11ef65a] Command: /usr/bin/env mkdir -p /tmp
+  INFO ---------------------------------------------------------------------------
+  INFO START 2020-01-20 22:18:03 +0100 cap production deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [14b0ae31] Running /usr/bin/env mkdir -p /tmp as Marjorie-ED@34.77.181.91
+ DEBUG [14b0ae31] Command: /usr/bin/env mkdir -p /tmp
+  INFO ---------------------------------------------------------------------------
+  INFO START 2020-01-20 22:18:19 +0100 cap production deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [e71cf462] Running /usr/bin/env mkdir -p /tmp as Marjorie-ED@34.77.181.91
+ DEBUG [e71cf462] Command: /usr/bin/env mkdir -p /tmp
+  INFO ---------------------------------------------------------------------------
+  INFO START 2020-01-20 22:18:59 +0100 cap production deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [4517ad03] Running /usr/bin/env mkdir -p /tmp as Marjorie-ED@34.77.181.91
+ DEBUG [4517ad03] Command: /usr/bin/env mkdir -p /tmp
+  INFO ---------------------------------------------------------------------------
+  INFO START 2020-01-20 22:20:20 +0100 cap production deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [dcd90aa4] Running /usr/bin/env mkdir -p /tmp as Marjorie-ED@34.77.181.91
+ DEBUG [dcd90aa4] Command: /usr/bin/env mkdir -p /tmp
+  INFO ---------------------------------------------------------------------------
+  INFO START 2020-01-20 22:22:07 +0100 cap production deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [82739015] Running /usr/bin/env mkdir -p /tmp as Marjorie-ED@34.77.181.91
+ DEBUG [82739015] Command: /usr/bin/env mkdir -p /tmp
+  INFO [70f5f2b4] Running /usr/bin/env #<StringIO:0x00000000052d0348> /tmp/git-ssh-popweb2-production-Marjorie.sh as Marjorie-ED@34.77.181.91
+ DEBUG [70f5f2b4] Command: /usr/bin/env #<StringIO:0x00000000052d0348> /tmp/git-ssh-popweb2-production-Marjorie.sh
+  INFO [d7f15ae7] Running /usr/bin/env chmod 700 /tmp/git-ssh-popweb2-production-Marjorie.sh as Marjorie-ED@34.77.181.91
+ DEBUG [d7f15ae7] Command: /usr/bin/env chmod 700 /tmp/git-ssh-popweb2-production-Marjorie.sh
+  INFO [3a332f10] Running /usr/bin/env git ls-remote git@github.com:LadghemSaid/popweb.git HEAD as Marjorie-ED@34.77.181.91
+ DEBUG [3a332f10] Command: ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-popweb2-production-Marjorie.sh" ; /usr/bin/env git ls-remote git@github.com:LadghemSaid/popweb.git HEAD )
+  INFO [75e47b3b] Running /usr/bin/env mkdir -p /var/www/popweb2/shared /var/www/popweb2/releases as Marjorie-ED@34.77.181.91
+ DEBUG [75e47b3b] Command: /usr/bin/env mkdir -p /var/www/popweb2/shared /var/www/popweb2/releases
+ DEBUG [7701d9e9] Running [ -f /var/www/popweb2/current/REVISION ] as Marjorie-ED@34.77.181.91
+ DEBUG [7701d9e9] Command: [ -f /var/www/popweb2/current/REVISION ]
+ DEBUG [bcf1cd5b] Running /usr/bin/env cat /var/www/popweb2/current/REVISION 2>/dev/null as Marjorie-ED@34.77.181.91
+ DEBUG [bcf1cd5b] Command: /usr/bin/env cat /var/www/popweb2/current/REVISION 2>/dev/null
+ DEBUG [de48bccf] Running [ -f /var/www/popweb2/repo/HEAD ] as Marjorie-ED@34.77.181.91
+ DEBUG [de48bccf] Command: [ -f /var/www/popweb2/repo/HEAD ]
+  INFO The repository mirror is at /var/www/popweb2/repo
+ DEBUG [92094ffb] Running if test ! -d /var/www/popweb2/repo; then echo "Directory does not exist '/var/www/popweb2/repo'" 1>&2; false; fi as Marjorie-ED@34.77.181.91
+ DEBUG [92094ffb] Command: if test ! -d /var/www/popweb2/repo; then echo "Directory does not exist '/var/www/popweb2/repo'" 1>&2; false; fi
+  INFO [9e081fb6] Running /usr/bin/env git remote set-url origin git@github.com:LadghemSaid/popweb.git as Marjorie-ED@34.77.181.91
+ DEBUG [9e081fb6] Command: cd /var/www/popweb2/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-popweb2-production-Marjorie.sh" ; /usr/bin/env git remote set-url origin git@github.com:LadghemSaid/popweb.git )
+  INFO [a84e74bb] Running /usr/bin/env git remote update --prune as Marjorie-ED@34.77.181.91
+ DEBUG [a84e74bb] Command: cd /var/www/popweb2/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-popweb2-production-Marjorie.sh" ; /usr/bin/env git remote update --prune )
+ DEBUG [4ed9e436] Running if test ! -d /var/www/popweb2/repo; then echo "Directory does not exist '/var/www/popweb2/repo'" 1>&2; false; fi as Marjorie-ED@34.77.181.91
+ DEBUG [4ed9e436] Command: if test ! -d /var/www/popweb2/repo; then echo "Directory does not exist '/var/www/popweb2/repo'" 1>&2; false; fi
+  INFO [36454090] Running /usr/bin/env mkdir -p /var/www/popweb2/releases/20200120212207 as Marjorie-ED@34.77.181.91
+ DEBUG [36454090] Command: cd /var/www/popweb2/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-popweb2-production-Marjorie.sh" ; /usr/bin/env mkdir -p /var/www/popweb2/releases/20200120212207 )
+  INFO [af4c7da6] Running /usr/bin/env git archive master | /usr/bin/env tar -x -f - -C /var/www/popweb2/releases/20200120212207 as Marjorie-ED@34.77.181.91
+ DEBUG [af4c7da6] Command: cd /var/www/popweb2/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-popweb2-production-Marjorie.sh" ; /usr/bin/env git archive master | /usr/bin/env tar -x -f - -C /var/www/popweb2/releases/20200120212207 )
+ DEBUG [686ff957] Running if test ! -d /var/www/popweb2/repo; then echo "Directory does not exist '/var/www/popweb2/repo'" 1>&2; false; fi as Marjorie-ED@34.77.181.91
+ DEBUG [686ff957] Command: if test ! -d /var/www/popweb2/repo; then echo "Directory does not exist '/var/www/popweb2/repo'" 1>&2; false; fi
+ DEBUG [0e43b081] Running /usr/bin/env git rev-list --max-count=1 master as Marjorie-ED@34.77.181.91
+ DEBUG [0e43b081] Command: cd /var/www/popweb2/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-popweb2-production-Marjorie.sh" ; /usr/bin/env git rev-list --max-count=1 master )
+ DEBUG [5ac7c872] Running if test ! -d /var/www/popweb2/releases/20200120212207; then echo "Directory does not exist '/var/www/popweb2/releases/20200120212207'" 1>&2; false; fi as Marjorie-ED@34.77.181.91
+ DEBUG [5ac7c872] Command: if test ! -d /var/www/popweb2/releases/20200120212207; then echo "Directory does not exist '/var/www/popweb2/releases/20200120212207'" 1>&2; false; fi
+  INFO [927cf0c1] Running /usr/bin/env echo "" > REVISION as Marjorie-ED@34.77.181.91
+ DEBUG [927cf0c1] Command: cd /var/www/popweb2/releases/20200120212207 && /usr/bin/env echo "" > REVISION
+  INFO [3b1530f5] Running /usr/bin/env ln -s /var/www/popweb2/releases/20200120212207 /var/www/popweb2/releases/current as Marjorie-ED@34.77.181.91
+ DEBUG [3b1530f5] Command: /usr/bin/env ln -s /var/www/popweb2/releases/20200120212207 /var/www/popweb2/releases/current
+  INFO [c1d01e5e] Running /usr/bin/env mv /var/www/popweb2/releases/current /var/www/popweb2 as Marjorie-ED@34.77.181.91
+ DEBUG [c1d01e5e] Command: /usr/bin/env mv /var/www/popweb2/releases/current /var/www/popweb2
+ DEBUG [5cffffbc] Running /usr/bin/env ls -x /var/www/popweb2/releases as Marjorie-ED@34.77.181.91
+ DEBUG [5cffffbc] Command: /usr/bin/env ls -x /var/www/popweb2/releases
+ DEBUG [63cfe41a] Running if test ! -d /var/www/popweb2/releases; then echo "Directory does not exist '/var/www/popweb2/releases'" 1>&2; false; fi as Marjorie-ED@34.77.181.91
+ DEBUG [63cfe41a] Command: if test ! -d /var/www/popweb2/releases; then echo "Directory does not exist '/var/www/popweb2/releases'" 1>&2; false; fi
+  INFO [b271b503] Running /usr/bin/env echo "Branch master (at ) deployed as release 20200120212207 by Marjorie" >> /var/www/popweb2/revisions.log as Marjorie-ED@34.77.181.91
+ DEBUG [b271b503] Command: cd /var/www/popweb2/releases && /usr/bin/env echo "Branch master (at ) deployed as release 20200120212207 by Marjorie" >> /var/www/popweb2/revisions.log
+  INFO ---------------------------------------------------------------------------
+  INFO START 2020-01-20 22:22:19 +0100 cap production deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [76afdc13] Running /usr/bin/env mkdir -p /tmp as Marjorie-ED@34.77.181.91
+ DEBUG [76afdc13] Command: /usr/bin/env mkdir -p /tmp
+  INFO ---------------------------------------------------------------------------
+  INFO START 2020-01-20 22:23:26 +0100 cap production deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [701f7620] Running /usr/bin/env mkdir -p /tmp as Marjorie-ED@34.77.181.91
+ DEBUG [701f7620] Command: /usr/bin/env mkdir -p /tmp
+  INFO ---------------------------------------------------------------------------
+  INFO START 2020-01-20 22:24:31 +0100 cap production deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [e86e02ce] Running /usr/bin/env mkdir -p /tmp as Marjorie-ED@34.77.181.91
+ DEBUG [e86e02ce] Command: /usr/bin/env mkdir -p /tmp
+  INFO ---------------------------------------------------------------------------
+  INFO START 2020-01-20 22:25:05 +0100 cap production deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [95adfe47] Running /usr/bin/env mkdir -p /tmp as Marjorie-ED@34.77.181.91
+ DEBUG [95adfe47] Command: /usr/bin/env mkdir -p /tmp
+  INFO ---------------------------------------------------------------------------
+  INFO START 2020-01-20 22:26:04 +0100 cap production deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [53ba20b2] Running /usr/bin/env mkdir -p /tmp as Marjorie-ED@34.77.181.91
+ DEBUG [53ba20b2] Command: /usr/bin/env mkdir -p /tmp
+  INFO ---------------------------------------------------------------------------
+  INFO START 2020-01-20 22:29:30 +0100 cap production deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [91ed5d48] Running /usr/bin/env mkdir -p /tmp as Marjorie-ED@34.77.181.91
+ DEBUG [91ed5d48] Command: /usr/bin/env mkdir -p /tmp
+  INFO ---------------------------------------------------------------------------
+  INFO START 2020-01-20 22:37:45 +0100 cap production deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [f7ca79c7] Running /usr/bin/env mkdir -p /tmp as Marjorie-ED@34.77.181.91
+ DEBUG [f7ca79c7] Command: /usr/bin/env mkdir -p /tmp
+  INFO ---------------------------------------------------------------------------
+  INFO START 2020-01-20 22:38:36 +0100 cap production deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [883043ce] Running /usr/bin/env mkdir -p /tmp as Marjorie@34.77.181.91
+ DEBUG [883043ce] Command: /usr/bin/env mkdir -p /tmp
+  INFO ---------------------------------------------------------------------------
+  INFO START 2020-01-20 22:40:42 +0100 cap production deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [b8930d40] Running /usr/bin/env mkdir -p /tmp as Marjorie-ED@34.77.181.91
+ DEBUG [b8930d40] Command: /usr/bin/env mkdir -p /tmp
+  INFO ---------------------------------------------------------------------------
+  INFO START 2020-01-20 22:43:03 +0100 cap production deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [2963adeb] Running /usr/bin/env mkdir -p /tmp as Marjorie-ED@34.77.181.91
+ DEBUG [2963adeb] Command: /usr/bin/env mkdir -p /tmp
+  INFO ---------------------------------------------------------------------------
+  INFO START 2020-01-20 22:44:24 +0100 cap production deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [86aeb600] Running /usr/bin/env mkdir -p /tmp as Marjorie-ED@34.77.181.91
+ DEBUG [86aeb600] Command: /usr/bin/env mkdir -p /tmp
+  INFO ---------------------------------------------------------------------------
+  INFO START 2020-01-20 22:45:27 +0100 cap production deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [aaaf9dcb] Running /usr/bin/env mkdir -p /tmp as Marjorie-ED@34.77.181.91
+ DEBUG [aaaf9dcb] Command: /usr/bin/env mkdir -p /tmp
+  INFO ---------------------------------------------------------------------------
+  INFO START 2020-01-20 22:46:31 +0100 cap production deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [a732244d] Running /usr/bin/env mkdir -p /tmp as Marjorie-ED@34.77.181.91
+ DEBUG [a732244d] Command: /usr/bin/env mkdir -p /tmp
+  INFO ---------------------------------------------------------------------------
+  INFO START 2020-01-20 22:48:45 +0100 cap production deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [8a636a3a] Running /usr/bin/env mkdir -p /tmp as deathqt1@34.77.181.91
+ DEBUG [8a636a3a] Command: /usr/bin/env mkdir -p /tmp
+  INFO ---------------------------------------------------------------------------
+  INFO START 2020-01-20 22:49:03 +0100 cap production deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [16eae7ef] Running /usr/bin/env mkdir -p /tmp as deathqt1@34.77.181.91
+ DEBUG [16eae7ef] Command: /usr/bin/env mkdir -p /tmp
+  INFO ---------------------------------------------------------------------------
+  INFO START 2020-01-20 22:51:43 +0100 cap production deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [44421d62] Running /usr/bin/env mkdir -p /tmp as deathqt1@34.77.181.91
+ DEBUG [44421d62] Command: /usr/bin/env mkdir -p /tmp
+  INFO ---------------------------------------------------------------------------
+  INFO START 2020-01-20 22:52:59 +0100 cap production deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [562f6d4d] Running /usr/bin/env mkdir -p /tmp as deathqt1@34.77.181.91
+ DEBUG [562f6d4d] Command: /usr/bin/env mkdir -p /tmp
+  INFO ---------------------------------------------------------------------------
+  INFO START 2020-01-20 22:58:01 +0100 cap production deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [658e7a15] Running /usr/bin/env mkdir -p /tmp as deathqt1@34.77.181.91
+ DEBUG [658e7a15] Command: /usr/bin/env mkdir -p /tmp
+  INFO ---------------------------------------------------------------------------
+  INFO START 2020-01-20 22:58:56 +0100 cap production deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [1727e8e7] Running /usr/bin/env mkdir -p /tmp as deathqt1@34.77.181.91
+ DEBUG [1727e8e7] Command: /usr/bin/env mkdir -p /tmp
+  INFO ---------------------------------------------------------------------------
+  INFO START 2020-01-20 22:59:24 +0100 cap production deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [4800992a] Running /usr/bin/env mkdir -p /tmp as deathqt1@34.77.181.91
+ DEBUG [4800992a] Command: /usr/bin/env mkdir -p /tmp
+  INFO ---------------------------------------------------------------------------
+  INFO START 2020-01-20 23:00:34 +0100 cap production deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [15e7cddf] Running /usr/bin/env mkdir -p /tmp as Marjorie-ED@34.77.181.91
+ DEBUG [15e7cddf] Command: /usr/bin/env mkdir -p /tmp
+  INFO ---------------------------------------------------------------------------
+  INFO START 2020-01-20 23:01:04 +0100 cap production deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [719b6375] Running /usr/bin/env mkdir -p /tmp as Marjorie-ED@34.77.181.91
+ DEBUG [719b6375] Command: /usr/bin/env mkdir -p /tmp
+  INFO ---------------------------------------------------------------------------
+  INFO START 2020-01-20 23:01:24 +0100 cap production deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [70c8c576] Running /usr/bin/env mkdir -p /tmp as Marjorie-ED@34.77.181.91
+ DEBUG [70c8c576] Command: /usr/bin/env mkdir -p /tmp
+  INFO ---------------------------------------------------------------------------
+  INFO START 2020-01-20 23:01:45 +0100 cap production deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [0ea1b5d1] Running /usr/bin/env mkdir -p /tmp as Marjorie-ED@34.77.181.91
+ DEBUG [0ea1b5d1] Command: /usr/bin/env mkdir -p /tmp
+  INFO ---------------------------------------------------------------------------
+  INFO START 2020-01-20 23:02:42 +0100 cap production deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [e6d6613a] Running /usr/bin/env mkdir -p /tmp as Marjorie-ED@34.77.181.91
+ DEBUG [e6d6613a] Command: /usr/bin/env mkdir -p /tmp
+  INFO ---------------------------------------------------------------------------
+  INFO START 2020-01-20 23:02:53 +0100 cap production deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [fe020f36] Running /usr/bin/env mkdir -p /tmp as Marjorie-ED@34.77.181.91
+ DEBUG [fe020f36] Command: /usr/bin/env mkdir -p /tmp
+  INFO ---------------------------------------------------------------------------
+  INFO START 2020-01-20 23:03:48 +0100 cap production deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [5a6e90c3] Running /usr/bin/env mkdir -p /tmp as Marjorie-ED@34.77.181.91
+ DEBUG [5a6e90c3] Command: /usr/bin/env mkdir -p /tmp
+  INFO ---------------------------------------------------------------------------
+  INFO START 2020-01-20 23:07:17 +0100 cap production deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [fa9edb0c] Running /usr/bin/env mkdir -p /tmp as Marjorie-ED@34.77.181.91
+ DEBUG [fa9edb0c] Command: /usr/bin/env mkdir -p /tmp
+  INFO ---------------------------------------------------------------------------
+  INFO START 2020-01-20 23:10:05 +0100 cap production deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [c46214cc] Running /usr/bin/env mkdir -p /tmp as Marjorie-ED@34.77.181.91
+ DEBUG [c46214cc] Command: /usr/bin/env mkdir -p /tmp
+  INFO ---------------------------------------------------------------------------
+  INFO START 2020-01-20 23:12:55 +0100 cap production deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [98d8491c] Running /usr/bin/env mkdir -p /tmp as Marjorie-ED@34.77.181.91
+ DEBUG [98d8491c] Command: /usr/bin/env mkdir -p /tmp
+  INFO ---------------------------------------------------------------------------
+  INFO START 2020-01-20 23:13:39 +0100 cap production deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [bff72db8] Running /usr/bin/env mkdir -p /tmp as Marjorie-ED@34.77.181.91
+ DEBUG [bff72db8] Command: /usr/bin/env mkdir -p /tmp
+  INFO [cb7eee96] Running /usr/bin/env mkdir -p /tmp as deploy@example.com
+ DEBUG [cb7eee96] Command: /usr/bin/env mkdir -p /tmp
+  INFO ---------------------------------------------------------------------------
+  INFO START 2020-01-20 23:14:24 +0100 cap production deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [55fef463] Running /usr/bin/env mkdir -p /tmp as Marjorie-ED@34.77.181.91
+ DEBUG [55fef463] Command: /usr/bin/env mkdir -p /tmp
+  INFO [6b26fad0] Running /usr/bin/env mkdir -p /tmp as deploy@example.com
+ DEBUG [6b26fad0] Command: /usr/bin/env mkdir -p /tmp
+  INFO ---------------------------------------------------------------------------
+  INFO START 2020-01-20 23:14:53 +0100 cap production deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [5d604b42] Running /usr/bin/env mkdir -p /tmp as Marjorie-ED@34.77.181.91
+ DEBUG [5d604b42] Command: /usr/bin/env mkdir -p /tmp
+  INFO [5ffe67b1] Running /usr/bin/env mkdir -p /tmp as deploy@example.com
+ DEBUG [5ffe67b1] Command: /usr/bin/env mkdir -p /tmp
+  INFO ---------------------------------------------------------------------------
+  INFO START 2020-01-20 23:15:31 +0100 cap production deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [d8116bc4] Running /usr/bin/env mkdir -p /tmp as Marjorie-ED@34.77.181.91
+ DEBUG [d8116bc4] Command: /usr/bin/env mkdir -p /tmp
+  INFO ---------------------------------------------------------------------------
+  INFO START 2020-01-20 23:16:13 +0100 cap production deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [2aa570a3] Running /usr/bin/env mkdir -p /tmp as deathqt1@34.77.181.91
+ DEBUG [2aa570a3] Command: /usr/bin/env mkdir -p /tmp
+  INFO ---------------------------------------------------------------------------
+  INFO START 2020-01-20 23:16:47 +0100 cap production deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [40831f4b] Running /usr/bin/env mkdir -p /tmp as deathqt1@34.77.181.91
+ DEBUG [40831f4b] Command: /usr/bin/env mkdir -p /tmp
+  INFO ---------------------------------------------------------------------------
+  INFO START 2020-01-20 23:16:57 +0100 cap production deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [dc5236f4] Running /usr/bin/env mkdir -p /tmp as deathqt1@34.77.181.91
+ DEBUG [dc5236f4] Command: /usr/bin/env mkdir -p /tmp
+  INFO ---------------------------------------------------------------------------
+  INFO START 2020-01-20 23:17:30 +0100 cap production deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [7568bd60] Running /usr/bin/env mkdir -p /tmp as Marjorie-ED@34.77.181.91
+ DEBUG [7568bd60] Command: /usr/bin/env mkdir -p /tmp
+  INFO ---------------------------------------------------------------------------
+  INFO START 2020-01-20 23:18:42 +0100 cap production deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [7eb8de49] Running /usr/bin/env mkdir -p /tmp as Marjorie-ED@34.77.181.91
+ DEBUG [7eb8de49] Command: /usr/bin/env mkdir -p /tmp
+  INFO ---------------------------------------------------------------------------
+  INFO START 2020-01-20 23:18:54 +0100 cap production deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [2fc6e476] Running /usr/bin/env mkdir -p /tmp as Marjorie-ED@34.77.181.91
+ DEBUG [2fc6e476] Command: /usr/bin/env mkdir -p /tmp
+  INFO ---------------------------------------------------------------------------
+  INFO START 2020-01-20 23:19:03 +0100 cap production deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [a9d90c17] Running /usr/bin/env mkdir -p /tmp as Marjorie-ED@34.77.181.91
+ DEBUG [a9d90c17] Command: /usr/bin/env mkdir -p /tmp
+  INFO ---------------------------------------------------------------------------
+  INFO START 2020-01-20 23:19:23 +0100 cap production deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [96904695] Running /usr/bin/env mkdir -p /tmp as Marjorie-ED@34.77.181.91
+ DEBUG [96904695] Command: /usr/bin/env mkdir -p /tmp
+  INFO ---------------------------------------------------------------------------
+  INFO START 2020-01-20 23:20:37 +0100 cap production deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [b082c688] Running /usr/bin/env mkdir -p /tmp as Marjorie-ED@34.77.181.91
+ DEBUG [b082c688] Command: /usr/bin/env mkdir -p /tmp
+  INFO ---------------------------------------------------------------------------
+  INFO START 2020-01-20 23:23:23 +0100 cap production deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [44da7a78] Running /usr/bin/env mkdir -p /tmp as Marjorie-ED@34.77.181.91
+ DEBUG [44da7a78] Command: /usr/bin/env mkdir -p /tmp
+  INFO ---------------------------------------------------------------------------
+  INFO START 2020-01-20 23:23:36 +0100 cap production deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [ee6e9ab2] Running /usr/bin/env mkdir -p /tmp as Marjorie-ED@34.77.181.91
+ DEBUG [ee6e9ab2] Command: /usr/bin/env mkdir -p /tmp
+  INFO ---------------------------------------------------------------------------
+  INFO START 2020-01-20 23:23:43 +0100 cap production deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [9b1c9692] Running /usr/bin/env mkdir -p /tmp as Marjorie-ED@34.77.181.91
+ DEBUG [9b1c9692] Command: /usr/bin/env mkdir -p /tmp
+  INFO ---------------------------------------------------------------------------
+  INFO START 2020-01-20 23:33:15 +0100 cap production deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [10e7131a] Running /usr/bin/env mkdir -p /tmp as Marjorie-ED@34.77.181.91
+ DEBUG [10e7131a] Command: /usr/bin/env mkdir -p /tmp
+  INFO ---------------------------------------------------------------------------
+  INFO START 2020-01-20 23:34:02 +0100 cap production deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [998bac47] Running /usr/bin/env mkdir -p /tmp as Marjorie-ED@34.77.181.91
+ DEBUG [998bac47] Command: /usr/bin/env mkdir -p /tmp
+  INFO ---------------------------------------------------------------------------
+  INFO START 2020-01-20 23:34:58 +0100 cap production deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [db3386c8] Running /usr/bin/env mkdir -p /tmp as Marjorie-ED@34.77.181.91
+ DEBUG [db3386c8] Command: /usr/bin/env mkdir -p /tmp
+  INFO ---------------------------------------------------------------------------
+  INFO START 2020-01-20 23:35:19 +0100 cap production deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [ea64a02a] Running /usr/bin/env mkdir -p /tmp as Marjorie-ED@34.77.181.91
+ DEBUG [ea64a02a] Command: /usr/bin/env mkdir -p /tmp
+  INFO ---------------------------------------------------------------------------
+  INFO START 2020-01-20 23:36:05 +0100 cap production deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [6b01daaa] Running /usr/bin/env mkdir -p /tmp as Marjorie@34.77.181.91
+ DEBUG [6b01daaa] Command: /usr/bin/env mkdir -p /tmp
+  INFO ---------------------------------------------------------------------------
+  INFO START 2020-01-20 23:36:38 +0100 cap production deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [44e17a6b] Running /usr/bin/env mkdir -p /tmp as Marjorie@34.77.181.91
+ DEBUG [44e17a6b] Command: /usr/bin/env mkdir -p /tmp
+  INFO ---------------------------------------------------------------------------
+  INFO START 2020-01-20 23:37:14 +0100 cap production
+  INFO ---------------------------------------------------------------------------
+  INFO ---------------------------------------------------------------------------
+  INFO START 2020-01-20 23:37:34 +0100 cap production
+  INFO ---------------------------------------------------------------------------
+  INFO ---------------------------------------------------------------------------
+  INFO START 2020-01-20 23:39:11 +0100 cap production deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [e5dd47fc] Running /usr/bin/env mkdir -p /tmp as Marjorie@34.77.181.91
+ DEBUG [e5dd47fc] Command: /usr/bin/env mkdir -p /tmp
+  INFO ---------------------------------------------------------------------------
+  INFO START 2020-01-20 23:39:50 +0100 cap production deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [1197b3f0] Running /usr/bin/env mkdir -p /tmp as Marjorie-ED@34.77.181.91
+ DEBUG [1197b3f0] Command: /usr/bin/env mkdir -p /tmp
+  INFO ---------------------------------------------------------------------------
+  INFO START 2020-01-20 23:40:05 +0100 cap production deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [68226c2b] Running /usr/bin/env mkdir -p /tmp as Marjorie-ED@34.77.181.91
+ DEBUG [68226c2b] Command: /usr/bin/env mkdir -p /tmp
+  INFO ---------------------------------------------------------------------------
+  INFO START 2020-01-20 23:40:51 +0100 cap production deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [d5685389] Running /usr/bin/env mkdir -p /tmp as Marjorie-ED@34.77.181.91
+ DEBUG [d5685389] Command: /usr/bin/env mkdir -p /tmp
+  INFO ---------------------------------------------------------------------------
+  INFO START 2020-01-20 23:41:35 +0100 cap production deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [8edca7af] Running /usr/bin/env mkdir -p /tmp as Marjorie-ED@34.77.181.91
+ DEBUG [8edca7af] Command: /usr/bin/env mkdir -p /tmp
+  INFO ---------------------------------------------------------------------------
+  INFO START 2020-01-21 20:23:36 +0100 cap production deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [d45226ee] Running /usr/bin/env mkdir -p /tmp as Marjorie-ED@34.77.181.91
+ DEBUG [d45226ee] Command: /usr/bin/env mkdir -p /tmp
+  INFO ---------------------------------------------------------------------------
+  INFO START 2020-01-21 20:25:15 +0100 cap production whoami
+  INFO ---------------------------------------------------------------------------
+  INFO ---------------------------------------------------------------------------
+  INFO START 2020-01-21 20:25:44 +0100 cap production whoami
+  INFO ---------------------------------------------------------------------------
+  INFO ---------------------------------------------------------------------------
+  INFO START 2020-01-21 20:31:03 +0100 cap production whoami
+  INFO ---------------------------------------------------------------------------
+  INFO ---------------------------------------------------------------------------
+  INFO START 2020-01-21 20:31:09 +0100 cap production deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [81397c60] Running /usr/bin/env mkdir -p /tmp as Marjorie@34.77.181.91
+ DEBUG [81397c60] Command: /usr/bin/env mkdir -p /tmp
+  INFO ---------------------------------------------------------------------------
+  INFO START 2020-01-21 20:34:50 +0100 cap production deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [d24172c7] Running /usr/bin/env mkdir -p /tmp as Marjorie@34.77.181.91
+ DEBUG [d24172c7] Command: /usr/bin/env mkdir -p /tmp
+  INFO ---------------------------------------------------------------------------
+  INFO START 2020-01-21 20:35:44 +0100 cap production deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [837a7713] Running /usr/bin/env mkdir -p /tmp as Marjorie@34.77.181.91
+ DEBUG [837a7713] Command: /usr/bin/env mkdir -p /tmp
+  INFO ---------------------------------------------------------------------------
+  INFO START 2020-01-21 20:36:59 +0100 cap production deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [c5495f7e] Running /usr/bin/env mkdir -p /tmp as Marjorie@34.77.181.91
+ DEBUG [c5495f7e] Command: /usr/bin/env mkdir -p /tmp
+  INFO ---------------------------------------------------------------------------
+  INFO START 2020-01-21 20:38:01 +0100 cap production deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [8f33af59] Running /usr/bin/env mkdir -p /tmp as Marjorie@34.77.181.91
+ DEBUG [8f33af59] Command: /usr/bin/env mkdir -p /tmp
+  INFO ---------------------------------------------------------------------------
+  INFO START 2020-01-21 20:38:28 +0100 cap production deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [94aa1bdb] Running /usr/bin/env mkdir -p /tmp as Marjorie@34.77.181.91
+ DEBUG [94aa1bdb] Command: /usr/bin/env mkdir -p /tmp
+  INFO ---------------------------------------------------------------------------
+  INFO START 2020-01-21 20:45:02 +0100 cap production deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [fee2ec32] Running /usr/bin/env mkdir -p /tmp as Marjorie@34.77.181.91
+ DEBUG [fee2ec32] Command: /usr/bin/env mkdir -p /tmp
+  INFO ---------------------------------------------------------------------------
+  INFO START 2020-01-21 20:45:29 +0100 cap production deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [54967698] Running /usr/bin/env mkdir -p /tmp as Marjorie@http
+ DEBUG [54967698] Command: /usr/bin/env mkdir -p /tmp
+  INFO ---------------------------------------------------------------------------
+  INFO START 2020-01-21 20:45:52 +0100 cap production deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [7b962738] Running /usr/bin/env mkdir -p /tmp as Marjorie@34.77.181.91
+ DEBUG [7b962738] Command: /usr/bin/env mkdir -p /tmp
+  INFO ---------------------------------------------------------------------------
+  INFO START 2020-01-21 20:46:24 +0100 cap production deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [cd6b8cb6] Running /usr/bin/env mkdir -p /tmp as Marjorie@34.77.181.91
+ DEBUG [cd6b8cb6] Command: /usr/bin/env mkdir -p /tmp
+  INFO ---------------------------------------------------------------------------
+  INFO START 2020-01-21 20:47:27 +0100 cap production deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [688ba263] Running /usr/bin/env mkdir -p /tmp as deathqt1@34.77.181.91
+ DEBUG [688ba263] Command: /usr/bin/env mkdir -p /tmp
+  INFO ---------------------------------------------------------------------------
+  INFO START 2020-01-21 20:47:52 +0100 cap production deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [d03d4c38] Running /usr/bin/env mkdir -p /tmp as deathqt1@34.77.181.91
+ DEBUG [d03d4c38] Command: /usr/bin/env mkdir -p /tmp
+  INFO ---------------------------------------------------------------------------
+  INFO START 2020-01-21 20:48:41 +0100 cap production deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [833115a0] Running /usr/bin/env mkdir -p /tmp as deathqt1@34.77.181.91
+ DEBUG [833115a0] Command: /usr/bin/env mkdir -p /tmp
+  INFO ---------------------------------------------------------------------------
+  INFO START 2020-01-21 20:52:59 +0100 cap production deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [fa64eccf] Running /usr/bin/env mkdir -p /tmp as deathqt1@34.77.181.91
+ DEBUG [fa64eccf] Command: /usr/bin/env mkdir -p /tmp
+  INFO ---------------------------------------------------------------------------
+  INFO START 2020-01-21 20:59:45 +0100 cap production deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [b6a6b233] Running /usr/bin/env mkdir -p /tmp as deathqt1@34.77.181.91
+ DEBUG [b6a6b233] Command: ( export WP_ENV="production" ; /usr/bin/env mkdir -p /tmp )
+  INFO ---------------------------------------------------------------------------
+  INFO START 2020-01-21 21:00:26 +0100 cap production deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [9da3df28] Running /usr/bin/env mkdir -p /tmp as deathqt1@34.77.181.91
+ DEBUG [9da3df28] Command: ( export WP_ENV="production" ; /usr/bin/env mkdir -p /tmp )
+  INFO ---------------------------------------------------------------------------
+  INFO START 2020-01-21 21:22:40 +0100 cap production deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [c9b9343e] Running /usr/bin/env mkdir -p /tmp as deployer-agent@34.77.181.91
+ DEBUG [c9b9343e] Command: ( export WP_ENV="production" ; /usr/bin/env mkdir -p /tmp )
+  INFO ---------------------------------------------------------------------------
+  INFO START 2020-01-21 21:23:45 +0100 cap production deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [d0a64ae5] Running /usr/bin/env mkdir -p /tmp as deployer-agent@34.77.181.91
+ DEBUG [d0a64ae5] Command: ( export WP_ENV="production" ; /usr/bin/env mkdir -p /tmp )
+  INFO ---------------------------------------------------------------------------
+  INFO START 2020-01-21 21:26:04 +0100 cap production deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [a5518bad] Running /usr/bin/env mkdir -p /tmp as deployer-agent@34.77.181.91
+ DEBUG [a5518bad] Command: ( export WP_ENV="production" ; /usr/bin/env mkdir -p /tmp )
+  INFO [a5518bad] Finished in 2.522 seconds with exit status 0 (successful).
+ DEBUG Uploading /tmp/git-ssh-popweb2-production-Marjorie.sh 0.0%
+  INFO Uploading /tmp/git-ssh-popweb2-production-Marjorie.sh 100.0%
+  INFO [204351e2] Running /usr/bin/env chmod 700 /tmp/git-ssh-popweb2-production-Marjorie.sh as deployer-agent@34.77.181.91
+ DEBUG [204351e2] Command: ( export WP_ENV="production" ; /usr/bin/env chmod 700 /tmp/git-ssh-popweb2-production-Marjorie.sh )
+  INFO [204351e2] Finished in 0.182 seconds with exit status 0 (successful).
+  INFO [de6e8b9e] Running /usr/bin/env git ls-remote git@github.com:LadghemSaid/popweb.git HEAD as deployer-agent@34.77.181.91
+ DEBUG [de6e8b9e] Command: ( export WP_ENV="production" GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-popweb2-production-Marjorie.sh" ; /usr/bin/env git ls-remote git@github.com:LadghemSaid/popweb.git HEAD )
+ DEBUG [de6e8b9e] 	Warning: Permanently added 'github.com,140.82.118.3' (RSA) to the list of known hosts.
+ DEBUG [de6e8b9e] 	
+ DEBUG [de6e8b9e] 	git@github.com: Permission denied (publickey).
+ DEBUG [de6e8b9e] 	
+ DEBUG [de6e8b9e] 	fatal: Could not read from remote repository.
+ DEBUG [de6e8b9e] 	
+ DEBUG [de6e8b9e] 	
+ DEBUG [de6e8b9e] 	Please make sure you have the correct access rights
+ DEBUG [de6e8b9e] 	
+ DEBUG [de6e8b9e] 	and the repository exists.
+  INFO ---------------------------------------------------------------------------
+  INFO START 2020-01-21 21:28:38 +0100 cap production deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [1554733e] Running /usr/bin/env mkdir -p /tmp as deployer-agent@34.77.181.91
+ DEBUG [1554733e] Command: ( export WP_ENV="production" ; /usr/bin/env mkdir -p /tmp )
+  INFO [1554733e] Finished in 1.602 seconds with exit status 0 (successful).
+ DEBUG Uploading /tmp/git-ssh-popweb2-production-Marjorie.sh 0.0%
+  INFO Uploading /tmp/git-ssh-popweb2-production-Marjorie.sh 100.0%
+  INFO [768ec397] Running /usr/bin/env chmod 700 /tmp/git-ssh-popweb2-production-Marjorie.sh as deployer-agent@34.77.181.91
+ DEBUG [768ec397] Command: ( export WP_ENV="production" ; /usr/bin/env chmod 700 /tmp/git-ssh-popweb2-production-Marjorie.sh )
+  INFO [768ec397] Finished in 0.243 seconds with exit status 0 (successful).
+  INFO [8d7b6b74] Running /usr/bin/env git ls-remote git@github.com:LadghemSaid/popweb.git HEAD as deployer-agent@34.77.181.91
+ DEBUG [8d7b6b74] Command: ( export WP_ENV="production" GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-popweb2-production-Marjorie.sh" ; /usr/bin/env git ls-remote git@github.com:LadghemSaid/popweb.git HEAD )
+ DEBUG [8d7b6b74] 	Warning: Permanently added the RSA host key for IP address '140.82.114.3' to the list of known hosts.
+ DEBUG [8d7b6b74] 	
+ DEBUG [8d7b6b74] 	git@github.com: Permission denied (publickey).
+ DEBUG [8d7b6b74] 	
+ DEBUG [8d7b6b74] 	fatal: Could not read from remote repository.
+ DEBUG [8d7b6b74] 	
+ DEBUG [8d7b6b74] 	
+ DEBUG [8d7b6b74] 	Please make sure you have the correct access rights
+ DEBUG [8d7b6b74] 	
+ DEBUG [8d7b6b74] 	and the repository exists.
+  INFO ---------------------------------------------------------------------------
+  INFO START 2020-01-21 21:31:28 +0100 cap production deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [5947a1e1] Running /usr/bin/env mkdir -p /tmp as deployer-agent@34.77.181.91
+ DEBUG [5947a1e1] Command: ( export WP_ENV="production" ; /usr/bin/env mkdir -p /tmp )
+  INFO [5947a1e1] Finished in 1.217 seconds with exit status 0 (successful).
+ DEBUG Uploading /tmp/git-ssh-popweb2-production-Marjorie.sh 0.0%
+  INFO Uploading /tmp/git-ssh-popweb2-production-Marjorie.sh 100.0%
+  INFO [f94d5052] Running /usr/bin/env chmod 700 /tmp/git-ssh-popweb2-production-Marjorie.sh as deployer-agent@34.77.181.91
+ DEBUG [f94d5052] Command: ( export WP_ENV="production" ; /usr/bin/env chmod 700 /tmp/git-ssh-popweb2-production-Marjorie.sh )
+  INFO [f94d5052] Finished in 0.183 seconds with exit status 0 (successful).
+  INFO [41db7bb7] Running /usr/bin/env git ls-remote git@github.com:LadghemSaid/popweb.git HEAD as deployer-agent@34.77.181.91
+ DEBUG [41db7bb7] Command: ( export WP_ENV="production" GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-popweb2-production-Marjorie.sh" ; /usr/bin/env git ls-remote git@github.com:LadghemSaid/popweb.git HEAD )
+ DEBUG [41db7bb7] 	Warning: Permanently added the RSA host key for IP address '140.82.118.4' to the list of known hosts.
+ DEBUG [41db7bb7] 	
+ DEBUG [41db7bb7] 	git@github.com: Permission denied (publickey).
+ DEBUG [41db7bb7] 	
+ DEBUG [41db7bb7] 	fatal: Could not read from remote repository.
+ DEBUG [41db7bb7] 	
+ DEBUG [41db7bb7] 	
+ DEBUG [41db7bb7] 	Please make sure you have the correct access rights
+ DEBUG [41db7bb7] 	
+ DEBUG [41db7bb7] 	and the repository exists.
+  INFO ---------------------------------------------------------------------------
+  INFO START 2020-01-21 21:31:39 +0100 cap production deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [5e1107e1] Running /usr/bin/env mkdir -p /tmp as deployer-agent@34.77.181.91
+ DEBUG [5e1107e1] Command: ( export WP_ENV="production" ; /usr/bin/env mkdir -p /tmp )
+  INFO [5e1107e1] Finished in 1.235 seconds with exit status 0 (successful).
+ DEBUG Uploading /tmp/git-ssh-popweb2-production-Marjorie.sh 0.0%
+  INFO Uploading /tmp/git-ssh-popweb2-production-Marjorie.sh 100.0%
+  INFO [aef1b5b8] Running /usr/bin/env chmod 700 /tmp/git-ssh-popweb2-production-Marjorie.sh as deployer-agent@34.77.181.91
+ DEBUG [aef1b5b8] Command: ( export WP_ENV="production" ; /usr/bin/env chmod 700 /tmp/git-ssh-popweb2-production-Marjorie.sh )
+  INFO [aef1b5b8] Finished in 0.170 seconds with exit status 0 (successful).
+  INFO [71f7c080] Running /usr/bin/env git ls-remote git@github.com:LadghemSaid/popweb.git HEAD as deployer-agent@34.77.181.91
+ DEBUG [71f7c080] Command: ( export WP_ENV="production" GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-popweb2-production-Marjorie.sh" ; /usr/bin/env git ls-remote git@github.com:LadghemSaid/popweb.git HEAD )
+ DEBUG [71f7c080] 	git@github.com: Permission denied (publickey).
+ DEBUG [71f7c080] 	
+ DEBUG [71f7c080] 	fatal: Could not read from remote repository.
+ DEBUG [71f7c080] 	
+ DEBUG [71f7c080] 	
+ DEBUG [71f7c080] 	Please make sure you have the correct access rights
+ DEBUG [71f7c080] 	
+ DEBUG [71f7c080] 	and the repository exists.
+ DEBUG [71f7c080] 	
+  INFO ---------------------------------------------------------------------------
+  INFO START 2020-01-21 21:51:25 +0100 cap production deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [4547c140] Running /usr/bin/env mkdir -p /tmp as deployer-agent@34.77.181.91
+ DEBUG [4547c140] Command: ( export WP_ENV="production" ; /usr/bin/env mkdir -p /tmp )
+  INFO [4547c140] Finished in 1.598 seconds with exit status 0 (successful).
+ DEBUG Uploading /tmp/git-ssh-popweb2-production-Marjorie.sh 0.0%
+  INFO Uploading /tmp/git-ssh-popweb2-production-Marjorie.sh 100.0%
+  INFO [fa310e73] Running /usr/bin/env chmod 700 /tmp/git-ssh-popweb2-production-Marjorie.sh as deployer-agent@34.77.181.91
+ DEBUG [fa310e73] Command: ( export WP_ENV="production" ; /usr/bin/env chmod 700 /tmp/git-ssh-popweb2-production-Marjorie.sh )
+  INFO [fa310e73] Finished in 0.170 seconds with exit status 0 (successful).
+  INFO [6c479798] Running /usr/bin/env git ls-remote git@github.com:LadghemSaid/popweb.git HEAD as deployer-agent@34.77.181.91
+ DEBUG [6c479798] Command: ( export WP_ENV="production" GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-popweb2-production-Marjorie.sh" ; /usr/bin/env git ls-remote git@github.com:LadghemSaid/popweb.git HEAD )
+ DEBUG [6c479798] 	git@github.com: Permission denied (publickey).
+ DEBUG [6c479798] 	
+ DEBUG [6c479798] 	fatal: Could not read from remote repository.
+ DEBUG [6c479798] 	
+ DEBUG [6c479798] 	
+ DEBUG [6c479798] 	Please make sure you have the correct access rights
+and the repository exists.
