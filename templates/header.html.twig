@@ -5,25 +5,27 @@
         <a href="{{ path("index") }}"><img src="{{ asset("img/logo.svg") }}" alt="Agence Pop Web logo"/></a>
         <div id="menu-du-header">
 
-            <a class="nav-link" href="{{path('project.index')}}">Projet <span class="sr-only">(current)</span></a>
             <a class="nav-link" href="{{path('articles.index')}}">Articles <span class="sr-only">(current)</span></a>
-            <a href="{{path('about')}}">À propos</a>
             <a href="{{path('job.index')}}">Recrutement</a>
+            <a href="{{path('about')}}">À propos</a>
             <a href="{{path('index')}}#quatrieme-segment">Contactez-nous</a>
             {% if app.user %}
 
                 <a class=" {% if current_menu is defined and current_menu == 'logout' %}active{% endif %}" href="{{ path('app_logout') }}">Se déconnecter</a>
 
-                <a class=" " href="/admin">Admin</a>
+                {% if app.environment == "dev" %}
+                <a class=" " href="admin">Admin</a>
+{% endif %}
 
+                {% if app.environment == "prod" %}
+                    <a class=" " href="/popweb/admin">Admin</a>
+                {% endif %}
 
             {% else %}
-
-                <a class=" {% if current_menu is defined and current_menu == 'login' %}active{% endif %}" href="{{ path('app_login') }}">Se connecter</a>
-
-
-                <a class=" {% if current_menu is defined and current_menu == 'register' %}active{% endif %}" href="{{ path('app_register') }}">S'inscrire</a>
-
+                {#
+               <a class=" {% if current_menu is defined and current_menu == 'login' %}active{% endif %}" href="{{ path('app_login') }}">Se connecter</a>
+               <a class=" {% if current_menu is defined and current_menu == 'register' %}active{% endif %}" href="{{ path('app_register') }}">S'inscrire</a>
+                   #}
             {%  endif  %}
 
 

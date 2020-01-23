@@ -59,31 +59,13 @@
                                  src="{{ asset("img/low_res.jpg") }}"
                                  data-src="{{ app_path_projects_images }}{{ project.image }}"
                                  alt="AlternateText"
-                              />
+                            />
                             <h4>{{ project.title }} </h4>
                         </a>
                     {% endfor %}
-
                 </div>
                 <div class="hidden">
                     {% for project in projects %}
-                    <a href="https://www.noiseless-rock.fr/" target="_blank"  class="card">
-                        <img src="{{ asset("pho/noiseless.svg") }}" alt="noiseless projet"/>
-                        <h4>Noiseless </h4>
-                    </a>
-                    {% endfor %}
-                    <a href="https://www.noiseless-rock.fr/" target="_blank"  class="card">
-                        <img src="{{ asset("pho/noiseless.svg") }}" alt="noiseless projet"/>
-                        <h4>Noiseless </h4>
-                    </a>
-                    <a href="http://www.musikin.ovh" target="_blank" class="card">
-                        <img src="{{ asset("pho/musikin.svg") }}" alt="muskikin projet"/>
-                        <h4>Musik'in </h4>
-                    </a>
-                    <a href="#" class="card">
-                        <img src="{{ asset("pho/none.svg") }}" alt="autre projet">
-                        <h4>Ne </h4>
-                    </a>
                         <a href="{{ path('project.show', {'slug':project.slug} ) }}" target="_blank" class="card">
                             <img class="d-block w-100 lazyload "
                                  src="{{ asset("img/low_res.jpg") }}"
@@ -108,9 +90,6 @@
             {{ form_row(formContact.fullName , {'attr': {'class': '','placeholder':"Votre nom" }, 'label': 'Votre nom' }) }}
             {{ form_row(formContact.fromEmail , {'attr': {'class': '','placeholder':"Votre email" }, 'label': 'Votre email'}) }}
             {{ form_row(formContact.message , {'attr': {'class': '','placeholder':"Votre message ..." }, 'label': 'Message','placeholder':"Votre message ..."}) }}
-
-
-
             {{ form_end(formContact) }}
 
         </div>
@@ -119,18 +98,18 @@
 {% endblock %}
 
 {% block javascripts %}
-    <script  type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
     <script>
-        function unhide(e){
+        function unhide(e) {
             e.preventDefault();
-            if( e.target.classList.contains('active')){
-                $('.hidden')[0].style.maxHeight  = '0px';
+            if (e.target.classList.contains('active')) {
+                $('.hidden')[0].style.maxHeight = '0px';
                 e.target.innerText = 'VOIR PLUS';
                 e.target.classList.toggle('fa-chevron-down');
                 e.target.classList.toggle('fa-chevron-up');
                 e.target.classList.toggle('active');
-            }else{
-                $('.hidden')[0].style.maxHeight  = '2500px';
+            } else {
+                $('.hidden')[0].style.maxHeight = '2500px';
                 e.target.innerText = 'VOIR MOINS';
                 e.target.classList.toggle('fa-chevron-down');
                 e.target.classList.toggle('fa-chevron-up');
@@ -138,6 +117,7 @@
             }
 
         }
+
         $('.liste').slick({
             dots: true,
             infinite: true,
