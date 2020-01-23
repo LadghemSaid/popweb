@@ -1,36 +1,39 @@
 {% if allowComment %}
-    {% if app.user %}
-        {{ form_start(formComment,{'attr': {'class': 'commentForm'}}) }}
-        {{ form_row(formComment.textComment,{'attr': {'class': 'commentForm__textarea'}}) }}
-        {{ form_row(formComment.submit,{'attr': {'class': 'commentForm__submit'}}) }}
-        {{ form_end(formComment) }}
-    {% endif %}
+    {{ form_start(formComment,{'attr': {'class': 'commentForm'}}) }}
+    {{ form_row(formComment.email)}}
+    {{ form_row(formComment.username)}}
+    {{ form_row(formComment.textComment,{'attr': {'class': 'commentForm__textarea'}}) }}
+    {{ form_row(formComment.submit,{'attr': {'class': 'commentForm__submit'}}) }}
+    {{ form_end(formComment) }}
+
 
     <section class="comments">
         {% for comment in comments %}
 
             <article class="comment" id="commentId-{{ comment.id }}">
                 <a class="comment__img" href="#non">
-                    <img src="https://api.adorable.io/avatars/50/{{ comment.user.username }}@adorable.io.png" alt=""
+                    <img src="https://api.adorable.io/avatars/50/{{ comment.id }}@adorable.io.png" alt=""
                          width="50" height="50">
                 </a>
                 <div class="comment__body">
 
                     <div class="comment__header">
 
-                        <a href="#non" class="comment__author">{{ comment.user.username }}</a>
+                        <a href="#non" class="comment__author">{{ comment.username }}</a>
                         <span class="comment__createdat">{{ comment.createdAt| ago }}</span>
-                        {% if comment.user == app.user %}
+                        {% if comment.username == app.user %}
                             <ul class="comment__actions">
                                 <li class="comment__edit"><a id="{{ comment.id }}" href="#" onclick="edit(event)"
-                                                             class="btn btn-primary btn-sm"><i class="fa fa-cog"></i></a>
+                                                             class="btn btn-primary btn-sm"><i
+                                                class="fa fa-cog"></i></a>
                                 </li>
                                 <li class="comment__edit--validate"><a id="{{ comment.id }}" href="#"
                                                                        onclick="submitEditComment(event)"
                                                                        class="btn btn-primary btn-sm"><i
                                                 class="fas fa-check"></i></a></li>
-                                <li class="comment__delete"><a href="{{ path('delete.comment',{'comment' : comment.id}) }}"
-                                                               class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></a>
+                                <li class="comment__delete"><a
+                                            href="{{ path('delete.comment',{'comment' : comment.id}) }}"
+                                            class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></a>
                                 </li>
                             </ul>
                         {% endif %}
@@ -44,50 +47,49 @@
             </article>
         {% endfor %}
     </section>
-
     {% block javascripts %}
-    <script>
-        function edit(e) {
+        <script>
+            function edit(e) {
 
-            e.preventDefault();
+                e.preventDefault();
 
-            let btnEdit = e.currentTarget;
-            let btnSubmit = e.currentTarget.parentElement.nextElementSibling.firstChild;
-            let commentElem = document.getElementById("commentId-" + btnEdit.attributes[0].value).childNodes[3].childNodes[3];
-            //console.log(btnEdit);
+                let btnEdit = e.currentTarget;
+                let btnSubmit = e.currentTarget.parentElement.nextElementSibling.firstChild;
+                let commentElem = document.getElementById("commentId-" + btnEdit.attributes[0].value).childNodes[3].childNodes[3];
+                //console.log(btnEdit);
 
 
-            commentElem.innerHTML = "<form id='editFormCommentId-" + btnEdit.attributes[0].value + "' action='/comment/edit/" + btnEdit.attributes[0].value + "' method='post'><textarea name='comment[textComment]' class='edit_input' />" + commentElem.innerText + "</textarea></form>";
+                commentElem.innerHTML = "<form id='editFormCommentId-" + btnEdit.attributes[0].value + "' action='/comment/edit/" + btnEdit.attributes[0].value + "' method='post'><textarea name='comment[textComment]' class='edit_input' />" + commentElem.innerText + "</textarea></form>";
 
-            btnSubmit.style.display = "block";
-            btnEdit.style.display = "none";
-        }
+                btnSubmit.style.display = "block";
+                btnEdit.style.display = "none";
+            }
 
-        function submitEditComment(e) {
-            e.preventDefault();
+            function submitEditComment(e) {
+                e.preventDefault();
 
-            let btnSubmit = e.currentTarget;
-            let btnEdit = e.currentTarget.parentElement.previousElementSibling.firstChild;
-            let commentElem = document.getElementById("commentId-" + btnEdit.attributes[0].value).childNodes[3].childNodes[3].firstChild;
-            // document.getElementById("editFormCommentId-"+btnEdit.attributes[0].value).submit();
-            //Form submision
-            let form = document.getElementById("editFormCommentId-" + btnEdit.attributes[0].value);
-            //console.log( document.getElementById("editFormCommentId-"+btnEdit.attributes[0].value).innerText);
-            console.log(form.firstChild.value);
-            $.ajax({
-                type: 'POST',
-                url: form.attributes[1].value,
-                data: $('form').serialize(),
-                success: function (response) {
-                    // console.log(response)
-                },
-            });
-            commentElem.innerHTML = "<p>" + form.firstChild.value + "</p>"
-            btnSubmit.style.display = "none";
-            btnEdit.style.display = "block";
-        }
+                let btnSubmit = e.currentTarget;
+                let btnEdit = e.currentTarget.parentElement.previousElementSibling.firstChild;
+                let commentElem = document.getElementById("commentId-" + btnEdit.attributes[0].value).childNodes[3].childNodes[3].firstChild;
+                // document.getElementById("editFormCommentId-"+btnEdit.attributes[0].value).submit();
+                //Form submision
+                let form = document.getElementById("editFormCommentId-" + btnEdit.attributes[0].value);
+                //console.log( document.getElementById("editFormCommentId-"+btnEdit.attributes[0].value).innerText);
+                console.log(form.firstChild.value);
+                $.ajax({
+                    type: 'POST',
+                    url: form.attributes[1].value,
+                    data: $('form').serialize(),
+                    success: function (response) {
+                        // console.log(response)
+                    },
+                });
+                commentElem.innerHTML = "<p>" + form.firstChild.value + "</p>"
+                btnSubmit.style.display = "none";
+                btnEdit.style.display = "block";
+            }
 
-    </script>
+        </script>
     {% endblock %}
-
 {% endif %}
+

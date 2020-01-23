@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    {{ article.title }}
+{% endblock %}
+
+{% block body %}
+
+    {% for message in app.flashes('success') %}
+        <div class="alert alert-success">
+            {{ message }}
+        </div>
+    {% endfor %}
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-10">
+                <img class="d-block w-100 lazyload "
+                     src="{{ asset("img/low_res.jpg") }}"
+                     data-src="{{ app_path_articles_images }}{{ article.image }}"
+                     alt="AlternateText"
+                     height="290px"/>
+                <div class="cadre margin-top--22">
+                    <h1>{{ article.title }}</h1>
+
+                    <p>{{ article.text | raw }}</p>
+                    {{ article.updatedAt | date('d/m/Y H:i', timezone='Europe/Paris') }}
+
+                </div>
+            </div>
+        </div>
+
+        {% include '/comment/comment.html.twig' %}
+
+    </div>
+
+{% endblock %}
+
+
+

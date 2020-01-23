@@ -18,7 +18,7 @@ set :repo_url, "git@github.com:LadghemSaid/popweb.git"
 # set :format_options, command_output: true, log_file: "log/capistrano.log", color: :auto, truncate: :auto
 
 # Default value for :pty is false
-# set :pty, true
+ set :pty, true
 
 # Default value for :linked_files is []
 # append :linked_files, "config/database.yml"
@@ -36,4 +36,4 @@ set :repo_url, "git@github.com:LadghemSaid/popweb.git"
 # set :keep_releases, 5
 
 # Uncomment the following to require manually verifying the host key before first deploy.
-# set :ssh_options, verify_host_key: :secure
+ set :ssh_options, verify_host_key: :secure

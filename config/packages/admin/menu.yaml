@@ -13,6 +13,7 @@ easy_admin:
         icon: 'newspaper-o'
         children:
           - {entity: 'Project', icon: 'code', label: 'Projets'}
+          - {entity: 'Article', icon: 'code', label: 'Articles'}
           - {entity: 'Job', icon: 'bullhorn', label: 'Recrutements'}
           - {entity: 'Comment', icon: 'comment', label: 'Commentaires'}
 

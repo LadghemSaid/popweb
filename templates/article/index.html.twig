@@ -1,0 +1,49 @@
+{% extends '/base.html.twig' %}
+
+{% block title %}
+    Articles
+{% endblock %}
+
+{% block style_custom %}
+
+    <style>
+
+    </style>
+{% endblock %}
+{% block body %}
+    <div class="container">
+        <div class="jumbotron">
+            <h1>Nous parlons de :</h1>
+        </div>
+        <div class="job-container">
+
+            {% for article in articles %}
+
+
+                <a href="{{ path('article.show',{'slug':article.slug}) }}" class="article-item">
+                    <img class="d-block lazyload "
+                         src="{{ asset("img/low_res.jpg") }}"
+                         data-src="{{ app_path_articles_images }}{{ article.image }}"
+                         alt="AlternateText"
+                    />
+                    <h2>
+                        {{ article.title }}
+                    </h2>
+                </a>
+
+
+            {% endfor %}
+        </div>
+
+    </div>
+
+
+{% endblock %}
+
+
+  {% block javascripts %}
+      <script>
+
+
+      </script>
+  {% endblock %}

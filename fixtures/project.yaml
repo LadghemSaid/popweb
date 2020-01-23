@@ -46,20 +46,43 @@ App\Entity\Project:
     favorite: <boolean(50)>
     updatedAt: <dateTime()>
 
+App\Entity\Article:
+  article_{1..10}:
+    title: <fr_FR:catchPhrase()> <current()>
+    image: 'img2.jpg'
+    text: <fr_FR:text(200)>
+    tags: '3x @tag*'
+    published: 'true'
+    allowComment: ['allowComment','']
+    slug: <fr_FR:slug()>
+    favorite: <boolean(50)>
+    updatedAt: <dateTime()>
+
 App\Entity\Comment:
   comment_{1..30}:
     text_comment: <fr_FR:text(100)>
     createdAt: <dateTime()>
     approved: <boolean(50)>
-    user: '@user_1'
+    email: <email()>
+    username: <username()>
     project:  '@project_*'
 
   comment_{30..60}:
     text_comment: <fr_FR:text(100)>
     createdAt: <dateTime()>
     approved: <boolean(50)>
-    user: '@user_1'
+    email: <email()>
+    username: <username()>
     job: '@job_*'
+
+  comment_{60..90}:
+    text_comment: <fr_FR:text(100)>
+    createdAt: <dateTime()>
+    approved: <boolean(50)>
+    email: <email()>
+    username: <username()>
+    article: '@article_*'
+
 
 
 
