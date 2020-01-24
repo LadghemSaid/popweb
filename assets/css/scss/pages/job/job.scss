@@ -1,18 +1,19 @@
-.job-container{
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-row-gap: 40px;
-  margin-bottom: 40px;
-}
-.job-item{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  &:hover{
-    color: $red;
-  }
-  img{
-    width: 200px;
-    height: auto;
-  }
-}
+// .job-container{
+//   display: grid;
+//   grid-template-columns: 1fr 1fr;
+//   grid-row-gap: 40px;
+//   margin-bottom: 40px;
+// }
+// .article-item{
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+//   &:hover{
+//     color: $red;
+//   }
+//   img{
+//     width: 200px;
+//     height: 200px;
+//     object-fit: cover;
+//   }
+// }
