@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="container" >
+
+        <div class="notFound">
+            <img class="notFound__svg404" src="{{ asset("img/404.svg") }}" alt="">
+            <p class="notFound__p">Désolé, ce n'est pas dans nos petits papiers</p>
+        </div>
+
+    </div>
+
+{% endblock %}
+{% block javascripts %}
+    <script>
+        $(document).ready(function () {
+            //js pour la 404
+            var pageX = $(document).width();
+            var pageY = $(document).height();
+            var mouseY = 0;
+            var mouseX = 0;
+
+            $(document).mousemove(function (event) {
+                //verticalAxis
+                mouseY = event.pageY;
+                yAxis = (pageY / 2 - mouseY) / pageY * 300;
+                //horizontalAxis
+                mouseX = event.pageX / -pageX;
+                xAxis = -mouseX * 100 - 100;
+
+                $('.box__ghost-eyes').css({'transform': 'translate(' + xAxis + '%,-' + yAxis + '%)'});
+
+                //console.log('X: ' + xAxis);
+
+            });
+        })
+
+    </script>
+{% endblock %}

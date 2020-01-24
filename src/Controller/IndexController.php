@@ -60,7 +60,14 @@ class IndexController extends AbstractController
         ]);
     }
 
-
+    /**
+     * @Route("/service", name="service.index")
+     */
+    public function showService()
+    {
+        return $this->render('/service/index.html.twig', [
+        ]);
+    }
 
 
     /**

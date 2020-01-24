@@ -1,0 +1,17 @@
+.notFound{
+  height: 100vh;
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  &__svg404{
+  width: 500px;
+  }
+  &__p{
+    color: $red;
+    font-weight: bold;
+    font-size: 4rem;
+    top: 0;
+  }
+}
