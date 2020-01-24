@@ -94,7 +94,7 @@ header img {
   margin-right: 13px;
 }
 /* soulignage effect */
-.menu-du-header a:after {
+#menu-du-header a:after {
   position: relative;
   content: " ";
   display: block;
@@ -102,12 +102,13 @@ header img {
   top: 4px;
   width: 0px;
   height: 2px;
-  background: #fff;
+  border-bottom: 3px $red solid;
   transition: all 0.3s ease;
 }
-.menu-du-header a:hover:after {
+#menu-du-header a:hover:after {
   width: 100%;
 }
+
 /* soulignage effet (fin) */
 .margium {
   display: block;
@@ -273,9 +274,7 @@ footer {
 picture img {
   width: 100%;
 }
-#menu-du-header a {
-  border-bottom: 3px $red solid;
-}
+
 #foot {
   display: flex;
   flex-direction: row;

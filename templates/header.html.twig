@@ -5,9 +5,11 @@
         <a href="{{ path("index") }}"><img src="{{ asset("img/logo.svg") }}" alt="Agence Pop Web logo"/></a>
         <div id="menu-du-header">
 
-            <a class="nav-link" href="{{path('articles.index')}}">Articles <span class="sr-only">(current)</span></a>
+            <a href="{{path('about')}}">Agence</a>
+            <a class="nav-link" href="{{path('service.index')}}">Services <span class="sr-only">(current)</span></a>
+            <a class="nav-link" href="{{path('index')}}#troisieme-segment">Réalisations <span class="sr-only">(current)</span></a>
+            <a class="nav-link" href="{{path('articles.index')}}">Blog <span class="sr-only">(current)</span></a>
             <a href="{{path('job.index')}}">Recrutement</a>
-            <a href="{{path('about')}}">À propos</a>
             <a href="{{path('index')}}#quatrieme-segment">Contactez-nous</a>
             {% if app.user %}
 
@@ -15,7 +17,7 @@
 
                 {% if app.environment == "dev" %}
                 <a class=" " href="admin">Admin</a>
-{% endif %}
+                {% endif %}
 
                 {% if app.environment == "prod" %}
                     <a class=" " href="/popweb/admin">Admin</a>
