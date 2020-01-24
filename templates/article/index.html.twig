@@ -1,7 +1,7 @@
 {% extends '/base.html.twig' %}
 
 {% block title %}
-    Articles
+    Blog
 {% endblock %}
 
 {% block style_custom %}
@@ -15,21 +15,27 @@
         <div class="jumbotron">
             <h1>Nous parlons de :</h1>
         </div>
-        <div class="job-container">
+        <div class="row">
 
             {% for article in articles %}
 
+                <div class="col-sm-4 article-item">
+                    <a href="{{ path('article.show',{'slug':article.slug}) }}">
+                        <img class="d-block lazyload "
+                            src="{{ asset("img/low_res.jpg") }}"
+                            data-src="{{ app_path_articles_images }}{{ article.image }}"
+                            alt="AlternateText"
+                        />
+                    </a>
 
-                <a href="{{ path('article.show',{'slug':article.slug}) }}" class="article-item">
-                    <img class="d-block lazyload "
-                         src="{{ asset("img/low_res.jpg") }}"
-                         data-src="{{ app_path_articles_images }}{{ article.image }}"
-                         alt="AlternateText"
-                    />
-                    <h2>
-                        {{ article.title }}
-                    </h2>
-                </a>
+                    <a href="{{ path('article.show',{'slug':article.slug}) }}">
+                    <h2> {{ article.title }} </h2>
+                    </a>
+                    <p class="p-date"> Jan 18, 2019 </p>
+                    <p class="p-description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus eligendi nobis ea maiores sapiente veritatis reprehenderit suscipit quaerat rerum voluptatibus a eius.</p>
+                    <a href="{{ path('article.show',{'slug':article.slug}) }}" class="more">Voir plus</a>
+                </div>
+                
 
 
             {% endfor %}
