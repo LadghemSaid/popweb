@@ -1,9 +1,12 @@
 {% if allowComment %}
     {{ form_start(formComment,{'attr': {'class': 'commentForm'}}) }}
-    {{ form_row(formComment.email)}}
-    {{ form_row(formComment.username)}}
-    {{ form_row(formComment.textComment,{'attr': {'class': 'commentForm__textarea'}}) }}
-    {{ form_row(formComment.submit,{'attr': {'class': 'commentForm__submit'}}) }}
+    <div class="same-align">
+        {{ form_row(formComment.email, {'label': 'Email'})}}
+        {{ form_row(formComment.username , {'label': 'Pseudo'})}}
+    </div>
+
+{{ form_row(formComment.textComment,{'attr': {'class': 'commentForm__textarea'},'label': 'Commentaire'}) }}
+    {{ form_row(formComment.submit,{'attr': {'class': 'commentForm__submit'},'label': 'Envoyer'}) }}
     {{ form_end(formComment) }}
 
 

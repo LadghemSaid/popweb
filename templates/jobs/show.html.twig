@@ -1,41 +1,48 @@
-{% extends '/base.html.twig' %}
+{% extends 'base.html.twig' %}
 
 {% block title %}
-   {{ job.title }}
+    {{ job.title }}
 {% endblock %}
 
-{% block style_custom %}
-
-    <style>
-
-    </style>
-{% endblock %}
 {% block body %}
-    <div class="container">
-        <div class="jumbotron">
-            <h1>{{ job.title }}</h1>
-        </div>
-        <div class="job-show">
-            <img class="d-block lazyload "
-                 src="{{ asset("img/low_res.jpg") }}"
-                 data-src="{{ app_path_jobs_images }}{{ job.image }}"
-                 alt="AlternateText"
-                />
-            <p>
-                {{ job.text | raw}}
-            </p>
 
+    {% for message in app.flashes('success') %}
+        <div class="alert alert-success">
+            {{ message }}
         </div>
-        {% include '/comment/comment.html.twig' %}
+    {% endfor %}
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 article-item-show">
+                <div id="scene">
+                    <img  class="d-block w-100 lazyload p-img"
+                         src="{{ asset("img/low_res.jpg") }}"
+                         data-src="{{ app_path_jobs_images }}{{ job.image }}"
+                         alt="AlternateText"
+                         height="290px"/>
+                    <h1 class="p-title">{{ job.title }}</h1>
+                </div>
+
+                <div class="p-text">
+
+
+                    <p class="p-description">{{ job.text | raw }}</p>
+                    <p class="p-date">{{ job.updatedAt | date('d/m/Y H:i', timezone='Europe/Paris') }} </p>
+
+                </div>
+            </div>
+        </div>
+
+
     </div>
 
 
 {% endblock %}
+{% block javascripts %}
 
 
-  {% block javascripts %}
-      <script>
+{% endblock %}
 
 
-      </script>
-  {% endblock %}
+

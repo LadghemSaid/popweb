@@ -86,7 +86,7 @@
             <h2 class="c">Une question, un projet n'hésitez pas !</h2>
             <p class="c">Nous reviendrons vers vous dans de bref délais</p>
 
-            {{ form_start(formContact) }}
+            {{ form_start(formContact,{'attr':{'class':'contact_form'}}) }}
             {{ form_row(formContact.fullName , {'attr': {'class': '','placeholder':"Votre nom" }, 'label': 'Votre nom' }) }}
             {{ form_row(formContact.fromEmail , {'attr': {'class': '','placeholder':"Votre email" }, 'label': 'Votre email'}) }}
             {{ form_row(formContact.message , {'attr': {'class': '','placeholder':"Votre message ..." }, 'label': 'Message','placeholder':"Votre message ..."}) }}

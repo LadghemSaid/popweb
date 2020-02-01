@@ -14,25 +14,33 @@
 
     <div class="container">
         <div class="row">
-            <div class="col-md-10">
-                <img class="d-block w-100 lazyload "
-                     src="{{ asset("img/low_res.jpg") }}"
-                     data-src="{{ app_path_projects_images }}{{ project.image }}"
-                     alt="AlternateText"
-                     height="290px"/>
-                <div class="cadre margin-top--22">
-                    <h1>{{ project.title }}</h1>
+            <div class="col-md-12 article-item-show">
+                <div id="scene">
+                    <img  class="d-block w-100 lazyload p-img"
+                          src="{{ asset("img/low_res.jpg") }}"
+                          data-src="{{ app_path_projects_images }}{{ project.image }}"
+                          alt="AlternateText"
+                          height="290px"/>
+                    <h1  class="p-title">{{ project.title }}</h1>
+                </div>
 
-                    <p>{{ project.text | raw }}</p>
-                    {{ project.updatedAt | date('d/m/Y H:i', timezone='Europe/Paris') }}
+                <div class="p-text">
+
+
+                    <p class="p-description">{{ project.text | raw }}</p>
+                    <p class="p-date">{{ project.updatedAt | date('d/m/Y H:i', timezone='Europe/Paris') }} </p>
 
                 </div>
             </div>
         </div>
 
-        {% include '/comment/comment.html.twig' %}
 
     </div>
+
+
+{% endblock %}
+{% block javascripts %}
+
 
 {% endblock %}
 

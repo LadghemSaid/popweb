@@ -157,9 +157,16 @@
   margin-top: 20px;
   display: flex;
   flex-direction: column;
-  width:90%;
+  align-items: center;
+  width:100%;
   label {
-    margin-bottom: 10px;
+    margin-bottom: 0px;
+  }
+  .same-align{
+    display: inline-grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 30px;
+    width: 400px;
   }
   &__textarea{
 
@@ -168,10 +175,11 @@
     border-radius: 15px;
     border: 1px solid #787878;
     padding: 5px 5px 5px 10px;
-    height: 70px;
+    height: 100px!important;
     transition: 0.2s;
     box-sizing: border-box;
     font-size: 1rem;
+    width: 400px;
 
     &:focus{
       box-shadow: none;
