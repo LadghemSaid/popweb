@@ -27,6 +27,7 @@ footer, header, hgroup, menu, nav, section {
 
 body {
   line-height: 1;
+  height: 100%;
 }
 
 ol, ul {
@@ -110,6 +111,7 @@ audio:not([controls]) {
  */
 
 html {
+  height: 100%;
   font-size: 100%; /* 1 */
   -webkit-text-size-adjust: 100%; /* 2 */
   -ms-text-size-adjust: 100%; /* 2 */

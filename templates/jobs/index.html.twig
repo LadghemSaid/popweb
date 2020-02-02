@@ -15,21 +15,27 @@
         <div class="jumbotron">
             <h1>Nous recrutons</h1>
         </div>
-        <div class="job-container">
+        <div class="row">
 
         {% for job in jobs %}
 
+            <div class="col-sm-4 article-item">
+                <a href="{{ path('job.show',{'slug':job.slug}) }}">
+                    <img class="d-block lazyload "
+                         src="{{ asset("img/low_res.jpg") }}"
+                         data-src="{{ app_path_jobs_images }}{{ job.image }}"
+                         alt="AlternateText"
+                    />
+                </a>
 
-                    <a href="{{ path('job.show',{'slug':job.slug}) }}" class="job-item">
-                        <img class="d-block lazyload "
-                             src="{{ asset("img/low_res.jpg") }}"
-                             data-src="{{ app_path_jobs_images }}{{ job.image }}"
-                             alt="AlternateText"
-                             />
-                        <h2>
-                           {{ job.title }}
-                        </h2>
-                    </a>
+                <a href="{{ path('job.show',{'slug':job.slug}) }}">
+                    <h2> {{ job.title }} </h2>
+                </a>
+                <p class="p-date"> Jan 18, 2019 ok </p>
+                <p class="p-description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus eligendi nobis ea maiores sapiente veritatis reprehenderit suscipit quaerat rerum voluptatibus a eius.</p>
+                <a href="{{ path('job.show',{'slug':job.slug}) }}" class="more">Voir plus</a>
+            </div>
+
 
 
         {% endfor %}
