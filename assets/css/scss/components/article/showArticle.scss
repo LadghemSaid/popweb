@@ -4,6 +4,10 @@
   margin-bottom: 1rem;
   #scene{
     position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 
   }
   .p-img {
@@ -13,6 +17,16 @@
     border-radius: 600px;
     margin-bottom: 30px;
     margin-top: 20px;
+  }
+  .animated{
+    position: absolute;
+    width: 100vw;
+    z-index: -1;
+    height: 65vh;
+    display: none;
+    &.active{
+      display: block;
+    }
   }
   h1 {
     font-size: 2rem;

@@ -21,7 +21,8 @@
                          data-src="{{ app_path_articles_images }}{{ article.image }}"
                          alt="AlternateText"
                          height="290px"/>
-                    <img src="" class="animated"  alt="">
+                    <img src="{{ app_path_default_images }}bg3.gif" class="animated"  id="anim" alt="">
+
                     <h1  class="p-title">{{ article.title }}</h1>
                 </div>
 
@@ -43,29 +44,20 @@
 {% endblock %}
 {% block javascripts %}
     <script>
-    $(document).ready(()=>{
 
-        let count = 0;
-        function nextImage(){
-            count = count + 4;
-            console.log(count);
-            if(count > 10 && count < 100 ){
-                return "{{ app_path_articles_images }}/lightPath/000"+count+".png";
-            }
-            if(count >100 && count <205){
-                return "{{ app_path_articles_images }}/lightPath/00"+count+".png";
-            }
-            if(count>205){
-                count = 0;
-                clearInterval(myAnim);
+        $(document).ready(()=>{
+            $(function () {
+                $(window).scroll(function () {
+                    var scroll = $(window).scrollTop();
+                    if (scroll >= 300) {
+                        $(".animated")[0].classList.add('active');
 
-            }
-        }
-        var myAnim = setInterval(function(){
-            $(".animated").attr('src', nextImage);
-        }, 60);
-    })
+                    } else {
 
+                    }
+                });
+            });
+        });
 
 
     </script>
