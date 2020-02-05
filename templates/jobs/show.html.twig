@@ -21,6 +21,7 @@
                          data-src="{{ app_path_jobs_images }}{{ job.image }}"
                          alt="AlternateText"
                          height="290px"/>
+                    <img src="{{ app_path_default_images }}bg3.gif" class="animated"  id="anim" alt="">
                     <h1 class="p-title">{{ job.title }}</h1>
                 </div>
 
@@ -41,7 +42,24 @@
 {% endblock %}
 {% block javascripts %}
 
+    <script>
 
+        $(document).ready(()=>{
+            $(function () {
+                $(window).scroll(function () {
+                    var scroll = $(window).scrollTop();
+                    if (scroll >= 300) {
+                        $(".animated")[0].classList.add('active');
+
+                    } else {
+
+                    }
+                });
+            });
+        });
+
+
+    </script>
 {% endblock %}
 
 
