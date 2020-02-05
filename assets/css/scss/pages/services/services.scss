@@ -1,6 +1,5 @@
 .section {
   &--dark {
-    min-height: 100vh;
     background-color: #00103e;
     display: flex;
     flex-direction: column;
@@ -30,7 +29,6 @@
   }
 
   &--white {
-    min-height: 100vh;
     background-color:white;
     display: flex;
     flex-direction: column;
