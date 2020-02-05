@@ -24,7 +24,11 @@
     z-index: -1;
     height: 65vh;
     display: none;
-    &.active{
+    filter: drop-shadow(2px 10px 10px #87459457) blur(3px) drop-shadow(2px 5px 6px rgba(104, 104, 104, 0.57));
+
+
+
+  &.active{
       display: block;
     }
   }
