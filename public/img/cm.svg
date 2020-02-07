@@ -8,12 +8,12 @@
         <path d="M362.863,147.038L233.529,217.038L362.863,293.705" style="fill:none;stroke:white;stroke-width:14.06px;"/>
     </g>
     <g transform="matrix(1.2353,0,0,1.2353,-83.7131,-39.5779)">
-        <circle cx="362.863" cy="147.038" r="28.333"/>
+        <circle cx="362.863" cy="147.038" r="28.333" style="fill:rgb(0,16,62);"/>
     </g>
     <g transform="matrix(1.2353,0,0,1.2353,-83.7131,107.089)">
-        <circle cx="362.863" cy="147.038" r="28.333"/>
+        <circle cx="362.863" cy="147.038" r="28.333" style="fill:rgb(0,16,62);"/>
     </g>
     <g transform="matrix(1.2353,0,0,1.2353,-213.046,30.4221)">
-        <circle cx="362.863" cy="147.038" r="28.333"/>
+        <circle cx="362.863" cy="147.038" r="28.333" style="fill:rgb(0,16,62);"/>
     </g>
 </svg>
