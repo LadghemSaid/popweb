@@ -11,10 +11,10 @@
 
   }
   .p-img {
-    height: 800px;
+    width: 80%;
+    height: 400px;
     object-fit: cover;
     margin: auto;
-    border-radius: 600px;
     margin-bottom: 30px;
     margin-top: 20px;
   }
@@ -35,15 +35,10 @@
   h1 {
     font-size: 2rem;
     font-weight: bold;
-    margin-bottom: 70px;
+    margin-top: 40px;
     color: #F60052;
     display: flex !important;
-    align-items: center;
-    justify-content: center;
     width: 100%;
-    bottom: -90%;
-
-
   }
 
   .p-text {

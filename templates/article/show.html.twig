@@ -15,23 +15,19 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12 article-item-show">
-                <div id="scene">
+                <div class="title-section">
+                    <h1 class="p-title">{{ article.title }}</h1>
+                    <p class="p-date">{{ article.updatedAt | date('d/m/Y H:i', timezone='Europe/Paris') }} </p>
+                </div>
+                <div class="image-section">
                     <img  class="d-block w-100 lazyload p-img"
                          src="{{ asset("img/low_res.jpg") }}"
                          data-src="{{ app_path_articles_images }}{{ article.image }}"
                          alt="AlternateText"
                          height="290px"/>
-                    <img src="{{ app_path_default_images }}bg3.gif" class="animated"  id="anim" alt="">
-
-                    <h1  class="p-title">{{ article.title }}</h1>
                 </div>
-
                 <div class="p-text">
-
-
                     <p class="p-description">{{ article.text | raw }}</p>
-                    <p class="p-date">{{ article.updatedAt | date('d/m/Y H:i', timezone='Europe/Paris') }} </p>
-
                 </div>
             </div>
         </div>

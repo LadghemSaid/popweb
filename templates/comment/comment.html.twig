@@ -1,15 +1,4 @@
 {% if allowComment %}
-    {{ form_start(formComment,{'attr': {'class': 'commentForm'}}) }}
-    <div class="same-align">
-        {{ form_row(formComment.email, {'label': 'Email'})}}
-        {{ form_row(formComment.username , {'label': 'Pseudo'})}}
-    </div>
-
-{{ form_row(formComment.textComment,{'attr': {'class': 'commentForm__textarea'},'label': 'Commentaire'}) }}
-    {{ form_row(formComment.submit,{'attr': {'class': 'commentForm__submit'},'label': 'Envoyer'}) }}
-    {{ form_end(formComment) }}
-
-
     <section class="comments">
         {% for comment in comments %}
 
@@ -50,6 +39,23 @@
             </article>
         {% endfor %}
     </section>
+
+        {{ form_start(formComment,{'attr': {'class': 'commentForm'}}) }}
+        <div class="container">
+<div class="row">
+<div class="col-sm-5">
+        {{ form_row(formComment.email, {'label': 'Email'})}}
+        {{ form_row(formComment.username , {'label': 'Pseudo'})}}
+</div>
+<div class="col-sm-7">
+{{ form_row(formComment.textComment,{'attr': {'class': 'commentForm__textarea'},'label': 'Commentaire'}) }}
+    {{ form_row(formComment.submit,{'attr': {'class': 'commentForm__submit'},'label': 'Envoyer'}) }}
+    {{ form_end(formComment) }}
+</div>
+</div>
+</div>
+
+
     {% block javascripts %}
         <script>
             function edit(e) {
