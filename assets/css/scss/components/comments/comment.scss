@@ -6,9 +6,7 @@
   flex-direction: column;
   align-items: center;
   margin-top: 40px;
-  padding: 0px 0px 20px 0px;
-  border-radius: 20px;
-  background:$background-comment-color;
+  background: #F9F9F9;
   &__notConnected{
     @include arrow-button(#fff, $primary-color, #0b0d40, 22px, 15em, 2em, right);
 
@@ -22,10 +20,9 @@
   // box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0px 6px 10px rgba(0, 0, 0, 0.22);
   display: flex;
   padding: 15px 40px;
-  margin: 10px 0px;
   width: 100%;
-  color: #fff;
-  border-bottom: 2px solid #00000024;
+  color: #161616;
+  border-bottom: 1px solid #dadada;
 
 
 
@@ -35,7 +32,6 @@
     width: 100%;
     height: 100%;
     margin-right: 20px;
-    border-radius: 10px;
   }
 
   &__body{
@@ -104,11 +100,11 @@
 
   &__author{
     margin: 0;
-    color: white;
+    color: #161616;
     font-weight: bold;
     font-size: 1.2rem;
     &:hover{
-      color: white;
+      color: #0e0e0e;
       text-decoration: none;
     }
   }
@@ -151,10 +147,9 @@
 }
 
 .commentForm{
-  background: #fff;
+  background: #F9F9F9;
   padding: 20px;
-  border-radius: 20px;
-  margin-top: 20px;
+  margin-bottom: 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -168,55 +163,35 @@
     grid-gap: 30px;
     width: 400px;
   }
+  .form-control {
+    color: #495057;
+    background-color: #fdfdfd;
+    border: 0.5px solid #cecece;
+    border-radius: .2rem;
+}
+  .form-control:focus {
+    color: #495057;
+    background-color: #fff;
+    border: 1px solid #b0b4b8;
+    outline: 0;
+    box-shadow: none !important;
+  }
+  .btn-pink {
+    background-color: #F60052;
+    border-color: #F60052;
+    color: white;
+  }
+  .btn-pink:hover {
+    background-color: rgb(214, 5, 75);
+    border-color: rgb(214, 5, 75);
+    color: white;
+  }
   &__textarea{
-
-    font-family: 'Darker Grotesque', sans-serif;
     padding: 5px 5px 5px 10px;
-    min-height: 120px !important;
+    min-height: 93px !important;
     transition: 0.2s;
     box-sizing: border-box;
     font-size: 1rem;
-
-    &:focus{
-      box-shadow: none;
-
-      outline: none;
-      border: 1px solid #fc6f20;
-    }
-    &::placeholder{
-      color: #bebebe;
-    }
-
-
-  }
-  &__submit{
-    font-family: 'Darker Grotesque', sans-serif;
-    width: 160px;
-    color: #fff;
-    font-size: 18px;
-    padding: 10px;
-    padding-top: 7px;
-    transition: 0.5s;
-    cursor: pointer;
-    border-radius: 15px;
-    border: none;
-    background: #fc6f20;
-    margin-top: 20px;
-    box-shadow: 0px 5px 0px 0px #fc6f207a;
-
-    &:hover{
-      box-shadow: none;
-      transform: translateY(5px);
-      transition: all .1s linear;
-    }
-
-    &:focus{
-      outline: none;
-      border: 1px solid #fc6f20;
-    }
-    &::placeholder{
-      color: #bebebe;
-    }
   }
 }
 
@@ -231,7 +206,3 @@
 .edit_input:focus{
   border-bottom-color: orange;
 }
-
-
-
-
