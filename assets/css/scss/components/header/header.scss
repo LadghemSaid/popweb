@@ -1,0 +1,16 @@
+.img-banner {
+
+    .banner {
+        width: 100%;
+        height: 600px;
+        object-fit: cover;
+    }
+
+    .text {
+        position: absolute;
+        top: 35%;
+        width: 100%;
+        text-align: center;
+        color: #FFFFFF;
+    }
+}
