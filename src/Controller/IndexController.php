@@ -66,6 +66,7 @@ class IndexController extends AbstractController
     public function showService()
     {
         return $this->render('/service/index.html.twig', [
+            "current_menu" => "service"
         ]);
     }
 
@@ -76,6 +77,7 @@ class IndexController extends AbstractController
     public function showAbout()
     {
         return $this->render('/about/about.html.twig', [
+            "current_menu" => "about"
         ]);
     }
 

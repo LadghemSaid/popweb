@@ -113,7 +113,30 @@
   color: black;
   transform: translateY(0%);
 
+
   @include breakpoint(mobile) {
   }
 
+}
+/* Picture of us*/
+.card-trombi:hover > #imgSaid {
+  content: url(./../../../../../public/pho/said_rose.png);
+}
+.card-trombi:hover > #imgLison {
+  content: url(./../../../../../public/pho/lison_rose.png);
+}
+.card-trombi:hover > #imgCloe {
+  content: url(./../../../../../public/pho/cloe_rose.png);
+}
+.card-trombi:hover > #imgLea {
+  content: url(./../../../../../public/pho/lea_rose.png);
+}
+.card-trombi:hover > #imgLucas {
+  content: url(./../../../../../public/pho/lucas_rose.png);
+}
+.card-trombi:hover > #imgThomas {
+  content: url(./../../../../../public/pho/thomas_rose.png);
+}
+.card-trombi:hover > #imgLoick {
+  content: url(./../../../../../public/pho/loick_rose.png);
 }
