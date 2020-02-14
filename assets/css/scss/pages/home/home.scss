@@ -104,10 +104,26 @@ header img {
   height: 2px;
   border-bottom: 3px $red solid;
   transition: all 0.3s ease;
+
 }
-#menu-du-header a:hover:after {
-  width: 100%;
+.active::after{
+  position: relative;
+  content: " ";
+  display: block;
+  left: 0;
+  top: 4px;
+  width: 100%!important;
+  height: 2px;
+  border-bottom: 3px $red solid;
 }
+
+#menu-du-header a:hover:not(.active):after {
+    width: 100%;
+
+
+}
+
+
 
 /* soulignage effet (fin) */
 .margium {
