@@ -1,0 +1,60 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+{% endblock %}
+
+
+{% block body %}
+    <div class="img-banner">
+        <img src="{{ asset('pho/banner-blog.png') }}" alt="Bannière blog" class="banner">
+        <div class="text">
+            <h1>Notre Contact</h1>
+                <p>Découvrez en plus sur nous, on en découvrira plus sur vous.</p>
+        </div>
+    </div>
+
+    {% for message in app.flashes('success') %}
+        <div class="alert alert-success">
+            {{ message }}
+        </div>
+    {% endfor %}
+
+    <div class="container">
+        <h2>Carte</h2>
+        <h2>Notre adresse : IUT de Lens</h2>
+
+        <h2>Vous pouvez nous contacter sur nos réseaux sociaux :</h2>
+        <ul>
+            <li>Facebook</li>
+            <li>Twitter</li>
+            <li>LinkedIn</li>
+        </ul>
+
+        <h3>Sinon vous pouvez aussi nous contacter par mail : mail@mail.fr</h3>
+        <h3>Ou via ce formulaire de contact :</h3>
+
+        <div class="margium">
+
+            <h2 class="c">Une question, un projet, contactez nous !</h2>
+            <p class="c">Nous vous répondrons au plus vite !</p>
+
+            {{ form_start(formContact,{'attr':{'class':'contact_form'}}) }}
+            {{ form_row(formContact.fullName , {'attr': {'class': '','placeholder':"Votre nom" }, 'label': 'Votre nom' }) }}
+            {{ form_row(formContact.fromEmail , {'attr': {'class': '','placeholder':"Votre email" }, 'label': 'Votre email'}) }}
+            {{ form_row(formContact.message , {'attr': {'class': '','placeholder':"Votre message ..." }, 'label': 'Message','placeholder':"Votre message ..."}) }}
+            {{ form_end(formContact) }}
+
+        </div>
+    </div>
+
+
+    </div>
+
+
+{% endblock %}
+{% block javascripts %}
+
+{% endblock %}
+
+
+
