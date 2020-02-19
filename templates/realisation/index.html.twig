@@ -1,0 +1,63 @@
+{% extends '/base.html.twig' %}
+
+{% block title %}
+    Blog
+{% endblock %}
+
+{% block style_custom %}
+
+    <style>
+
+    </style>
+{% endblock %}
+{% block body %}
+<div class="img-banner">
+<img src="{{ asset('pho/banner-blog.png') }}" alt="Bannière blog" class="banner">
+<div class="text">
+    <h1>Notre aide</h1>
+    <p>Découvrez l'aide que l'on vous apporte.</p>
+    </div>
+</div>
+
+    <div class="container">
+        <div class="jumbotron">
+            <h1>On peut vous renseigner sur les sujets suivants :</h1>
+        </div>
+        <div class="row">
+
+            {% for article in articles %}
+
+                <div class="col-sm-4 article-item">
+                    <a href="{{ path('article.show',{'slug':article.slug}) }}">
+                        <img class="d-block lazyload "
+                            src="{{ asset("img/low_res.jpg") }}"
+                            data-src="{{ app_path_articles_images }}{{ article.image }}"
+                            alt="AlternateText"
+                        />
+                    </a>
+
+                    <a href="{{ path('article.show',{'slug':article.slug}) }}">
+                    <h2> {{ article.title }} </h2>
+                    </a>
+                    <p class="p-date"> Jan 18, 2019 ok </p>
+                    <p class="p-description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus eligendi nobis ea maiores sapiente veritatis reprehenderit suscipit quaerat rerum voluptatibus a eius.</p>
+                    <a href="{{ path('article.show',{'slug':article.slug}) }}" class="more">Voir plus</a>
+                </div>
+                
+
+
+            {% endfor %}
+        </div>
+
+    </div>
+
+
+{% endblock %}
+
+
+  {% block javascripts %}
+      <script>
+
+
+      </script>
+  {% endblock %}

@@ -1,0 +1,72 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    {{ article.title }}
+{% endblock %}
+
+
+{% block body %}
+<div class="img-banner">
+<img src="{{ asset('pho/banner-blog.png') }}" alt="Bannière blog" class="banner">
+<div class="text">
+    <h1>Titre</h2>
+    <p>petit texte</p>
+    </div>
+</div>
+
+    {% for message in app.flashes('success') %}
+        <div class="alert alert-success">
+            {{ message }}
+        </div>
+    {% endfor %}
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 article-item-show">
+                <div class="title-section">
+                    <h1 class="p-title">{{ article.title }}</h1>
+                    <p class="p-date">{{ article.updatedAt | date('d/m/Y H:i', timezone='Europe/Paris') }} </p>
+                </div>
+                <div class="image-section">
+                    <img  class="d-block w-100 lazyload p-img"
+                         src="{{ asset("img/low_res.jpg") }}"
+                         data-src="{{ app_path_articles_images }}{{ article.image }}"
+                         alt="AlternateText"
+                         height="290px"/>
+                </div>
+                <div class="p-text">
+                    <p class="p-description">{{ article.text | raw }}</p>
+                </div>
+            </div>
+        </div>
+
+        {% include '/comment/comment.html.twig' %}
+
+    </div>
+
+
+{% endblock %}
+{% block javascripts %}
+    <script>
+
+        $(document).ready(()=>{
+            $(function () {
+                $(window).scroll(function () {
+                    var scroll = $(window).scrollTop();
+                    if (scroll >= 300) {
+                        $(".animated")[0].classList.add('active');
+
+                    } else {
+
+                    }
+                });
+            });
+        });
+
+
+    </script>
+
+{% endblock %}
+
+
+

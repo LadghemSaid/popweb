@@ -114,7 +114,9 @@
   color: black;
   transform: translateY(0%);
 
-
+  .card-trombi-status{
+    opacity: 100%!important;
+  }
 
   @include breakpoint(mobile) {
   }
