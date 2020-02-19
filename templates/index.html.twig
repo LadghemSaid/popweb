@@ -26,40 +26,52 @@
     <div class="img-banner">
     <img src="{{ asset('pho/banner.png') }}" alt="Bannière accueil" class="banner">
     <div class="text">
-    <h1>Titre</h2>
-    <p>petit texte</p>
+    <h1>POP Web</h1>
+    <p>Découvrez la transition numérique.</p>
     </div>
     </div>
 
     <div class="margium">
         <p style="display:block; max-width: 720px; margin: auto; font-size:large; padding: 70px 15px 30px 15px; text-align:justify;">
-            Nous sommes une agence web fictive formée de 8 étudiants de la licence CréaWeb de Lens. Nous réalisation des
-            sites web ainsi que certains contenus numérique pour des associations et les start-ups.
+            POP Web est une agence web qui vous accompagne dans votre transformation numérique, vous guide lors d’une
+            refonte de site web et vous aide à créer un contenu adapté à votre cible.
         </p>
     </div>
     <div id="segond-segment" class="margium">
         <img src="{{ asset("pho/surmesure.svg") }}" alt="sur mesure">
         <div id="description-seg">
-            <h3>Sur mesure</h3>
+            <h3>digital</h3>
             <p>
-                Nous concevons des sites web sur mesures pour répondre au mieux à vos besoins ! Adapté à vos besoins,
-                votre site web sera plus pertinent. Vous vous démarqueriez des autres nous travaillons pour rendre votre
-                site mémorable. </p>
+                La communication aujourd’hui est avant tout digitale. Le web étant un vecteur de communication
+                important, il est désormais indispensable d’avoir un site web à la fois accessible sur ordinateur,
+                tablette et mobile (qualifié de <i>responsive</i>).
+            </p>
         </div>
     </div>
     <div id="segond-segment" class="margium">
         <img src="{{ asset("pho/top.svg") }}" alt="sur mesure">
         <div id="description-seg">
-            <h3>Au top</h3>
+            <h3>originalité</h3>
             <p>
-                Réalisation de qualité : design, chargement, SEO, ergonomie, technique. Notre équipe est capable
-                d'intervenir sur tous les aspects d'un site web, ainsi celui-ci n'a plus de secret pour nous. </p>
+                Vous devez vous démarquer des autres : la créativité et l’originalité seront à votre service pour cela.
+                Nous vous orientons vers ce qui vous aidera à vous différencier de vos concurrents.
+            </p>
+        </div>
+    </div>
+    <div id="segond-segment" class="margium">
+        <img src="{{ asset("pho/top.svg") }}" alt="sur mesure">
+        <div id="description-seg">
+            <h3>innovation</h3>
+            <p>
+                Toute cette communication digitale doit être assurée par une équipe force de propositions, d’idées
+                nouvelles et novatrices. C’est pourquoi vous pouvez nous faire confiance.
+            </p>
         </div>
     </div>
     <div id="troisieme-segment">
         <div class="espace">
             <div class="margium">
-                <h2>Nos réalisation antérieures </h2>
+                <h2>Découvrez nos autres projets</h2>
                 <div class="liste">
                     {% for project in favoriteProjects %}
                         <a href="{{ path('project.show', {'slug':project.slug} ) }}" target="_blank" class="card">
@@ -91,8 +103,8 @@
     <div id="quatrieme-segment">
         <div class="margium">
 
-            <h2 class="c">Une question, un projet n'hésitez pas !</h2>
-            <p class="c">Nous reviendrons vers vous dans de bref délais</p>
+            <h2 class="c">Une question, un projet, contactez nous !</h2>
+            <p class="c">Nous vous répondrons au plus vite !</p>
 
             {{ form_start(formContact,{'attr':{'class':'contact_form'}}) }}
             {{ form_row(formContact.fullName , {'attr': {'class': '','placeholder':"Votre nom" }, 'label': 'Votre nom' }) }}
