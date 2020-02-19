@@ -252,6 +252,8 @@ header img {
   overflow: hidden;
   transition: all .5s ease-in-out;
 }
+
+
 .card img {
   max-width: 320px;
   width: 280px;
@@ -319,7 +321,7 @@ input[type="submit"]{
     align-items: center
   }
   #menu-du-header a {
-    border-bottom: 3px $red solid;
+
   }
 }
 @media (max-width: 720px), handheld {
@@ -363,4 +365,5 @@ input[type="submit"]{
     max-width: 400px;
     width:100% !important;
   }
+
 }
