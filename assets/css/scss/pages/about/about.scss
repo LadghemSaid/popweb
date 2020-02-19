@@ -86,7 +86,7 @@
     font-weight: bold;
     color: #dc3545;
     margin: 0;
-    opacity: 0%;
+    opacity: 0;
 
   }
 
@@ -115,7 +115,7 @@
   transform: translateY(0%);
 
   .card-trombi-status{
-    opacity: 100%!important;
+    opacity: 1!important;
   }
 
   @include breakpoint(mobile) {
