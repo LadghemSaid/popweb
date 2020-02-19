@@ -86,6 +86,7 @@
     font-weight: bold;
     color: #dc3545;
     margin: 0;
+    opacity: 0%;
 
   }
 
@@ -114,10 +115,13 @@
   transform: translateY(0%);
 
 
+
   @include breakpoint(mobile) {
   }
 
 }
+
+
 /* Picture of us*/
 .card-trombi:hover > #imgSaid {
   content: url(./../../../../../public/pho/said_rose.png);
