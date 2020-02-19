@@ -75,7 +75,7 @@
     <div id="troisieme-segment">
         <div class="espace">
             <div class="margium">
-                <h2>Découvrez nos autres projets</h2>
+                <h3 class="text-center">Découvrez nos autres projets</h3>
                 <div class="liste">
                     {% for project in favoriteProjects %}
                         <a href="{{ path('project.show', {'slug':project.slug} ) }}" target="_blank" class="card">
@@ -88,19 +88,6 @@
                         </a>
                     {% endfor %}
                 </div>
-                <div class="hidden">
-                    {% for project in projects %}
-                        <a href="{{ path('project.show', {'slug':project.slug} ) }}" target="_blank" class="card">
-                            <img class="d-block w-100 lazyload "
-                                 src="{{ asset("img/low_res.jpg") }}"
-                                 data-src="{{ app_path_projects_images }}{{ project.image }}"
-                                 alt="AlternateText"
-                            />
-                            <h4>{{ project.title }} </h4>
-                        </a>
-                    {% endfor %}
-                </div>
-                <a href="#" onclick="unhide(event)"><span class="icon-center fa fa-chevron-down">VOIR PLUS</span></a>
             </div>
         </div>
     </div>
