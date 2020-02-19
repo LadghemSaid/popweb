@@ -100,20 +100,7 @@
             </div>
         </div>
     </div>
-    <div id="quatrieme-segment">
-        <div class="margium">
 
-            <h2 class="c">Une question, un projet, contactez nous !</h2>
-            <p class="c">Nous vous répondrons au plus vite !</p>
-
-            {{ form_start(formContact,{'attr':{'class':'contact_form'}}) }}
-            {{ form_row(formContact.fullName , {'attr': {'class': '','placeholder':"Votre nom" }, 'label': 'Votre nom' }) }}
-            {{ form_row(formContact.fromEmail , {'attr': {'class': '','placeholder':"Votre email" }, 'label': 'Votre email'}) }}
-            {{ form_row(formContact.message , {'attr': {'class': '','placeholder':"Votre message ..." }, 'label': 'Message','placeholder':"Votre message ..."}) }}
-            {{ form_end(formContact) }}
-
-        </div>
-    </div>
 
 {% endblock %}
 
