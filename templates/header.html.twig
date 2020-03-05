@@ -10,8 +10,7 @@
             <a class="nav-link {% if current_menu is defined and current_menu == 'projects' %}active{% endif %}" href="{{path('project.index')}}">Réalisations <span class="sr-only">(current)</span></a>
             <a class="nav-link {% if current_menu is defined and current_menu == 'articles' %}active{% endif %}" href="{{path('articles.index')}}">Blog <span class="sr-only">(current)</span></a>
             <a class="nav-link {% if current_menu is defined and current_menu == 'jobs' %}active{% endif %}" href="{{path('job.index')}}">Recrutement</a>
-            <a class="nav-link {% if current_menu is defined and current_menu == 'index' %}active{% endif %}"
-               href="{{path('contact.show')}}">Contactez-nous</a>
+            <a class="nav-link {% if current_menu is defined and current_menu == 'contact' %}active{% endif %}" href="{{path('contact.show')}}">Contactez-nous</a>
             {% if app.user %}
 
                 <a class=" {% if current_menu is defined and current_menu == 'logout' %}active{% endif %}" href="{{ path('app_logout') }}">Se déconnecter</a>
