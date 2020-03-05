@@ -1,42 +1,56 @@
 
 footer {
   margin-top: auto;
-  background-color: #000;
-  color: #cccccc;
-  flex: 0;
-  padding: 12px;
-  display: flex;
-  justify-content: space-around;
-}
-#marge_footer {
-  max-width: 720px;
-  width: 100%;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-}
-picture img {
-  width: 100%;
+  background-color: #00103e;
+  color: #FFFFFF;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  font-size: 14px;
+
+  .d-flex .fas {
+    padding-top: 5px;
+    padding-right: 10px;
+    color: #D8D8D8;
+  }
+  
+  p.subtitle {
+    text-transform: uppercase;
+    font-weight: 500;
+    color: white;
+  }
+  
+  p {
+   color: #D8D8D8;
+  }
+  
+  .adresse {
+    padding-top: 10px;
+  }
+  
+  img#logofooter {
+    height: 55px;
+    margin-bottom: 20px;
+  }
+  
+  a {
+    color: #D8D8D8 !important;
+  }
+  
+  .fab {
+    color: #D8D8D8;
+    margin-right: 5px;
+    font-size: 2em;
+  }
+  
+  .rights {
+    text-align: right;
+    border-top: white solid 1px;
+    margin-top: 20px;
+    padding-top: 20px;
+  }
+  
 }
 
-#foot {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-around;
-}
-.social {
-  display: flex;
-  justify-content: space-around;
-}
-.social img {
-  width: 38px;
-  padding: 7px;
-}
-img#logofooter {
-  height: 62px;
-  padding: 12px;
-}
 @media (max-width: 512px), handheld {
   #foot {
     display: flex;
