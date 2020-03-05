@@ -7,9 +7,9 @@
 
             <a class="nav-link {% if current_menu is defined and current_menu == 'about' %}active{% endif %}" href="{{path('about')}}">Agence</a>
             <a class="nav-link {% if current_menu is defined and current_menu == 'service' %}active{% endif %}" href="{{path('service.index')}}">Services <span class="sr-only">(current)</span></a>
-            <a class="nav-link {% if current_menu is defined and current_menu == 'projects' %}active{% endif %}" href="{{path('project.index')}}">Réalisations <span class="sr-only">(current)</span></a>
+            {# <a class="nav-link {% if current_menu is defined and current_menu == 'projects' %}active{% endif %}" href="{{path('project.index')}}">Réalisations <span class="sr-only">(current)</span></a> #}
             <a class="nav-link {% if current_menu is defined and current_menu == 'articles' %}active{% endif %}" href="{{path('articles.index')}}">Blog <span class="sr-only">(current)</span></a>
-            <a class="nav-link {% if current_menu is defined and current_menu == 'jobs' %}active{% endif %}" href="{{path('job.index')}}">Recrutement</a>
+            {# <a class="nav-link {% if current_menu is defined and current_menu == 'jobs' %}active{% endif %}" href="{{path('job.index')}}">Recrutement</a> #}
             <a class="nav-link {% if current_menu is defined and current_menu == 'contact' %}active{% endif %}" href="{{path('contact.show')}}">Contactez-nous</a>
             {% if app.user %}
 
