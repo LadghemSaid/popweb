@@ -14,15 +14,39 @@
     <div class="img-banner">
         <img src="{{ asset('pho/banner-blog.png') }}" alt="Bannière blog" class="banner">
         <div class="text">
-            <h1>Notre aide</h1>
-            <p>Découvrez l'aide que l'on vous apporte.</p>
+            <h1>Titre</h1>
+            <p>Titre</p>
         </div>
     </div>
 
     <div class="jumbotron">
          <h1>Nos projets</h1>
     </div>
+    <div class="row">
 
+        {% for project in projects %}
+
+            <div class="col-sm-4 article-item">
+                <a href="{{ path('project.show',{'slug':project.slug}) }}">
+                    <img class="d-block lazyload "
+                         src="{{ asset("img/low_res.jpg") }}"
+                         data-src="{{ app_path_projects_images }}{{ project.image }}"
+                         alt="AlternateText"
+                    />
+                </a>
+
+                <a href="{{ path('project.show',{'slug':project.slug}) }}">
+                    <h2> {{ project.title }} </h2>
+                </a>
+                <p class="p-date"> Jan 18, 2019 ok </p>
+                <p class="p-description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus eligendi nobis ea maiores sapiente veritatis reprehenderit suscipit quaerat rerum voluptatibus a eius.</p>
+                <a href="{{ path('project.show',{'slug':project.slug}) }}" class="more">Voir plus</a>
+            </div>
+
+
+
+        {% endfor %}
+    </div>
 
 {% endblock %}
 
