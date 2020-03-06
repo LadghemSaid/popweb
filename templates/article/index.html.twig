@@ -37,10 +37,11 @@
                     </a>
 
                     <a href="{{ path('article.show',{'slug':article.slug}) }}">
-                    <h2> {{ article.title }} </h2>
+                    <h2> {{ article.title|striptags|length >20 ? article.title|striptags|slice(0, 50) ~ '...' : article.title|striptags }} </h2>
                     </a>
                     <p class="p-date"> Jan 18, 2019</p>
-                    <p class="p-description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus eligendi nobis ea maiores sapiente veritatis reprehenderit suscipit quaerat rerum voluptatibus a eius.</p>
+                    {% dump(article) %}
+                    <p class="p-description">{{ article.text|striptags|length > 100 ? article.text|striptags|slice(0, 100) ~ '...' : article.text|striptags }}</p>
                     <a href="{{ path('article.show',{'slug':article.slug}) }}" class="more">Voir plus</a>
                 </div>
                 
