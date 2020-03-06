@@ -23,7 +23,7 @@
     <div class="container about-header mt-50 mb-50">
     <div class="row">
     <div class="col-md-6">
-            <img src="https://images.unsplash.com/photo-1531206715517-5c0ba140b2b8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80"
+            <img src="{{ asset('pho/agence.png') }}"
              alt="" class="lazyload">
 
     </div>
@@ -55,121 +55,98 @@
     </div> #}
     <div class="container card-trombi-grid">
 
-        <div class="card-trombi">
-            <img id="imgSaid" src="{{ asset("pho/said.png") }}"
-                 alt="" class="lazyload">
-
-            <div class="card-trombi-info">
-                <h2 class="card-trombi-name">Said</h2>
-                <h4 class="card-trombi-status">Développeur back - Intégrateur</h4>
-                <p class="card-trombi-quote">"Chaque problème à sa solution"</p>
-                <div class="card-trombi-socialLink">
-                    <span class="linkedin"><a href="https://linkedin.com"><i class="fab fa-linkedin-in"></i></a></span>
-                    <span class="mail"><a href="mailto:said.ladghem@gmail.com"><i class="fas fa-envelope"></i></a></span>
-                    <span class="portefolio"><a href="https://s-ladghem.com"><i class="fas fa-border-all"></i></a></span>
-                </div>
+    <div class="card-trombi">
+        <img id="imgCloe" src="{{ asset("pho/cloe.png") }}" alt="" class="lazyload">
+        <div class="card-trombi-info">
+            <h2 class="card-trombi-name">Cloé</h2>
+            <h4 class="card-trombi-status">Chef de projet</h4>
+            <p class="card-trombi-quote">"Dans notre domaine, on ne s'ennuie jamais!"</p>
+            <div class="card-trombi-socialLink">
+                <span class="mail"><a href="mailto:cloelh@outlook.fr"><i class="fas fa-envelope"></i></a></span>
             </div>
-
         </div>
+    </div>
 
-        <div class="card-trombi">
-            <img id="imgLison" src="{{ asset("pho/lison.png") }}"
-                 alt="" class="lazyload">
-
-            <div class="card-trombi-info">
-                <h2 class="card-trombi-name">Lison</h2>
-                <h4 class="card-trombi-status">Experte SEO - Webdesigneuse</h4>
-                <p class="card-trombi-quote">"Chaque projet est un nouveau défi"</p>
-                <div class="card-trombi-socialLink">
-                    <span class="linkedin"><a href="https://linkedin.com"><i class="fab fa-linkedin-in"></i></a></span>
-                    <span class="mail"><a href="mailto:said.ladghem@gmail.com"><i class="fas fa-envelope"></i></a></span>
-                    <span class="portefolio"><a href="https://s-ladghem.com"><i class="fas fa-border-all"></i></a></span>
-                </div>
+    <div class="card-trombi">
+        <img id="imgSaid" src="{{ asset("pho/said.png") }}" alt="" class="lazyload">
+        <div class="card-trombi-info">
+            <h2 class="card-trombi-name">Said</h2>
+            <h4 class="card-trombi-status">Développeur Full Stack</h4>
+            <p class="card-trombi-quote">"Chaque problème à sa solution"</p>
+            <div class="card-trombi-socialLink">
+                <span class="linkedin"><a href="https://www.linkedin.com/in/said-ladghem/" target="_blank"><i class="fab fa-linkedin-in"></i></a></span>
+                <span class="mail"><a href="mailto:said.ladghem@gmail.com"><i class="fas fa-envelope"></i></a></span>
+                <span class="portefolio"><a href="https://s-ladghem.com" target="_blank"><i class="fas fa-border-all"></i></a></span>
             </div>
-
         </div>
-        <div class="card-trombi">
-            <img id="imgCloe" src="{{ asset("pho/cloe.png") }}"
-                 alt="" class="lazyload">
+    </div>
 
-            <div class="card-trombi-info">
-                <h2 class="card-trombi-name">Cloé</h2>
-                <h4 class="card-trombi-status">Chef de projet - Développeuse</h4>
-                <p class="card-trombi-quote">"Dans notre domaine, on ne s'ennuie jamais!"</p>
-                <div class="card-trombi-socialLink">
-                    <span class="linkedin"><a href="https://linkedin.com"><i class="fab fa-linkedin-in"></i></a></span>
-                    <span class="mail"><a href="mailto:said.ladghem@gmail.com"><i class="fas fa-envelope"></i></a></span>
-                    <span class="portefolio"><a href="https://s-ladghem.com"><i class="fas fa-border-all"></i></a></span>
-                </div>
+    <div class="card-trombi">
+        <img id="imgLison" src="{{ asset("pho/lison.png") }}" alt="" class="lazyload">
+        <div class="card-trombi-info">
+            <h2 class="card-trombi-name">Lison</h2>
+            <h4 class="card-trombi-status">Front-End Designer</h4>
+            <p class="card-trombi-quote">"Chaque projet est un nouveau défi"</p>
+            <div class="card-trombi-socialLink">
+                <span class="linkedin"><a href="https://www.linkedin.com/in/lisondagostini/" target="_blank"><i class="fab fa-linkedin-in"></i></a></span>
+                <span class="mail"><a href="mailto:lison.dagostini@gmail.com"><i class="fas fa-envelope"></i></a></span>
+                <span class="portefolio"><a href="http://www.lisondagostini.com/" target="_blank"><i class="fas fa-border-all"></i></a></span>
             </div>
-
         </div>
-        <div class="card-trombi">
-            <img id="imgLea" src="{{ asset("pho/lea.png") }}"
-            alt="" class="lazyload">
+    </div>
 
-            <div class="card-trombi-info">
-                <h2 class="card-trombi-name">Léa</h2>
-                <h4 class="card-trombi-status">Content manager - Développeuse</h4>
-                <p class="card-trombi-quote">"Chaque histoire mérite d'être racontée"</p>
-                <div class="card-trombi-socialLink">
-                    <span class="linkedin"><a href="https://linkedin.com"><i class="fab fa-linkedin-in"></i></a></span>
-                    <span class="mail"><a href="mailto:said.ladghem@gmail.com"><i class="fas fa-envelope"></i></a></span>
-                    <span class="portefolio"><a href="https://s-ladghem.com"><i class="fas fa-border-all"></i></a></span>
-                </div>
+    <div class="card-trombi">
+        <img id="imgLoick" src="{{ asset("pho/loick.png") }}" alt="" class="lazyload">
+        <div class="card-trombi-info">
+            <h2 class="card-trombi-name">Loïck</h2>
+            <h4 class="card-trombi-status">Développeur Back-End</h4>
+            <p class="card-trombi-quote">"Un bon développeur est un développeur heureux"</p>
+            <div class="card-trombi-socialLink">
+                <span class="linkedin"><a href="https://www.linkedin.com/in/lo%C3%AFck-app%C3%A9r%C3%A9-640842197/" target="_blank"><i class="fab fa-linkedin-in"></i></a></span>
+                <span class="mail"><a href="mailto:loick.appere@outlook.fr"><i class="fas fa-envelope"></i></a></span>
             </div>
-
         </div>
+    </div>
 
-        <div class="card-trombi">
-            <img id="imgLucas" src="{{ asset("pho/lucas.png") }}"
-            alt="" class="lazyload">
-
-            <div class="card-trombi-info">
-                <h2 class="card-trombi-name">Lucas</h2>
-                <h4 class="card-trombi-status">Designer - Développeur</h4>
-                <p class="card-trombi-quote">"Life is for living"</p>
-                <div class="card-trombi-socialLink">
-                    <span class="linkedin"><a href="https://www.linkedin.com"><i class="fab fa-linkedin-in-"></i></a></span>
-                    <span class="mail"><a href="mailto:said.ladghem@gmail.com"><i class="fas fa-envelope"></i></a></span>
-                    <span class="portefolio"><a href="https://s-ladghem.com"><i class="fas fa-border-all"></i></a></span>
-                </div>
+    <div class="card-trombi">
+        <img id="imgLucas" src="{{ asset("pho/lucas.png") }}" alt="" class="lazyload">
+        <div class="card-trombi-info">
+            <h2 class="card-trombi-name">Lucas</h2>
+            <h4 class="card-trombi-status">Designer</h4>
+            <p class="card-trombi-quote">"Life is for living"</p>
+            <div class="card-trombi-socialLink">
+                <span class="linkedin"><a href="https://www.linkedin.com/in/lucas-lacroix/" target="_blank"><i class="fab fa-linkedin-in"></i></a></span>
+                <span class="mail"><a href="mailto:lacroixlucas59@gmail.com"><i class="fas fa-envelope"></i></a></span>
+                <span class="portefolio"><a href="https://lucaslacroix.netlify.com/" target="_blank"><i class="fas fa-border-all"></i></a></span>
             </div>
-
         </div>
-        <div class="card-trombi">
-            <img id="imgThomas" src="{{ asset("pho/thomas.png") }}"
-             alt="" class="lazyload">
+    </div>
 
-            <div class="card-trombi-info">
-                <h2 class="card-trombi-name">Thomas</h2>
-                <h4 class="card-trombi-status">Community Manager - Développeur front</h4>
-                <p class="card-trombi-quote">"Les projets sont une source de partage"</p>
-                <div class="card-trombi-socialLink">
-                    <span class="linkedin"><a href="https://linkedin.com"><i class="fab fa-linkedin-in"></i></a></span>
-                    <span class="mail"><a href="mailto:said.ladghem@gmail.com"><i class="fas fa-envelope"></i></a></span>
-                    <span class="portefolio"><a href="https://s-ladghem.com"><i class="fas fa-border-all"></i></a></span>
-                </div>
+    <div class="card-trombi">
+        <img id="imgLea" src="{{ asset("pho/lea.png") }}" alt="" class="lazyload">
+        <div class="card-trombi-info">
+            <h2 class="card-trombi-name">Léa</h2>
+            <h4 class="card-trombi-status">Content manager</h4>
+            <p class="card-trombi-quote">"Chaque histoire mérite d'être racontée"</p>
+            <div class="card-trombi-socialLink">
+                <span class="linkedin"><a href="https://www.linkedin.com/in/l%C3%A9a-traccoen-691188172/" target="_blank"><i class="fab fa-linkedin-in"></i></a></span>
+                <span class="mail"><a href="mailto:leatraccoen@outlook.fr"><i class="fas fa-envelope"></i></a></span>
             </div>
-
         </div>
+    </div>
 
-        <div class="card-trombi">
-            <img id="imgLoick" src="{{ asset("pho/loick.png") }}"
-            alt="" class="lazyload">
-
-            <div class="card-trombi-info">
-                <h2 class="card-trombi-name">Loïck</h2>
-                <h4 class="card-trombi-status">Développeur back</h4>
-                <p class="card-trombi-quote">"Un bon développeur est un développeur heureux"</p>
-                <div class="card-trombi-socialLink">
-                    <span class="linkedin"><a href="https://linkedin.com"><i class="fab fa-linkedin-in"></i></a></span>
-                    <span class="mail"><a href="mailto:said.ladghem@gmail.com"><i class="fas fa-envelope"></i></a></span>
-                    <span class="portefolio"><a href="https://s-ladghem.com"><i class="fas fa-border-all"></i></a></span>
-                </div>
+    <div class="card-trombi">
+        <img id="imgThomas" src="{{ asset("pho/thomas.png") }}" alt="" class="lazyload">
+        <div class="card-trombi-info">
+            <h2 class="card-trombi-name">Thomas</h2>
+            <h4 class="card-trombi-status">Community Manager</h4>
+            <p class="card-trombi-quote">"Les projets sont une source de partage"</p>
+            <div class="card-trombi-socialLink">
+                <span class="linkedin"><a href="https://www.linkedin.com/in/thomas-vinet-268697186/" target="_blank"><i class="fab fa-linkedin-in"></i></a></span>
+                <span class="mail"><a href="mailto:thomas.vinet60490@gmail.com"><i class="fas fa-envelope"></i></a></span>
             </div>
-
         </div>
+    </div>
 
     </div>
 
