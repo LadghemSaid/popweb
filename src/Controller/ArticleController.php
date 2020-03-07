@@ -30,26 +30,7 @@ class ArticleController extends AbstractController
         $this->request = Request::createFromGlobals();
     }
 
-    /**
-     * Liste l'ensemble des articles triés par date de publication pour une page donnée.
-     *
-     * @Route("/articles/", name="articles.index")
-     * @Template("XxxYyyBundle:Front/article:index.html.twig")
-     * @return \Symfony\Component\HttpFoundation\Response
-     */
-    public function index(ArticleRepository $articlerepo)
-    {
-        $articles = $articlerepo->findAll(); //On récupère les articles
-        // dd($articles);
-        //Pour 1 -> ...find($id);   avec une valeur de champ -> ...findOneBy(['title'=>'Article Du vendredi 13']);
-        return $this->render('article/index.html.twig', [
-            'current_menu' => 'articles',
-            'articles' => $articles,
 
-
-        ]);
-
-    }
 
 
     /**
@@ -92,6 +73,27 @@ class ArticleController extends AbstractController
             'formComment' => $formComment->createView(),
             'comments' => $comments,
             'allowComment' => $allowComment,
+
+        ]);
+
+    }
+
+    /**
+     * Liste l'ensemble des articles triés par date de publication pour une page donnée.
+     *
+     * @Route("/articles/", name="articles.index")
+     * @Template("XxxYyyBundle:Front/article:index.html.twig")
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
+    public function index(ArticleRepository $articlerepo)
+    {
+        $articles = $articlerepo->findAll(); //On récupère les articles
+        // dd($articles);
+        //Pour 1 -> ...find($id);   avec une valeur de champ -> ...findOneBy(['title'=>'Article Du vendredi 13']);
+        return $this->render('article/index.html.twig', [
+            'current_menu' => 'articles',
+            'articles' => $articles,
+
 
         ]);
 

@@ -8,6 +8,7 @@ easy_admin:
           - {property: 'image', type: 'image', base_path: '%app.path.article_images%' }
           - {property: 'tags' }
           - {property: 'published' }
+          - {property: 'slug' }
           - {property: 'favorite' }
           - {property: 'categorie' }
       list:
