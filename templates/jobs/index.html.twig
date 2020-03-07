@@ -47,6 +47,11 @@
 
 
         {% endfor %}
+            {% if articles|length == 0  %}
+                <div class="fullHeight">
+                    <p>Les articles seront bientot en ligne :)</p>
+                </div>
+            {% endif%}
         </div>
 
     </div>
