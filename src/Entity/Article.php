@@ -60,6 +60,7 @@ class Article
 
     /**
      * @Vich\UploadableField(mapping="article_images", fileNameProperty="image")
+     * @Assert\Image(mimeTypes={"image/png", "image/jpeg", "image/jpg", "image/gif"})
      * @var File
      */
     private $imageFile;
