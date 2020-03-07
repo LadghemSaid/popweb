@@ -22,7 +22,7 @@ easy_admin:
       form:
         fields:
           - {property: 'title' }
-          - {property: 'imageFile', type: 'file' }
+          - {property: 'image', type: 'file' }
           - {property: 'text',type: 'FOS\CKEditorBundle\Form\Type\CKEditorType', type_options: { config_name: 'advanced_config' } }
           - {property: 'tags' }
           - {property: 'categorie' }
