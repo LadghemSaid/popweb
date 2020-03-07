@@ -40,7 +40,7 @@ class ArticleController extends AbstractController
     public function index(ArticleRepository $articlerepo)
     {
         $articles = $articlerepo->findAll(); //On récupère les articles
-       // dd($articles);
+        // dd($articles);
         //Pour 1 -> ...find($id);   avec une valeur de champ -> ...findOneBy(['title'=>'Article Du vendredi 13']);
         return $this->render('article/index.html.twig', [
             'current_menu' => 'articles',
@@ -77,11 +77,11 @@ class ArticleController extends AbstractController
         ]);
 
         $article = $this->repository->find($article);
-        $comments = $commentsRepository->findArticleComment( $article->getId(), 'DESC');
+        $comments = $commentsRepository->findArticleComment($article->getId(), 'DESC');
 
-        $commentOptions =  $article->getAllowComment();
-        $allowComment= false;
-        if( isset($commentOptions)&& array_search('allowComment', $commentOptions) !== null ){
+        $commentOptions = $article->getAllowComment();
+        $allowComment = false;
+        if (isset($commentOptions) && array_search('allowComment', $commentOptions) !== null) {
             $allowComment = true;
 
         }

@@ -1,6 +1,7 @@
 <?php
 namespace App\EventSubscriber;
 
+use App\Entity\Article;
 use App\Entity\Job;
 use Cocur\Slugify\Slugify;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
@@ -21,6 +22,8 @@ class EasyAdminSubscriber implements EventSubscriberInterface
             'easy_admin.pre_persist' => array('setProjectSlug','setJobSlug'),
         );
     }
+
+
 
     public function setProjectSlug(GenericEvent $event)
     {

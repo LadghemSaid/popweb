@@ -1,9 +1,11 @@
 <?php
 namespace App\Controller;
 
+use App\Entity\Article;
 use App\Entity\Project;
 use App\Entity\User;
 use Cocur\Slugify\Slugify;
+use Doctrine\ORM\EntityManagerInterface;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\EasyAdminController;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
@@ -36,11 +38,11 @@ class AdminController extends EasyAdminController
         //$encoder = $passwordEncoderFactory->getEncoder($user);
         return $this->encoder->encodePassword($password, $user->getSalt());
     }
-    public function prePersistProjectEntity(Project $project)
-    {
-        $slugifyTitle = new Slugify();
-        $project->setSlug($slugifyTitle->slugify($project->getTitle()));
-        dd($slugifyTitle->slugify($project->getTitle()));
-    }
 
+    protected function prePersistArticleEntity(Article $article,EntityManagerInterface $em){
+        $article->setUpdatedAt( new \DateTime());
+        //$em->persist($article);
+       // $em->flush();
+
+    }
 }

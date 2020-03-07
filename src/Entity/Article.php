@@ -9,6 +9,7 @@ use Symfony\Component\HttpFoundation\File\File;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 /**
+ * @Vich\Uploadable
  * @ORM\Entity(repositoryClass="App\Repository\ArticleRepository")
  */
 class Article
@@ -49,18 +50,25 @@ class Article
      */
     private $published;
 
+
+
     /**
      * @ORM\Column(type="string", length=255, nullable=false)
      * @var string
      */
     private $image;
 
-
     /**
      * @Vich\UploadableField(mapping="article_images", fileNameProperty="image")
      * @var File
      */
     private $imageFile;
+
+    /**
+     * @ORM\Column(type="datetime")
+     * @var \DateTime
+     */
+    private $updatedAt;
 
     /**
      * @ORM\ManyToMany(targetEntity="App\Entity\Tag", inversedBy="articles")
@@ -76,13 +84,6 @@ class Article
      * @ORM\Column(type="array", nullable=true)
      */
     private $allowComment = [];
-
-
-    /**
-     * @ORM\Column(type="datetime")
-     * @var \DateTime
-     */
-    private $updatedAt;
 
     /**
      * @ORM\OneToMany(targetEntity="App\Entity\Comment", mappedBy="article")

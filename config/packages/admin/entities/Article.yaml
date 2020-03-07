@@ -21,12 +21,12 @@ easy_admin:
           - 'favorite'
       form:
         fields:
-          - {property: 'title' }
-          - {property: 'image', type: 'file' }
-          - {property: 'text',type: 'FOS\CKEditorBundle\Form\Type\CKEditorType', type_options: { config_name: 'advanced_config' } }
+          - {property: 'title' , type_options: { required: true } }
+          - {property: 'imageFile', type: 'vich_image', type_options: { required: true }  }
+          - {property: 'text',type: 'FOS\CKEditorBundle\Form\Type\CKEditorType', type_options: { config_name: 'advanced_config',required : true } }
           - {property: 'tags' }
           - {property: 'categorie' }
-          - {property: 'slug' }
+          - {property: 'slug', type_options: { required: false }  }
           - {property: 'allowComment',  type: 'choice', type_options: { multiple: true, choices: { 'Afficher les commentaires': 'allowComment', 'Valider les commentaires automatiquement': 'commentValidatingAuto' } } }
           - {property: 'published' }
           - {property: 'favorite' }
