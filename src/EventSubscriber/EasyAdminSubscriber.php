@@ -42,7 +42,6 @@ class EasyAdminSubscriber implements EventSubscriberInterface
         $entity->setSlug($slugifyTitle->slugify($entity->getTitle()));
 
         $event['entity'] = $entity;
-        dd($entity);
     }
 
     public function setJobSlug(GenericEvent $event)
