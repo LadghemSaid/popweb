@@ -39,10 +39,5 @@ class AdminController extends EasyAdminController
         return $this->encoder->encodePassword($password, $user->getSalt());
     }
 
-    protected function prePersistArticleEntity(Article $article,EntityManagerInterface $em){
-        $article->setUpdatedAt( new \DateTime());
-        //$em->persist($article);
-       // $em->flush();
 
-    }
 }
