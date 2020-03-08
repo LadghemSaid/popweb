@@ -6,13 +6,13 @@
 
 
 {% block body %}
-<div class="img-banner">
-<img src="{{ asset('pho/banner-blog.jpg') }}" alt="Bannière blog" class="banner">
-<div class="text">
-    <h1>Titre</h2>
-    <p>petit texte</p>
+    <div class="img-banner">
+        <img src="{{ asset('pho/banner-blog.jpg') }}" alt="Bannière blog" class="banner">
+        <div class="text">
+            <h1>Titre</h2>
+                <p>petit texte</p>
+        </div>
     </div>
-</div>
 
     {% for message in app.flashes('success') %}
         <div class="alert alert-success">
@@ -28,7 +28,7 @@
                     <p class="p-date">{{ article.updatedAt | date('d/m/Y H:i', timezone='Europe/Paris') }} </p>
                 </div>
                 <div class="image-section">
-                    <img  class="d-block w-100 lazyload p-img"
+                    <img class="d-block w-100 lazyload p-img"
                          src="{{ asset("img/low_res.jpg") }}"
                          data-src="{{ app_path_articles_images }}{{ article.image }}"
                          alt="AlternateText"
@@ -49,7 +49,7 @@
 {% block javascripts %}
     <script>
 
-        $(document).ready(()=>{
+        $(document).ready(() => {
             $(function () {
                 $(window).scroll(function () {
                     var scroll = $(window).scrollTop();
