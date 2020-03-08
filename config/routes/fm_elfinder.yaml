@@ -1,0 +1,2 @@
+fm_elfinder:
+    resource: "../../vendor/helios-ag/fm-elfinder-bundle/src/Resources/config/routing.yaml"

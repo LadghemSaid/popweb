@@ -6,6 +6,10 @@ fos_ck_editor:
         simple_config:
             toolbar:
                 - { name: "styles", items: ['Bold', 'Italic', 'BulletedList', 'Link'] }
+            filebrowserBrowseRoute: elfinder
+            filebrowserBrowseRouteParameters: []
         advanced_config:
             toolbar:
+            filebrowserBrowseRoute: elfinder
+            filebrowserBrowseRouteParameters: []
 

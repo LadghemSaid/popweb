@@ -39,7 +39,7 @@
                     <a href="{{ path('article.show',{'slug':article.slug}) }}">
                         <h2> {{ article.title|striptags|length >20 ? article.title|striptags|slice(0, 50) ~ '...' : article.title|striptags }} </h2>
                     </a>
-                    <p class="p-date"> Jan 18, 2019</p>
+                    <p class="p-date" data-date="{{ article.updatedAt| date('U') }}"></p>
                     {% dump(article) %}
                     <p class="p-description">{{ article.text|striptags|length > 100 ? article.text|striptags|slice(0, 100) ~ '...' : article.text|striptags }}</p>
                     <a href="{{ path('article.show',{'slug':article.slug}) }}" class="more">Voir plus</a>
@@ -63,6 +63,16 @@
 
   {% block javascripts %}
       <script>
+
+          document.addEventListener("DOMContentLoaded", function(event) {
+              $(function(){
+                  moment.locale('fr');
+                  $(".p-date").html(moment.unix($(this).dataset.date).local().fromNow());
+              });
+          });
+
+
+
 
 
       </script>

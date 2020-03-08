@@ -9,9 +9,10 @@
         "easycorp/easyadmin-bundle": "^2.3",
         "friendsofsymfony/ckeditor-bundle": "^2.1",
         "google/recaptcha": "^1.2",
+        "helios-ag/fm-elfinder-bundle": "^10.0",
         "knplabs/knp-time-bundle": "^1.9",
         "sensio/framework-extra-bundle": "^5.1",
-        "symfony/asset": "4.3.*",
+        "symfony/asset": "4.4.*",
         "symfony/config": "4.4.*",
         "symfony/console": "4.4.*",
         "symfony/dotenv": "4.4.*",
@@ -86,7 +87,7 @@
     },
     "extra": {
         "symfony": {
-            "allow-contrib": false,
+            "allow-contrib": "true",
             "require": "4.4.*"
         }
     }
