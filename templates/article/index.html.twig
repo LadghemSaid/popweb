@@ -68,7 +68,7 @@
 
                   moment.locale('fr');
                   $(".p-date").map((x, i) => {
-                      console.log(i);:
+                      console.log(i);
                     i.innerText = moment.unix(i.dataset.date).local().fromNow();
                   });
               });
