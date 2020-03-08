@@ -24,7 +24,7 @@
             <h1>On peut vous renseigner sur les sujets suivants :</h1>
         </div>
         <div class="row">
-{% dump(articles) %}
+            {% dump(articles) %}
             {% for article in articles %}
 
                 <div class="col-sm-4 article-item">
@@ -40,7 +40,6 @@
                         <h2> {{ article.title|striptags|length >20 ? article.title|striptags|slice(0, 50) ~ '...' : article.title|striptags }} </h2>
                     </a>
                     <p class="p-date" data-date="{{ article.updatedAt| date('U') }}"></p>
-                    {% dump(article) %}
                     <p class="p-description">{{ article.description|striptags|length > 100 ? article.description|striptags|slice(0, 100) ~ '...' : article.description|striptags }}</p>
                     <a href="{{ path('article.show',{'slug':article.slug}) }}" class="more">Voir plus</a>
                 </div>
@@ -64,15 +63,16 @@
   {% block javascripts %}
       <script>
 
-          document.addEventListener("DOMContentLoaded", function(event) {
-              $(function(){
+          document.addEventListener("DOMContentLoaded", function (event) {
+              $(function () {
+
                   moment.locale('fr');
-                  $(".p-date").html(moment.unix($(this).dataset.date).local().fromNow());
+                  $(".p-date").map((x, i) => {
+                      console.log(i);
+                    i.innerText = moment.unix(i.dataset.date).local().fromNow();
+                  });
               });
           });
-
-
-
 
 
       </script>
