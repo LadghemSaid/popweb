@@ -13,7 +13,7 @@
         "dev-server": "encore dev-server",
         "dev": "encore dev",
         "watch": "encore dev --watch",
-        "test": "echo ':q!hello-world'",
+        "test": "echo 'hello-world'",
         "build": "encore production"
     }
 }
