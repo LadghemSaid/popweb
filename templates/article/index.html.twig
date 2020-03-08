@@ -41,7 +41,7 @@
                     </a>
                     <p class="p-date" data-date="{{ article.updatedAt| date('U') }}"></p>
                     {% dump(article) %}
-                    <p class="p-description">{{ article.text|striptags|length > 100 ? article.text|striptags|slice(0, 100) ~ '...' : article.text|striptags }}</p>
+                    <p class="p-description">{{ article.description|striptags|length > 100 ? article.description|striptags|slice(0, 100) ~ '...' : article.description|striptags }}</p>
                     <a href="{{ path('article.show',{'slug':article.slug}) }}" class="more">Voir plus</a>
                 </div>
 

@@ -91,6 +91,11 @@ class Article
      */
     private $comments;
 
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $description;
+
 
 
     public function __construct()
@@ -297,6 +302,18 @@ class Article
     public function setAllowComment(?array $allowComment): self
     {
         $this->allowComment = $allowComment;
+
+        return $this;
+    }
+
+    public function getDescription(): ?string
+    {
+        return $this->description;
+    }
+
+    public function setDescription(?string $description): self
+    {
+        $this->description = $description;
 
         return $this;
     }

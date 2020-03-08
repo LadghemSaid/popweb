@@ -9,8 +9,8 @@
     <div class="img-banner">
         <img src="{{ asset('pho/banner-blog.jpg') }}" alt="Bannière blog" class="banner">
         <div class="text">
-            <h1>Titre</h2>
-                <p>petit texte</p>
+            <h1>{{ article.title }}</h2>
+                <p>{{ article.updatedAt | date('d/m/Y H:i', timezone='Europe/Paris') }}</p>
         </div>
     </div>
 

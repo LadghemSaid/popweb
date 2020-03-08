@@ -30,6 +30,7 @@ App\Entity\Job:
     title: <fr_FR:catchPhrase()> <current()>
     image: 'img1.jpg'
     text: <fr_FR:text(200)>
+    description: <fr_FR:catchPhrase()> <current()>
     published: 'true'
     slug: <fr_FR:slug()>
     updatedAt: <dateTime()>
@@ -40,6 +41,7 @@ App\Entity\Project:
     image: 'img2.jpg'
     text: <fr_FR:text(200)>
     tags: '3x @tag*'
+    description: <fr_FR:catchPhrase()> <current()>
     published: 'true'
     allowComment: ['allowComment','']
     slug: <fr_FR:slug()>
@@ -52,6 +54,7 @@ App\Entity\Article:
     image: 'img2.jpg'
     text: <fr_FR:text(200)>
     tags: '3x @tag*'
+    description: <fr_FR:catchPhrase()> <current()>
     published: 'true'
     allowComment: ['allowComment','']
     slug: <fr_FR:slug()>

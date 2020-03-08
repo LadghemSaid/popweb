@@ -7,6 +7,7 @@ easy_admin:
           - {property: 'title' }
           - {property: 'image', type: 'image', base_path: '%app.path.article_images%' }
           - {property: 'tags' }
+          - {property: 'description' }
           - {property: 'published' }
           - {property: 'slug' }
           - {property: 'favorite' }
@@ -23,6 +24,7 @@ easy_admin:
       form:
         fields:
           - {property: 'title' , type_options: { required: true } }
+          - {property: 'description' }
           - {property: 'imageFile', type: 'vich_image', type_options: { required: true }  }
           - {property: 'text',type: 'FOS\CKEditorBundle\Form\Type\CKEditorType', type_options: { config_name: 'advanced_config',required : true } }
           - {property: 'tags' }
