@@ -63,9 +63,26 @@
                 <p class="card-trombi-quote">"Dans notre domaine, on ne s'ennuie jamais!"</p>
                 <div class="card-trombi-socialLink">
                     <span class="mail"><a href="mailto:cloelh@outlook.fr"><i class="fas fa-envelope"></i></a></span>
+                    <span class="linkedin"><a href="https://www.linkedin.com/in/cloe-lhenry-66ab87144/" target="_blank"><i class="fab fa-linkedin-in"></i></a></span>
                 </div>
-            </div>
+            </div>:
         </div>
+
+        exec("cd ../popweb && git pull", $output, $return);
+        var_dump($return);
+
+        exec("cd ../popweb && npm run build", $output, $return);
+        var_dump($return);
+
+        exec("cd ../popweb && php bin/console c:c", $output, $return);
+        var_dump($return);
+
+        exec("whoami", $output, $return);
+
+        var_dump($output,$return);
+d::
+:::q!
+:q!
 
         <div class="card-trombi">
             <img id="imgSaid" src="{{ asset("pho/said.jpg") }}" alt="" class="lazyload">
@@ -78,7 +95,7 @@
                                     class="fab fa-linkedin-in"></i></a></span>
                     <span class="mail"><a href="mailto:said.ladghem@gmail.com"><i
                                     class="fas fa-envelope"></i></a></span>
-                    <span class="portefolio"><a href="https://s-ladghem.com" target="_blank"><i
+                    <span class="portefolio"><a href="https://s-ladghem.ga" target="_blank"><i
                                     class="fas fa-border-all"></i></a></span>
                 </div>
             </div>
