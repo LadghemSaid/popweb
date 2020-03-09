@@ -367,3 +367,38 @@ input[type="submit"]{
   }
 
 }
+.card-projects {
+
+
+  &-info {
+
+    transform: translateY(67%);
+    transition: all 0.2s ease-in-out;
+
+    @include breakpoint(mobile) {
+
+    }
+
+    &-status {
+      font-weight: bold;
+      color: #dc3545;
+      margin: 0;
+      opacity: 0;
+
+    }
+  }
+}
+
+.card-projects:hover > .card-projects-info {
+  background-color: #dcdcdc;
+  color: black;
+  transform: translateY(0%);
+
+  .card-projects-status{
+    opacity: 1!important;
+  }
+
+  @include breakpoint(mobile) {
+  }
+
+}

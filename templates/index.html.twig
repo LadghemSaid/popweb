@@ -78,14 +78,16 @@
                 <h3 class="text-center">Découvrez nos autres projets</h3>
                 <div class="liste">
                     {% for project in favoriteProjects %}
-                        <a href="{{ path('project.show', {'slug':project.slug} ) }}" target="_blank" class="card">
+                    <div class="card-projects">
+                        <div class="card-projects-info">
+                            <a href="{{ path('project.show', {'slug':project.slug} ) }}" target="_blank" class="card">
                             <img class="d-block w-100 lazyload "
                                  src="{{ asset("img/low_res.jpg") }}"
                                  data-src="{{ app_path_projects_images }}{{ project.image }}"
                                  alt="AlternateText"
                             />
-                            <h4>{{ project.title }} </h4>
-                        </a>
+                                <h4 class="card-projects-status">{{ project.title }}</h4>
+                            </a></div></div>
                     {% endfor %}
                 </div>
             </div>
