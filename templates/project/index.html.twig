@@ -12,7 +12,7 @@
 {% endblock %}
 {% block body %}
     <div class="img-banner">
-        <img src="{{ asset('pho/banner-blog.png') }}" alt="Bannière blog" class="banner">
+        <img src="{{ asset('pho/banner-blog.jpg') }}" alt="Bannière blog" class="banner">
         <div class="text">
             <h1>Titre</h1>
             <p>Titre</p>
@@ -20,7 +20,7 @@
     </div>
 
     <div class="jumbotron">
-         <h1>Nos projets</h1>
+        <h1>Nos projets</h1>
     </div>
     <div class="row">
 
@@ -36,16 +36,21 @@
                 </a>
 
                 <a href="{{ path('project.show',{'slug':project.slug}) }}">
-                    <h2> {{ project.title }} </h2>
+                    <h2> {{ project.title|striptags|length >20 ? project.title|striptags|slice(0, 50) ~ '...' : project.title|striptags }}  </h2>
                 </a>
-                <p class="p-date"> Jan 18, 2019 ok </p>
-                <p class="p-description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus eligendi nobis ea maiores sapiente veritatis reprehenderit suscipit quaerat rerum voluptatibus a eius.</p>
+                <p class="p-date">Jan 18, 2019 </p>
+                <p class="p-description">{{ project.text|striptags|length > 100 ? project.text|striptags|slice(0, 100) ~ '...' : project.text|striptags }}</p>
                 <a href="{{ path('project.show',{'slug':project.slug}) }}" class="more">Voir plus</a>
             </div>
 
 
 
         {% endfor %}
+        {% if projects|length == 0 %}
+            <div class="fullHeight">
+                <p>Les projets seront bientot en ligne :)</p>
+            </div>
+        {% endif %}
     </div>
 
 {% endblock %}

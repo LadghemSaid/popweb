@@ -25,14 +25,30 @@ a.primaire {
 .c {
   text-align: center;
 }
+.p40{
+  padding: 40px 40px 0 40px;
+}
+.pr-0 {
+  padding-right: 0;
+}
+.pl-0 {
+  padding-left: 0;
+}
+.mt-10 {
+  margin-top: 10px;
+}
 .mt-50 {
   margin-top: 50px;
+}
+.mb-50 {
+  margin-bottom: 50px;
 }
 h1 {
   font-weight: 600;
   margin-bottom: 25px;
 }
 h3 {
+  font-size: 40px;
   text-transform: uppercase;
   font-weight: 600;
   margin-bottom: 25px;
@@ -54,7 +70,7 @@ header img {
   padding: 15px;
 }
 .crea {
-  background-image: url(./../../../../../public/pho/crea.png);
+  background-image: url(./../../../../../public/pho/crea.jpg);
   padding: 100px 0;
   margin: 50px 0;
   text-align: center;

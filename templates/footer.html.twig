@@ -1,7 +1,34 @@
 <footer>
-    <div id="marge_footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <a href="index.php"><img id="logofooter" src="{{ asset('img/logo_lite.svg') }}" alt="logo de BlueCake"/></a>
+                <p>POP Web est une agence web qui vous accompagne dans votre transformation numérique, vous guide lors d’une refonte de site web et vous aide à créer un contenu adapté à votre cible.</p>
+            </div>
+            <div class="col-md-4">
+                <p class="subtitle">Contact</p>
+                <div class="d-flex">
+                    <i class="fas fa-envelope"></i>
+                    <a href="mailto:contact.popweb@gmail.com">contact.popweb@gmail.com</a>
+                </div>
+
+                <div class="d-flex adresse">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <p>l'université SP, <br>16 Rue de l'Université, <br>62307 Lens</p>
+                </div>
+            </div>
+            <div class="col-md-2">
+            <p class="subtitle">Suis nous !</p>
+                <a href="https://www.facebook.com/popweb.conception/" target="_blank"><i class="fab fa-facebook-square"></i></a>
+                <a href="https://twitter.com/PopWeb3" target="_blank"><i class="fab fa-twitter-square"></i></a>
+            </div>
+        </div>
+        <div class="rights">
+        <p>Tous droits réservés POPWEB  ·  <span id="annee">X</span><a href="{{ path('app_login') }}" style="color:white;"> ♥ </a></p>
+        </div>
+    </div>
+    {# <div id="marge_footer">
         <div id="foot">
-            <a href="index.php"><img id="logofooter" src="{{ asset('img/logo_lite.svg') }}" alt="logo de BlueCake"/></a>
 
             <p>Conçu avec <a href="{{ path('app_login') }}" style="color:white;"> ♥ </a> à Lens<br>Tous droits réservés POPWEB  ·  <span id="annee">X</span></p>
 
@@ -9,7 +36,7 @@
                 <a href="https://www.facebook.com/popweb.conception/" target="_blank"><img src="{{ asset('img/f.svg') }}" alt="facebook"/></a>
             </div>
         </div>
-    </div>
+    </div> #}
 </footer>
 <script>
     function footannee() {

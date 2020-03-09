@@ -1,0 +1,19 @@
+fm_elfinder:
+    assets_path: '%kernel.project_dir%/bundles/fmelfinder' # chemin des fichiers JS
+    instances:
+        default:
+            locale: fr # Langue
+            editor: ckeditor # Editeur utilisé
+            fullscreen: true # Taille d'affichage
+            theme: smoothness # Thème à utiliser
+            # path_prefix:
+            relative_path: true
+            connector:
+                roots:
+                    uploads:
+                        url: '%env(string:UPLOAD_PATH_DEFAULT)%'
+                        driver: LocalFileSystem
+                        path: '%kernel.project_dir%/public/uploads/images/default/'
+                        upload_allow: ['image/png', 'image/jpg', 'image/jpeg'] # Fichiers autorisés
+                        upload_deny: ['all'] # Fichiers interdits
+                        upload_max_size: 20M # Taille maximum

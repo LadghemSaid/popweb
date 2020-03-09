@@ -7,8 +7,9 @@ use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\HttpFoundation\File\File;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
-
+use Symfony\Component\Validator\Constraints as Assert;
 /**
+ * @Vich\Uploadable
  * @ORM\Entity(repositoryClass="App\Repository\ArticleRepository")
  */
 class Article
@@ -26,7 +27,7 @@ class Article
     private $title;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255,nullable=true)
      */
     private $slug;
 
@@ -49,18 +50,26 @@ class Article
      */
     private $published;
 
+
+
     /**
      * @ORM\Column(type="string", length=255, nullable=false)
      * @var string
      */
     private $image;
 
-
     /**
      * @Vich\UploadableField(mapping="article_images", fileNameProperty="image")
+     * @Assert\Image(mimeTypes={"image/png", "image/jpeg", "image/jpg", "image/gif"})
      * @var File
      */
     private $imageFile;
+
+    /**
+     * @ORM\Column(type="datetime")
+     * @var \DateTime
+     */
+    private $updatedAt;
 
     /**
      * @ORM\ManyToMany(targetEntity="App\Entity\Tag", inversedBy="articles")
@@ -77,17 +86,15 @@ class Article
      */
     private $allowComment = [];
 
-
-    /**
-     * @ORM\Column(type="datetime")
-     * @var \DateTime
-     */
-    private $updatedAt;
-
     /**
      * @ORM\OneToMany(targetEntity="App\Entity\Comment", mappedBy="article")
      */
     private $comments;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $description;
 
 
 
@@ -295,6 +302,18 @@ class Article
     public function setAllowComment(?array $allowComment): self
     {
         $this->allowComment = $allowComment;
+
+        return $this;
+    }
+
+    public function getDescription(): ?string
+    {
+        return $this->description;
+    }
+
+    public function setDescription(?string $description): self
+    {
+        $this->description = $description;
 
         return $this;
     }

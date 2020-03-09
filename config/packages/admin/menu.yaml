@@ -9,11 +9,11 @@ easy_admin:
       - "@EasyAdmin/form/bootstrap_4.html.twig"
       - "@FOSCKEditor/Form/ckeditor_widget.html.twig"
     menu:
-      - label: 'Portfolio'
+      - label: 'Contenu'
         icon: 'newspaper-o'
         children:
           - {entity: 'Project', icon: 'code', label: 'Projets'}
-          - {entity: 'Article', icon: 'code', label: 'Articles'}
+          - {entity: 'Article', icon: 'scroll', label: 'Articles'}
           - {entity: 'Job', icon: 'bullhorn', label: 'Recrutements'}
           - {entity: 'Comment', icon: 'comment', label: 'Commentaires'}
 

@@ -1,29 +1,6 @@
 .about-header {
-  display: flex;
-  justify-items: center;
-  align-items: center;
-  background-color: #00103e;
-  color: white;
-  margin-bottom: 70px;
-
   img {
-    width: 50vw;
-    object-fit: cover;
-  }
-
-  .infos {
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-
-    &-h2 {
-      font-weight: bolder;
-    }
-
-    &-p {
-      font-weight: 200;
-
-    }
+    width: 100%;
   }
 }
 
@@ -53,11 +30,23 @@
   overflow: hidden;
   justify-self: center;
   position: relative;
-
+  &:after {
+    position: absolute;
+    content:"";
+    height:100%;
+    width:100%;
+    top:0;
+    left:0;
+    transition: all 0.2s ease-in-out;
+    background: linear-gradient(to top, rgba(255,0,0,0) 50%,rgba(255,0,0,0.35) 100%);
+    opacity:0;
+    z-index: 1;
+  }
 
   img {
     width: 100%;
     object-fit: cover;
+
   }
 
   &-info {
@@ -68,9 +57,11 @@
     position: absolute;
     bottom: 0px;
     opacity: 1;
-    transform: translateY(67%);
+    transform: translateY(55%);
     transition: all 0.2s ease-in-out;
     width: 100%;
+    z-index: 2;
+
     @include breakpoint(mobile) {
 
     }
@@ -78,8 +69,8 @@
   }
 
   &-name {
-    margin-bottom: 25px;
-    font-size: 1.5rem;
+    margin-bottom: 5px;
+    font-size: 2rem;
   }
 
   &-status {
@@ -87,13 +78,15 @@
     color: #dc3545;
     margin: 0;
     opacity: 0;
+    font-size: 18px;
 
   }
 
   &-quote {
-    padding: 10px;
-    font-family: 'Indie Flower', cursive;
+    padding-bottom: 10px;
     margin: 0;
+    font-size: 14px;
+    color: rgb(146, 146, 146);
 
   }
 
@@ -108,7 +101,12 @@
 
 
 }
+.card-trombi:hover {
+  &:after{
 
+    opacity: 1;
+  }
+}
 .card-trombi:hover > .card-trombi-info {
     background-color: #dcdcdc;
     color: black;
@@ -123,8 +121,9 @@
 
 }
 
+/*
 
-/* Picture of us*/
+!* Picture of us*!
 .card-trombi:hover > #imgSaid {
   content: url(./../../../../../public/pho/said_rose.png);
 }
@@ -146,3 +145,4 @@
 .card-trombi:hover > #imgLoick {
   content: url(./../../../../../public/pho/loick_rose.png);
 }
+*/

@@ -1,11 +1,12 @@
 <?php
 namespace App\EventSubscriber;
 
+use App\Entity\Article;
 use App\Entity\Job;
+use App\Entity\Project;
 use Cocur\Slugify\Slugify;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Symfony\Component\EventDispatcher\GenericEvent;
-use App\Entity\Project;
 
 class EasyAdminSubscriber implements EventSubscriberInterface
 {
@@ -18,12 +19,19 @@ class EasyAdminSubscriber implements EventSubscriberInterface
     public static function getSubscribedEvents()
     {
         return array(
-            'easy_admin.pre_persist' => array('setProjectSlug','setJobSlug'),
+            'easy_admin.pre_persist' => [
+                ["setJobSlug",10],
+                ["setProjectSlug",15],
+                ["setArticleSlug",20]
+            ],
         );
     }
 
+
+
     public function setProjectSlug(GenericEvent $event)
     {
+
         $entity = $event->getSubject();
 
         if (!($entity instanceof Project)) {
@@ -38,6 +46,7 @@ class EasyAdminSubscriber implements EventSubscriberInterface
 
     public function setJobSlug(GenericEvent $event)
     {
+
         $entity = $event->getSubject();
 
         if (!($entity instanceof Job)) {
@@ -48,5 +57,21 @@ class EasyAdminSubscriber implements EventSubscriberInterface
         $entity->setSlug($slugifyTitle->slugify($entity->getTitle()));
 
         $event['entity'] = $entity;
+    }
+
+    public function setArticleSlug(GenericEvent $event)
+    {
+
+        $entity = $event->getSubject();
+
+        if (!($entity instanceof Article)) {
+            return;
+        }
+
+        $slugifyTitle = new Slugify();
+        $entity->setSlug($slugifyTitle->slugify($entity->getTitle()));
+
+        $event['entity'] = $entity;
+
     }
 }
