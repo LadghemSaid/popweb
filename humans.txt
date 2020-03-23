@@ -4,10 +4,7 @@
 Mon rôle sur ce projet: Agence Web
 
                             
-Site: e-mail, lien vers un formulaire de contact, etc.
-
-                            
-Twitter: votre compte Twitter
+Site: http://34.77.181.91/popweb/contact
 
                             
 Location: Lens, France
@@ -21,7 +18,7 @@ Location: Lens, France
 /* THANKS */
 
 							
-Name: POP WEB
+Name: http://34.77.181.91/popweb/
 
 						
                  
@@ -32,13 +29,13 @@ Name: POP WEB
 /* SITE */
 
                             
-Last update:  2020/01/23
+Last update:  2020/03/23
 
                             
 Standards: HTML5, CSS3, SYMPHONY
 
                             
-Components: Modernizr, jQuery, etc.
+Components: Bootstrap, jQuery, etc.
 
                             
 Software: Logiciels utilisés pour le développement
