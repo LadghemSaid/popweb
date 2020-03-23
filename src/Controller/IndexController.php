@@ -94,4 +94,14 @@ class IndexController extends AbstractController
         ]);
     }
 
+    /**
+     * @Route("/sitemaps.xml", name="sitemap")
+     */
+    public function sitemap()
+    {
+        return $this->render('/seo/sitemaps.html.twig', [
+
+        ]);
+    }
+
 }
