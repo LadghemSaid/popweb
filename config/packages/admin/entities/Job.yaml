@@ -16,10 +16,10 @@ easy_admin:
       form:
         fields:
           - {property: 'title' , type_options: { required: true } }
-          - {property: 'imageFile', type: 'vich_image', type_options: { required: true }  }
+          - {property: 'imageFile', type: 'vich_image', type_options: { }  }
           - {property: 'text',type: 'FOS\CKEditorBundle\Form\Type\CKEditorType', type_options: { config_name: 'advanced_config',required : true } }
           - {property: 'slug', type_options: { required: false }  }
-          - {property: 'allowComment',  type: 'choice', type_options: { multiple: true, choices: { 'Afficher les commentaires': 'allowComment', 'Valider les commentaires automatiquement': 'commentValidatingAuto' } } }
+          - {property: 'allowComment',  type: 'choice', type_options: { multiple: true, choices: { 'Afficher les commentaires': 'allowComment', 'Valider les commentaires automatiquement': 'commentValidatingAuto', 'Pas commentaire': 'noComment' } } }
           - {property: 'published' }
         actions:
           - {name: 'edit', icon: 'pencil', label: false, css_class: 'btn btn-secondary'}
