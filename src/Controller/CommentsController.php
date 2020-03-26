@@ -55,6 +55,9 @@ class CommentsController extends AbstractController
                 $this->em->persist($com);
                 $this->em->flush();
 
+
+                $this->addFlash('succes',"Commentaire ajouté avec succés :)");
+
                 return $this->redirectToRoute('job.show', array('slug' => $post->getSlug()));
             } else if ($referer[3] === "project") {
 
@@ -69,6 +72,9 @@ class CommentsController extends AbstractController
                 $this->em->persist($com);
                 $this->em->flush();
 
+
+                $this->addFlash('succes',"Commentaire ajouté avec succés :)");
+
                 return $this->redirectToRoute('project.show', array('slug' => $post->getSlug()));
 
             } else if ($referer[3] === "article" ) {
@@ -82,6 +88,9 @@ class CommentsController extends AbstractController
                     ->setApproved($commentValidatingAuto);
                 $this->em->persist($com);
                 $this->em->flush();
+
+
+                $this->addFlash('succes',"Commentaire ajouté avec succés :)");
 
                 return $this->redirectToRoute('article.show', array('slug' => $post->getSlug()));
 

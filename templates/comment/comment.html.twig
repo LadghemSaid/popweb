@@ -3,16 +3,16 @@
         {% for comment in comments %}
 
             <article class="comment" id="commentId-{{ comment.id }}">
-                <a class="comment__img" href="#non">
+                <p class="comment__img" >
                     <img src="https://api.adorable.io/avatars/50/{{ comment.id }}@adorable.io.png" alt=""
                          width="50" height="50">
-                </a>
+                </p>
                 <div class="comment__body">
 
                     <div class="comment__header">
 
-                        <a href="#non" class="comment__author">{{ comment.username }}</a>
-                        <span class="comment__createdat">{{ comment.createdAt| ago }}</span>
+                        <p  class="comment__author">{{ comment.username }}</p>
+                        <span class="comment__createdat">{{ comment.createdAt | ago }}</span>
                         {% if comment.username == app.user %}
                             <ul class="comment__actions">
                                 <li class="comment__edit"><a id="{{ comment.id }}" href="#" onclick="edit(event)"
