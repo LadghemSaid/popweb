@@ -43,8 +43,7 @@ class CommentsController extends AbstractController
             $referer = explode('/', $req->headers->get('referer'));
             $com = $form->getData();
             //dd($jobRepo->find($id));
-            dd($referer);
-            if ($referer[2] === "job") {
+            if ($referer[3] === "job") {
                 $post = $jobRepo->find($id);
                 $commentValidatingAuto = false;
                 if (array_search('commentValidatingAuto', $post->getAllowComment())) {
@@ -57,7 +56,7 @@ class CommentsController extends AbstractController
                 $this->em->flush();
 
                 return $this->redirectToRoute('job.show', array('slug' => $post->getSlug()));
-            } else if ($referer[2] === "project") {
+            } else if ($referer[3] === "project") {
 
                 $post = $projectRepo->find($id);
                 $commentValidatingAuto = false;
@@ -72,7 +71,7 @@ class CommentsController extends AbstractController
 
                 return $this->redirectToRoute('project.show', array('slug' => $post->getSlug()));
 
-            } else if ($referer[2] === "article" ) {
+            } else if ($referer[3] === "article" ) {
                 $post = $articleRepo->find($id);
                 $commentValidatingAuto = false;
                 if (array_search('commentValidatingAuto', $post->getAllowComment())) {
