@@ -43,7 +43,7 @@ class CommentsController extends AbstractController
             $referer = explode('/', $req->headers->get('referer'));
             $com = $form->getData();
             //dd($jobRepo->find($id));
-            if ($referer[3] === "job" && getenv('APP_ENV') == 'dev' || $referer[3] === "job" && getenv('APP_ENV') == 'prod' ) {
+            if ($referer[2] === "job") {
                 $post = $jobRepo->find($id);
                 $commentValidatingAuto = false;
                 if (array_search('commentValidatingAuto', $post->getAllowComment())) {
@@ -56,7 +56,7 @@ class CommentsController extends AbstractController
                 $this->em->flush();
 
                 return $this->redirectToRoute('job.show', array('slug' => $post->getSlug()));
-            } else if ($referer[3] === "project" && getenv('APP_ENV') == 'dev' || $referer[3] === "project" && getenv('APP_ENV') == 'prod' ) {
+            } else if ($referer[2] === "project") {
 
                 $post = $projectRepo->find($id);
                 $commentValidatingAuto = false;
@@ -71,7 +71,7 @@ class CommentsController extends AbstractController
 
                 return $this->redirectToRoute('project.show', array('slug' => $post->getSlug()));
 
-            } else if ($referer[3] === "article" && getenv('APP_ENV') == 'dev' || $referer[3] === "article" && getenv('APP_ENV') == 'prod' ) {
+            } else if ($referer[2] === "article" ) {
                 $post = $articleRepo->find($id);
                 $commentValidatingAuto = false;
                 if (array_search('commentValidatingAuto', $post->getAllowComment())) {
