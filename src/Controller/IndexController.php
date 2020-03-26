@@ -87,7 +87,7 @@ class IndexController extends AbstractController
 
             $this->addFlash('success', 'Message was sent');
 
-            return $this->redirectToRoute('contact');
+            return $this->redirectToRoute('contact.show');
         }
 
         return $this->render('/contact/show.html.twig', [
