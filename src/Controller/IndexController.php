@@ -85,7 +85,7 @@ class IndexController extends AbstractController
 
             $mailer->send($message);
 
-            $this->addFlash('success', 'Message was sent');
+            $this->addFlash('success', 'Nous avons bien recu votre demande ! à bientot');
 
             return $this->redirectToRoute('contact.show');
         }
