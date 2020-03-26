@@ -43,6 +43,7 @@ class CommentsController extends AbstractController
             $referer = explode('/', $req->headers->get('referer'));
             $com = $form->getData();
             //dd($jobRepo->find($id));
+            dd($referer);
             if ($referer[2] === "job") {
                 $post = $jobRepo->find($id);
                 $commentValidatingAuto = false;
@@ -86,7 +87,7 @@ class CommentsController extends AbstractController
                 return $this->redirectToRoute('article.show', array('slug' => $post->getSlug()));
 
             }else{
-               $this->addFlash('error',"un probléme est survenu nous y travaillons ! :)");
+               $this->addFlash('error',"Un problème est survenu nous y travaillons ! :)");
             }
 
             return $this->redirect($req->headers->get('referer'));
