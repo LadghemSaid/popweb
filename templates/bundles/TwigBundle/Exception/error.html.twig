@@ -1,12 +1,18 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>An Error Occurred: {{ status_text }}</title>
-</head>
-<body>
-<h1>Oops! An Error Occurred</h1>
-<h2>The server returned a "{{ status_code }} {{ status_text }}".</h2>
-<a href="{{ path('home') }}">return to the homepage</a>.
-</body>
-</html>
+
+{% block title %}
+    PopWeb - An Error Occurred: {{ status_text }}
+{% endblock %}
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="container" >
+
+        <h1>Oops! An Error Occurred</h1>
+        <h2>The server returned a "{{ status_code }} {{ status_text }}".</h2>
+        <a href="{{ path('index') }}">return to the homepage</a>.
+    </div>
+
+{% endblock %}
+{% block javascripts %}
+
+{% endblock %}
