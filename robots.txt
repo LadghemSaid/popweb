@@ -1,7 +1,7 @@
 User-agent: Googlebot
-Disallow: 
+Disallow: /http://34.77.181.91/popweb/login/
 
 User-agent: *
-Disallow: /test
+Disallow: /http://34.77.181.91/popweb/login/
 
-Sitemap: http://34.77.181.91/popweb//sitemap.xml
+Sitemap: http://34.77.181.91/popweb//sitemaps.xml
