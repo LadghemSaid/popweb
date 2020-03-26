@@ -32,7 +32,7 @@ class IndexController extends AbstractController
     }
 
     /**
-     * @Route("/service", name="service.index")
+     * @Route("/services", name="service.index")
      */
     public function showService()
     {
