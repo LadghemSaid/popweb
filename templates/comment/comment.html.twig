@@ -12,7 +12,7 @@
                     <div class="comment__header">
 
                         <p  class="comment__author">{{ comment.username }}</p>
-                        <span class="comment__createdat">{{ comment.createdAt | ago }}</span>
+                        <span class="comment__createdat" data-date="{{  comment.createdAt | date('U') }}"></span>
                         {% if comment.username == app.user %}
                             <ul class="comment__actions">
                                 <li class="comment__edit"><a id="{{ comment.id }}" href="#" onclick="edit(event)"
@@ -62,46 +62,16 @@
 
     {% block javascripts %}
         <script>
-            function edit(e) {
 
-                e.preventDefault();
+            document.addEventListener("DOMContentLoaded", function (event) {
+                $(function () {
 
-                let btnEdit = e.currentTarget;
-                let btnSubmit = e.currentTarget.parentElement.nextElementSibling.firstChild;
-                let commentElem = document.getElementById("commentId-" + btnEdit.attributes[0].value).childNodes[3].childNodes[3];
-                //console.log(btnEdit);
-
-
-                commentElem.innerHTML = "<form id='editFormCommentId-" + btnEdit.attributes[0].value + "' action='/comment/edit/" + btnEdit.attributes[0].value + "' method='post'><textarea name='comment[textComment]' class='edit_input' />" + commentElem.innerText + "</textarea></form>";
-
-                btnSubmit.style.display = "block";
-                btnEdit.style.display = "none";
-            }
-
-            function submitEditComment(e) {
-                e.preventDefault();
-
-                let btnSubmit = e.currentTarget;
-                let btnEdit = e.currentTarget.parentElement.previousElementSibling.firstChild;
-                let commentElem = document.getElementById("commentId-" + btnEdit.attributes[0].value).childNodes[3].childNodes[3].firstChild;
-                // document.getElementById("editFormCommentId-"+btnEdit.attributes[0].value).submit();
-                //Form submision
-                let form = document.getElementById("editFormCommentId-" + btnEdit.attributes[0].value);
-                //console.log( document.getElementById("editFormCommentId-"+btnEdit.attributes[0].value).innerText);
-                console.log(form.firstChild.value);
-                $.ajax({
-                    type: 'POST',
-                    url: form.attributes[1].value,
-                    data: $('form').serialize(),
-                    success: function (response) {
-                        // console.log(response)
-                    },
+                    moment.locale('fr');
+                    $(".comment__createdat").map((x, i) => {
+                        i.innerText = moment.unix(i.dataset.date).local().fromNow();
+                    });
                 });
-                commentElem.innerHTML = "<p>" + form.firstChild.value + "</p>"
-                btnSubmit.style.display = "none";
-                btnEdit.style.display = "block";
-            }
-
+            });
         </script>
     {% endblock %}
 {% endif %}
