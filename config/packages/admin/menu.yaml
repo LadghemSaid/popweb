@@ -23,4 +23,4 @@ easy_admin:
           - {entity: 'Categorie', icon: 'inbox', label: 'Categories'}
           - {entity: 'Tags',  icon: 'tags', label: 'Tags'}
           - {entity: 'User',  icon: 'user', label: 'Utilisateurs'}
-          - {entity: 'MaillingList',  icon: 'mail', label: 'Mails'}
+          - {entity: 'MaillingList',  icon: 'envelope', label: 'Mails'}
