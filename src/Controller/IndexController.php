@@ -6,6 +6,7 @@ namespace App\Controller;
 use App\Form\ContactType;
 use App\Repository\ArticleRepository;
 use App\Repository\JobRepository;
+use App\Repository\MaillingListRepository;
 use App\Repository\ProjectRepository;
 use Doctrine\ORM\EntityManager;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -55,7 +56,7 @@ class IndexController extends AbstractController
     /**
      * @Route("/contact", name="contact.show")
      */
-    public function showContact(Request $request, \Swift_Mailer $mailer)
+    public function showContact(Request $request, \Swift_Mailer $mailer, MaillingListRepository $mailRepo)
     {
         $form = $this->createForm(ContactType::class);
         $form->handleRequest($request);
@@ -73,26 +74,25 @@ class IndexController extends AbstractController
                 'lacroixlucas59@gmail.com',
             ];
 
-                $message = (new \Swift_Message('Une personne contact l\'agence ! '))
-                    ->setFrom($contactFormData['fromEmail'])
-                    ->setTo($poolEmail)
+            $poolEmail = $mailRepo->findBy('contactMail' == true);
+            dd($poolEmail);
+            $message = (new \Swift_Message('Une personne contact l\'agence ! '))
+                ->setFrom($contactFormData['fromEmail'])
+                ->setTo($poolEmail)
+                ->setBody(
+                    $this->renderView(
+                    // templates/emails/registration.html.twig
+                        '/emails/contact.html.twig',
+                        [
+                            'name' => $contactFormData['fullName'],
+                            'mail' => $contactFormData['fromEmail'],
+                            'message' => $contactFormData['message']
+                        ]
+                    ),
+                    'text/html'
+                );
 
-                    ->setBody(
-                        $this->renderView(
-                        // templates/emails/registration.html.twig
-                            '/emails/contact.html.twig',
-                            [
-                                'name' => $contactFormData['fullName'],
-                                'mail' => $contactFormData['fromEmail'],
-                                'message' => $contactFormData['message']
-                            ]
-                        ),
-                        'text/html'
-                    )
-
-                ;
-
-                $mailer->send($message);
+            $mailer->send($message);
 
 
             $this->addFlash('success', 'Nous avons bien recu votre demande ! à bientot');
@@ -110,7 +110,7 @@ class IndexController extends AbstractController
     /**
      * @Route("/sitemaps.xml", name="sitemap")
      */
-    public function sitemap(Request $request,ArticleRepository $articleRepository,ProjectRepository $projectRepository, JobRepository $jobRepository)
+    public function sitemap(Request $request, ArticleRepository $articleRepository, ProjectRepository $projectRepository, JobRepository $jobRepository)
     {
         $urls = [];
         // We store the hostname of our website

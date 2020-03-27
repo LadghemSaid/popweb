@@ -1,0 +1,14 @@
+easy_admin:
+  entities:
+    MaillingList:
+      class: App\Entity\MaillingList
+      list:
+        fields:
+          - 'mail'
+          - 'contactMail'
+          - 'newsletterMail'
+      form:
+        fields:
+          - { property: 'mail', type: 'text' }
+          - { property: 'contactMail' }
+          - { property: 'newsletterMail' }
