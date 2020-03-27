@@ -5,13 +5,13 @@
 {% endblock %}
 
 {% block body %}
-<div class="img-banner">
-<img src="{{ asset('pho/banner-recrutement.jpg') }}" alt="Bannière recrutement" class="banner">
-<div class="text">
-    <h1>Titre</h2>
-    <p>petit texte</p>
+    <div class="img-banner">
+        <img src="{{ asset('pho/banner-recrutement.jpg') }}" alt="Bannière recrutement" class="banner">
+        <div class="text">
+            <h1>Titre</h2>
+                <p>petit texte</p>
+        </div>
     </div>
-</div>
 
     {% for message in app.flashes('success') %}
         <div class="alert alert-success">
@@ -28,12 +28,12 @@
         <div class="row">
             <div class="col-md-12 article-item-show">
                 <div id="scene">
-                    <img  class="d-block w-100 lazyload p-img"
+                    <img class="d-block w-100 lazyload p-img"
                          src="{{ asset("img/low_res.jpg") }}"
                          data-src="{{ app_path_jobs_images }}{{ job.image }}"
-                         alt="AlternateText"
+                         alt="{{ job.imgAlternate }}"
                          height="290px"/>
-                    <img src="{{ app_path_default_images }}bg3.gif" class="animated"  id="anim" alt="">
+                    <img src="{{ app_path_default_images }}bg3.gif" class="animated" id="anim" alt="">
                     <h1 class="p-title">{{ job.title }}</h1>
                 </div>
 
@@ -56,7 +56,7 @@
 
     <script>
 
-        $(document).ready(()=>{
+        $(document).ready(() => {
 
         });
 

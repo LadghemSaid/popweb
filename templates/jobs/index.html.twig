@@ -11,13 +11,13 @@
     </style>
 {% endblock %}
 {% block body %}
-<div class="img-banner">
-<img src="{{ asset('pho/banner-recrutement.jpg') }}" alt="Bannière recrutement" class="banner">
-<div class="text">
-    <h1>Notre Recrue</h1>
-    <p>Découvrez si vous pouvez entrer dans notre équipe.</p>
+    <div class="img-banner">
+        <img src="{{ asset('pho/banner-recrutement.jpg') }}" alt="Bannière recrutement" class="banner">
+        <div class="text">
+            <h1>Notre Recrue</h1>
+            <p>Découvrez si vous pouvez entrer dans notre équipe.</p>
+        </div>
     </div>
-</div>
 
     <div class="container">
         <div class="jumbotron">
@@ -25,33 +25,35 @@
         </div>
         <div class="row">
 
-        {% for job in jobs %}
+            {% for job in jobs %}
 
-            <div class="col-sm-4 article-item">
-                <a href="{{ path('job.show',{'slug':job.slug}) }}">
-                    <img class="d-block lazyload "
-                         src="{{ asset("img/low_res.jpg") }}"
-                         data-src="{{ app_path_jobs_images }}{{ job.image }}"
-                         alt="AlternateText"
-                    />
-                </a>
+                <div class="col-sm-4 article-item">
+                    <a href="{{ path('job.show',{'slug':job.slug}) }}">
+                        <img class="d-block lazyload "
+                             src="{{ asset("img/low_res.jpg") }}"
+                             data-src="{{ app_path_jobs_images }}{{ job.image }}"
+                             alt="{{ job.imgAlternate }}"
+                        />
+                    </a>
 
-                <a href="{{ path('job.show',{'slug':job.slug}) }}">
-                    <h2> {{ job.title }} </h2>
-                </a>
-                <p class="p-date"> Jan 18, 2019 ok </p>
-                <p class="p-description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus eligendi nobis ea maiores sapiente veritatis reprehenderit suscipit quaerat rerum voluptatibus a eius.</p>
-                <a href="{{ path('job.show',{'slug':job.slug}) }}" class="more">Voir plus</a>
-            </div>
+                    <a href="{{ path('job.show',{'slug':job.slug}) }}">
+                        <h2> {{ job.title }} </h2>
+                    </a>
+                    <p class="p-date"> Jan 18, 2019 ok </p>
+                    <p class="p-description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus eligendi
+                        nobis ea maiores sapiente veritatis reprehenderit suscipit quaerat rerum voluptatibus a
+                        eius.</p>
+                    <a href="{{ path('job.show',{'slug':job.slug}) }}" class="more">Voir plus</a>
+                </div>
 
 
 
-        {% endfor %}
-            {% if articles|length == 0  %}
+            {% endfor %}
+            {% if articles|length == 0 %}
                 <div class="fullHeight">
                     <p>Les articles seront bientot en ligne :)</p>
                 </div>
-            {% endif%}
+            {% endif %}
         </div>
 
     </div>

@@ -62,7 +62,7 @@ class ArticleController extends AbstractController
 
         $commentOptions = $article->getAllowComment();
         $allowComment = false;
-        if (isset($commentOptions) && array_search('allowComment', $commentOptions) !== null) {
+        if (isset($commentOptions) && array_search('allowComment', $commentOptions) !== false) {
             $allowComment = true;
 
         }
