@@ -15,5 +15,6 @@
         "watch": "encore dev --watch",
         "test": "echo 'hello-world'",
         "build": "encore production"
-    }
+    },
+    "dependencies": {}
 }

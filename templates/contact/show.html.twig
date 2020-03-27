@@ -42,7 +42,7 @@ PopWeb - Contact
         <h2>Contactez nous</h2>
         <p>Une question, un projet, nous vous répondrons au plus vite !</p>
 
-            {{ form_start(formContact,{'attr':{'class':'contact_form'}}) }}
+            {{ form_start(formContact,{'attr':{'class':'contact_form','id':'contact-form'}}) }}
             {{ form_row(formContact.fullName , {'attr': {'class': '','placeholder':"Votre nom" }, 'label_attr': {'class': 'sr-only'}}) }}
             {{ form_row(formContact.fromEmail , {'attr': {'class': '','placeholder':"Votre email" }, 'label_attr': {'class': 'sr-only'}}) }}
             {{ form_row(formContact.message , {'attr': {'class': '','placeholder':"Votre message ..." }, 'label_attr': {'class': 'sr-only'}}) }}
@@ -74,10 +74,9 @@ PopWeb - Contact
 
 {% endblock %}
 {% block javascripts %}
-    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
     <script>
         function onSubmit(token) {
-            $('.contact').submit();
+            $('#contact-form').submit();
         }
     </script>
 {% endblock %}

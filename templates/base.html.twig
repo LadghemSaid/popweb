@@ -1,53 +1,87 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <title>{% block title %}Agence Web - PopWeb{% endblock %}</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        {% block gtag %}{% endblock %}
-        {% block meta_description %}{% endblock %}
-        {% block meta_keywords %}{% endblock %}
-        {% block meta_robots %}{% endblock %}
-        {% block meta_google %}{% endblock %}
-        <link type="text/plain" rel="author" href="http://34.77.181.91/popweb/humans.txt" />
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-        {% block stylesheets %}
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Agence Web - PopWeb{% endblock %}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% block gtag %}{% endblock %}
+    {% block meta_description %}{% endblock %}
+    {% block meta_keywords %}{% endblock %}
+    {% block meta_robots %}{% endblock %}
+    {% block meta_google %}{% endblock %}
+    <link type="text/plain" rel="author" href="http://34.77.181.91/popweb/humans.txt"/>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    {% block stylesheets %}
 
-        {% endblock %}
+    {% endblock %}
 
-        {{ encore_entry_link_tags('app') }}
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.css" />
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.min.css" />
-		
-		<link rel="icon" type="image/png" href="img/favicon.png" />
-        <meta name="theme-color" content="#00103e">
-        <meta property="og:image" content="img/icon.png" />
-        <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
-    </head>
-    <body>
+    {{ encore_entry_link_tags('app') }}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.min.css"/>
+
+    <link rel="icon" type="image/png" href="img/favicon.png"/>
+    <meta name="theme-color" content="#00103e">
+    <meta property="og:image" content="img/icon.png"/>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
+    <script type="text/javascript" src="{{ asset('js/tarteaucitron/tarteaucitron.js') }}"></script>
+    <script type="text/javascript">
+        tarteaucitron.init({
+            "privacyUrl": "", /* Privacy policy url */
+
+            "hashtag": "#tarteaucitron", /* Open the panel with this hashtag */
+            "cookieName": "tarteaucitron", /* Cookie name */
+
+            "orientation": "bottom", /* Banner position (top - bottom) */
+            "showAlertSmall": false, /* Show the small banner on bottom right */
+            "cookieslist": true, /* Show the cookie list */
+
+            "adblocker": false, /* Show a Warning if an adblocker is detected */
+            "AcceptAllCta": true, /* Show the accept all button when highPrivacy on */
+            "highPrivacy": false, /* Disable auto consent */
+            "handleBrowserDNTRequest": false, /* If Do Not Track == 1, disallow all */
+
+            "removeCredit": true, /* Remove credit link */
+            "moreInfoLink": false, /* Show more info link */
+            "useExternalCss": false, /* If false, the tarteaucitron.css file will be loaded */
+
+            //"cookieDomain": ".my-multisite-domaine.fr", /* Shared cookie for multisite */
+
+            "readmoreLink": "/cookiespolicy" /* Change the default readmore link */
+        });
+
+        (tarteaucitron.job = tarteaucitron.job || []).push('recaptcha');
+        tarteaucitron.user.gajsUa = 'UA-XXXXXXXX-X';
+        tarteaucitron.user.gajsMore = function () { /* add here your optionnal _ga.push() */
+        };
+        (tarteaucitron.job = tarteaucitron.job || []).push('gajs');
+
+    </script>
 
 
-    {%  include "header.html.twig" %}
+</head>
+<body>
 
 
-            {% block body %}
-
-            {% endblock %}
+{% include "header.html.twig" %}
 
 
+{% block body %}
 
-    {%  include "footer.html.twig" %}
-
+{% endblock %}
 
 
 
-        <script  src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-        <script  src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
-        <script  src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
-        <script  src="{{ asset("js/lazysizes.min.js") }}" ></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment-with-locales.min.js" ></script>
-        <script  src="{{ asset("build/app.js") }}"></script>
-        {% block javascripts %}{% endblock %}
+{% include "footer.html.twig" %}
 
-    </body>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+<script src="{{ asset("js/lazysizes.min.js") }}"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment-with-locales.min.js"></script>
+<script src="{{ asset("build/app.js") }}"></script>
+{% block javascripts %}{% endblock %}
+
+</body>
 </html>
