@@ -78,7 +78,7 @@ class IndexController extends AbstractController
             $newPoolEmail=[];
             foreach ($poolEmail as $email)
             {
-                array_push($poolEmail, $email->getMail());
+                array_push($newPoolEmail, $email->getMail());
             }
 
             $message = (new \Swift_Message('Une personne contact l\'agence ! '))
