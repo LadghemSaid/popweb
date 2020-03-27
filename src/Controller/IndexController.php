@@ -75,7 +75,7 @@ class IndexController extends AbstractController
             ];
 
             $poolEmail = $mailRepo->findBy(array('contactMail' => true));
-            dd($poolEmail);
+
             $message = (new \Swift_Message('Une personne contact l\'agence ! '))
                 ->setFrom($contactFormData['fromEmail'])
                 ->setTo($poolEmail)
