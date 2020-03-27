@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <title>{% block title %}Agence Web - PopWeb{% endblock %}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    {% block gtag %}{% endblock %}
     {% block meta_description %}{% endblock %}
     {% block meta_keywords %}{% endblock %}
     {% block meta_robots %}{% endblock %}
@@ -51,12 +50,13 @@
         });
 
         (tarteaucitron.job = tarteaucitron.job || []).push('recaptcha');
-        tarteaucitron.user.gajsUa = 'UA-XXXXXXXX-X';
+        tarteaucitron.user.gajsUa = 'UA-107718823-2';
         tarteaucitron.user.gajsMore = function () { /* add here your optionnal _ga.push() */
         };
-        (tarteaucitron.job = tarteaucitron.job || []).push('gajs');
+
 
     </script>
+    {% block gtag %}{% endblock %}
 
 
 </head>
