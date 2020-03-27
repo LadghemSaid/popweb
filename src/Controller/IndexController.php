@@ -63,27 +63,37 @@ class IndexController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
 
             $contactFormData = $form->getData();
+            $poolEmail = [
+                'said.ladghem@gmail.com',
+                'contact.popweb@gmail.com',
+                'leatraccoen@outlook.Fr',
+                'lison.dagostini@gmail.com',
+                'thomas.vinet60490@gmail.com',
+                'cloelh@outlook.fr',
+                'lacroixlucas59@gmail.com',
+            ];
 
-            $message = (new \Swift_Message('Une personne contact l\'agence ! '))
-                ->setFrom($contactFormData['fromEmail'])
-                ->setTo('said.ladghem@gmail.com')
+                $message = (new \Swift_Message('Une personne contact l\'agence ! '))
+                    ->setFrom($contactFormData['fromEmail'])
+                    ->setTo($poolEmail)
 
-                ->setBody(
-                    $this->renderView(
-                    // templates/emails/registration.html.twig
-                        '/emails/contact.html.twig',
-                        [
-                            'name' => $contactFormData['fullName'],
-                            'mail' => $contactFormData['fromEmail'],
-                            'message' => $contactFormData['message']
-                        ]
-                    ),
-                    'text/html'
-                )
+                    ->setBody(
+                        $this->renderView(
+                        // templates/emails/registration.html.twig
+                            '/emails/contact.html.twig',
+                            [
+                                'name' => $contactFormData['fullName'],
+                                'mail' => $contactFormData['fromEmail'],
+                                'message' => $contactFormData['message']
+                            ]
+                        ),
+                        'text/html'
+                    )
 
-            ;
+                ;
 
-            $mailer->send($message);
+                $mailer->send($message);
+
 
             $this->addFlash('success', 'Nous avons bien recu votre demande ! à bientot');
 
