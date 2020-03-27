@@ -75,10 +75,15 @@ class IndexController extends AbstractController
             ];
 
             $poolEmail = $mailRepo->findBy(array('contactMail' => true));
+            $newPoolEmail=[];
+            foreach ($poolEmail as $email)
+            {
+                array_push($poolEmail, $email->getMail());
+            }
 
             $message = (new \Swift_Message('Une personne contact l\'agence ! '))
                 ->setFrom($contactFormData['fromEmail'])
-                ->setTo($poolEmail)
+                ->setTo($newPoolEmail)
                 ->setBody(
                     $this->renderView(
                     // templates/emails/registration.html.twig
