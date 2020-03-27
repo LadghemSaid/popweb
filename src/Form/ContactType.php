@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Form;
 
 use Kurokei\RecaptchaBundle\type\RecaptchaSubmitType;
@@ -18,10 +19,12 @@ class ContactType extends AbstractType
             ->add('fullName', TextType::class)
             ->add('fromEmail', EmailType::class)
             ->add('message', TextareaType::class)
-            ->add('submit', SubmitType::class,[
+            ->add('submit', SubmitType::class, [
                 'label' => 'Envoyer',
                 'attr' => [
-                    'class' => 'btn btn-primary submit'
+                    'class' => 'btn btn-primary submit g-recaptcha',
+                    'data-sitekey' => '6Levh-QUAAAAAMEWZS61dszdMbHwyaOLJjKby5Qa',
+                    'data-callback' => 'onSubmit'
                 ]
             ])
 //            ->add('captcha' , RecaptchaSubmitType::class,[
