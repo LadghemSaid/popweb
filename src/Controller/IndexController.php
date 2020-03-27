@@ -55,7 +55,8 @@ class IndexController extends AbstractController
 
 
     # get success response from recaptcha and return it to controller
-    function captchaverify($recaptcha){
+    function captchaverify($recaptcha)
+    {
         $url = "https://www.google.com/recaptcha/api/siteverify";
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_URL, $url);
@@ -63,7 +64,7 @@ class IndexController extends AbstractController
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
         curl_setopt($ch, CURLOPT_POST, true);
         curl_setopt($ch, CURLOPT_POSTFIELDS, array(
-            "secret"=>"6Levh-QUAAAAAHUOIIv-s_9RbynocJYkKXZ5iE0M","response"=>$recaptcha));
+            "secret" => "6Levh-QUAAAAAHUOIIv-s_9RbynocJYkKXZ5iE0M", "response" => $recaptcha));
         $response = curl_exec($ch);
         curl_close($ch);
         $data = json_decode($response);
@@ -93,9 +94,8 @@ class IndexController extends AbstractController
             ];
 
             $poolEmail = $mailRepo->findBy(array('contactMail' => true));
-            $newPoolEmail=[];
-            foreach ($poolEmail as $email)
-            {
+            $newPoolEmail = [];
+            foreach ($poolEmail as $email) {
                 array_push($newPoolEmail, $email->getMail());
             }
 
@@ -121,6 +121,9 @@ class IndexController extends AbstractController
             $this->addFlash('success', 'Nous avons bien recu votre demande ! à bientot');
 
             return $this->redirectToRoute('contact.show');
+        } else if (!$this->captchaverify($request->get('g-recaptcha-response'))) {
+            $this->addFlash('error', 'Pensez à valider le captcha ! :)');
+
         }
 
         return $this->render('/contact/show.html.twig', [

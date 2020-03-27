@@ -23,6 +23,7 @@ class ContactType extends AbstractType
                 'label' => 'Envoyer',
                 'attr' => [
                     'class' => 'btn btn-primary submit',
+                    'style' => 'margin-top: 0.8rem;'
                 ]
             ])
 //            ->add('captcha' , RecaptchaSubmitType::class,[
