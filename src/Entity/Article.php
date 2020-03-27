@@ -96,6 +96,11 @@ class Article
      */
     private $description;
 
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $imgAlternate;
+
 
 
     public function __construct()
@@ -103,6 +108,20 @@ class Article
         $this->tags = new ArrayCollection();
         $this->comments = new ArrayCollection();
     }
+
+
+    public function getImgAlternate(): ?string
+    {
+        return $this->imgAlternate;
+    }
+
+    public function setImgAlternate(string $imgAlternate): self
+    {
+        $this->imgAlternate = $imgAlternate;
+
+        return $this;
+    }
+
     public function setImageFile(File $image = null)
     {
         $this->imageFile = $image;
@@ -317,4 +336,6 @@ class Article
 
         return $this;
     }
+
+
 }

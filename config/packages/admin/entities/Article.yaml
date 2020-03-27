@@ -12,13 +12,12 @@ easy_admin:
           - {property: 'slug' }
           - {property: 'favorite' }
           - {property: 'categorie' }
+          - {property: 'imgAlternate' }
       list:
         fields:
           - 'title'
           - 'slug'
           - {property: 'image', type: 'image', base_path: '%app.path.article_images%' }
-          - 'categorie'
-          - 'tags'
           - 'published'
           - 'favorite'
       form:
@@ -26,6 +25,7 @@ easy_admin:
           - {property: 'title' , type_options: { required: true } }
           - {property: 'description' }
           - {property: 'imageFile', type: 'vich_image', type_options: {}  }
+          - {property: 'imgAlternate' }
           - {property: 'text',type: 'FOS\CKEditorBundle\Form\Type\CKEditorType', type_options: { config_name: 'advanced_config',required : true } }
           - {property: 'tags' }
           - {property: 'categorie' }

@@ -7,16 +7,18 @@ easy_admin:
           - {property: 'title' }
           - {property: 'image', type: 'image', base_path: '%app.path.job_images%' }
           - {property: 'published' }
+          - {property: 'imgAlternate' }
+
       list:
         fields:
           - 'title'
-          - 'slug'
           - {property: 'image', type: 'image', base_path: '%app.path.job_images%' }
           - 'published'
       form:
         fields:
           - {property: 'title' , type_options: { required: true } }
           - {property: 'imageFile', type: 'vich_image', type_options: { }  }
+          - {property: 'imgAlternate' }
           - {property: 'text',type: 'FOS\CKEditorBundle\Form\Type\CKEditorType', type_options: { config_name: 'advanced_config',required : true } }
           - {property: 'slug', type_options: { required: false }  }
           - {property: 'allowComment',  type: 'choice', type_options: { multiple: true, choices: { 'Afficher les commentaires': 'allowComment', 'Valider les commentaires automatiquement': 'commentValidatingAuto', 'Pas commentaire': 'noComment' } } }

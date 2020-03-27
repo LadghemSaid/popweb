@@ -98,6 +98,24 @@ class Project
 
     // ...
 
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $imgAlternate;
+
+
+    public function getImgAlternate(): ?string
+    {
+        return $this->imgAlternate;
+    }
+
+    public function setImgAlternate(string $imgAlternate): self
+    {
+        $this->imgAlternate = $imgAlternate;
+
+        return $this;
+    }
+
     public function getDescription(): ?string
     {
         return $this->description;
