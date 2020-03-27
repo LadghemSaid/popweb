@@ -23,8 +23,6 @@ class ContactType extends AbstractType
                 'label' => 'Envoyer',
                 'attr' => [
                     'class' => 'btn btn-primary submit g-recaptcha',
-                    'data-sitekey' => '6Levh-QUAAAAAMEWZS61dszdMbHwyaOLJjKby5Qa',
-                    'data-callback' => 'onSubmit'
                 ]
             ])
 //            ->add('captcha' , RecaptchaSubmitType::class,[

@@ -46,6 +46,7 @@ PopWeb - Contact
             {{ form_row(formContact.fullName , {'attr': {'class': '','placeholder':"Votre nom" }, 'label_attr': {'class': 'sr-only'}}) }}
             {{ form_row(formContact.fromEmail , {'attr': {'class': '','placeholder':"Votre email" }, 'label_attr': {'class': 'sr-only'}}) }}
             {{ form_row(formContact.message , {'attr': {'class': '','placeholder':"Votre message ..." }, 'label_attr': {'class': 'sr-only'}}) }}
+            <div class="g-recaptcha" data-sitekey="6Levh-QUAAAAAMEWZS61dszdMbHwyaOLJjKby5Qa" data-callback="onSubmit"></div>
             {{ form_end(formContact) }}
         </div>
         <div class="col-md-4 p40 grey-background">
