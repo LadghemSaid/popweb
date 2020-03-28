@@ -121,7 +121,7 @@ class IndexController extends AbstractController
             $mailer->send($message);
 
 
-            $msg = "Un mail a été envoyé sur ta boite mail";
+            $msg = "POPWEB: Un mail a été envoyé sur ta boite mail";
             $msg = urlencode($msg);
             $result = file_get_contents("https://smsapi.free-mobile.fr/sendmsg?user=" . $_ENV['SMS_USER'] . "&pass=" . $_ENV['SMS_PASS'] . "&msg=" . $msg);
 
@@ -129,9 +129,6 @@ class IndexController extends AbstractController
             $this->addFlash('success', 'Nous avons bien recu votre demande ! à bientot');
 
             return $this->redirectToRoute('contact.show');
-        } else if (!$this->captchaverify($request->get('g-recaptcha-response'))) {
-            $this->addFlash('error', 'Pensez à valider le captcha ! :)');
-
         }
 
         return $this->render('/contact/show.html.twig', [
