@@ -121,16 +121,10 @@ class IndexController extends AbstractController
             $mailer->send($message);
 
 
-            $client = new CurlHttpClient();
-            $url = "https://smsapi.free-mobile.fr/sendmsg";
-            $response = $client->request('POST', $url, [
-                'body' => [
-                    'user' => $_ENV['SMS_USER'],
-                    'pass' => $_ENV['SMS_PASS'],
-                    'msg' => 'POPWEB: Un mail a été envoyé sur ta boite mail',
+            $msg = "Un mail a été envoyé sur ta boite mail";
+            $msg = urlencode($msg);
+            $result = file_get_contents("https://smsapi.free-mobile.fr/sendmsg?user=".$_ENV['SMS_USER']."&pass=".$_ENV['SMS_PASS']."&msg=" . $msg);
 
-                ]
-            ]);
 
 
             $this->addFlash('success', 'Nous avons bien recu votre demande ! à bientot');
