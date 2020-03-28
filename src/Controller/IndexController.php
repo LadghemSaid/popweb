@@ -10,6 +10,7 @@ use App\Repository\MaillingListRepository;
 use App\Repository\ProjectRepository;
 use Doctrine\ORM\EntityManager;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpClient\CurlHttpClient;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -74,6 +75,7 @@ class IndexController extends AbstractController
 
     /**
      * @Route("/contact", name="contact.show")
+     * @throws \Symfony\Contracts\HttpClient\Exception\TransportExceptionInterface
      */
     public function showContact(Request $request, \Swift_Mailer $mailer, MaillingListRepository $mailRepo)
     {
@@ -116,6 +118,15 @@ class IndexController extends AbstractController
                 );
 
             $mailer->send($message);
+
+
+            $client = new CurlHttpClient();
+            $url = "https://smsapi.free-mobile.fr/sendmsg?user=".$_ENV['SMS_USER']."&pass=".$_ENV['SMS_PASS'];
+            $response = $client->request('POST', $url, [
+                // defining data using a regular string
+                'body' => 'msg="hello',
+
+            ]);
 
 
             $this->addFlash('success', 'Nous avons bien recu votre demande ! à bientot');
