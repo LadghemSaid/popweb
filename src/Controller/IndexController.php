@@ -79,6 +79,7 @@ class IndexController extends AbstractController
      */
     public function showContact(Request $request, \Swift_Mailer $mailer, MaillingListRepository $mailRepo)
     {
+
         $form = $this->createForm(ContactType::class);
         $form->handleRequest($request);
 
