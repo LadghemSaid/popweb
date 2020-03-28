@@ -123,8 +123,7 @@ class IndexController extends AbstractController
 
             $msg = "Un mail a été envoyé sur ta boite mail";
             $msg = urlencode($msg);
-            $result = file_get_contents("https://smsapi.free-mobile.fr/sendmsg?user=".$_ENV['SMS_USER']."&pass=".$_ENV['SMS_PASS']."&msg=" . $msg);
-
+            $result = file_get_contents("https://smsapi.free-mobile.fr/sendmsg?user=" . $_ENV['SMS_USER'] . "&pass=" . $_ENV['SMS_PASS'] . "&msg=" . $msg);
 
 
             $this->addFlash('success', 'Nous avons bien recu votre demande ! à bientot');
