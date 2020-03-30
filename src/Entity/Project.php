@@ -80,7 +80,7 @@ class Project
     private $updatedAt;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Comment", mappedBy="project")
+     * @ORM\OneToMany(targetEntity="App\Entity\Comment", mappedBy="project",cascade={"remove"})
      */
     private $comments;
 

@@ -63,7 +63,7 @@ class Job
     private $updatedAt;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Comment", mappedBy="job")
+     * @ORM\OneToMany(targetEntity="App\Entity\Comment", mappedBy="job",cascade={"remove"})
      */
     private $comments;
 
