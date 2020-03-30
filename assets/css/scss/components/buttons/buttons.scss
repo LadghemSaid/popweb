@@ -7,6 +7,7 @@
   line-height: 1.428571429;
   border-radius: 15px;
 }
+
 .btn-circle.btn-lg {
   width: 50px;
   height: 50px;
@@ -14,4 +15,51 @@
   font-size: 18px;
   line-height: 1.33;
   border-radius: 25px;
+}
+
+#scrollToTop {
+  display: inline-block;
+  background-color: #FF9800;
+  width: 50px;
+  height: 50px;
+  text-align: center;
+  border-radius: 4px;
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  transition: background-color .3s,
+  opacity .5s, visibility .5s;
+  opacity: 0;
+  visibility: hidden;
+  z-index: 1000;
+
+  &::after {
+    content: "\f077";
+    font-family: FontAwesome;
+    font-weight: normal;
+    font-style: normal;
+    font-size: 2em;
+    line-height: 50px;
+    color: #fff;
+  }
+
+  &:hover {
+    cursor: pointer;
+    background-color: #333;
+  }
+
+  &:active {
+    background-color: #555;
+  }
+
+  &.show {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+@media (min-width: 500px) {
+  #scrollToTop {
+    margin: 30px;
+  }
 }

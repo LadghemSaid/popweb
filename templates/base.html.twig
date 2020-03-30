@@ -81,6 +81,24 @@
 <script src="{{ asset("js/lazysizes.min.js") }}"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment-with-locales.min.js"></script>
 <script src="{{ asset("build/app.js") }}"></script>
+<a id="scrollToTop"></a>
+<script>
+    var btn = $('#scrollToTop');
+
+    $(window).scroll(function() {
+        if ($(window).scrollTop() > 300) {
+            btn.addClass('show');
+        } else {
+            btn.removeClass('show');
+        }
+    });
+
+    btn.on('click', function(e) {
+        e.preventDefault();
+        $('html, body').animate({scrollTop:0}, '300');
+    });
+
+</script>
 {% block javascripts %}{% endblock %}
 
 </body>
