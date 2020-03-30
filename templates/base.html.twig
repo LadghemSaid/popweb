@@ -86,7 +86,7 @@
 <script>
     var btn = $('#scrollToTop');
 
-    $(window).scroll(function() {
+    $(window).scroll(function () {
         if ($(window).scrollTop() > 300) {
             btn.addClass('show');
         } else {
@@ -94,9 +94,9 @@
         }
     });
 
-    btn.on('click', function(e) {
+    btn.on('click', function (e) {
         e.preventDefault();
-        $('html, body').animate({scrollTop:0}, '300');
+        $('html, body').animate({scrollTop: 0}, '300');
     });
 
 </script>
