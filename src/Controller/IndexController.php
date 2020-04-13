@@ -139,6 +139,16 @@ class IndexController extends AbstractController
     }
 
     /**
+     * @Route("/robot.txt")
+     */
+    public function showRobot()
+    {
+        return $this->render('/seo/robots.txt.twig', [
+        ]);
+    }
+
+
+    /**
      * @Route("/sitemaps.xml", name="sitemap")
      */
     public function sitemap(Request $request, ArticleRepository $articleRepository, ProjectRepository $projectRepository, JobRepository $jobRepository)
