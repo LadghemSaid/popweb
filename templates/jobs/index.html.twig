@@ -37,21 +37,19 @@
                     </a>
 
                     <a href="{{ path('job.show',{'slug':job.slug}) }}">
-                        <h2> {{ job.title }} </h2>
+                        <h2> {{ job.title|striptags|length >20 ? job.title|striptags|slice(0, 50) ~ '...' : job.title|striptags }} </h2>
                     </a>
-                    <p class="p-date"> Jan 18, 2019 ok </p>
-                    <p class="p-description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus eligendi
-                        nobis ea maiores sapiente veritatis reprehenderit suscipit quaerat rerum voluptatibus a
-                        eius.</p>
+                    <p class="p-date" data-date="{{ job.updatedAt| date('U') }}"></p>
+                    <p class="p-description">{{ job.description|striptags|length > 100 ? job.description|striptags|slice(0, 100) ~ '...' : job.description|striptags }}</p>
                     <a href="{{ path('job.show',{'slug':job.slug}) }}" class="more">Voir plus</a>
                 </div>
 
 
 
             {% endfor %}
-            {% if articles|length == 0 %}
+            {% if jobs|length == 0 %}
                 <div class="fullHeight">
-                    <p>Les articles seront bientot en ligne :)</p>
+                    <p>Les jobs seront bientot en ligne :)</p>
                 </div>
             {% endif %}
         </div>
