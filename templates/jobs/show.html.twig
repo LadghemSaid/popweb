@@ -1,15 +1,15 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}
-    {{ job.title }}
+    PopWeb - {{ job.title }}
 {% endblock %}
 
 {% block body %}
     <div class="img-banner">
         <img src="{{ asset('pho/banner-recrutement.jpg') }}" alt="Bannière recrutement" class="banner">
         <div class="text">
-            <h1>Titre</h2>
-                <p>petit texte</p>
+            <h1>Le poste :</h1>
+            <p>{{ job.title }}</p>
         </div>
     </div>
 

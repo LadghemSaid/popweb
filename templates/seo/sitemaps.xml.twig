@@ -1,37 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://34.77.181.91/popweb/sitemaps.xml">
+<urlset xmlns="https://pop-web.fr/sitemaps.xml">
     <url>
-        <loc>http://34.77.181.91/popweb/</loc>
+        <loc>https://pop-web.fr/</loc>
         <lastmod>2020-03-23</lastmod>
         <changefreq>daily</changefreq>
         <priority>1</priority>
     </url>
     <url>
-        <loc>http://34.77.181.91/popweb/about</loc>
+        <loc>https://pop-web.fr/about</loc>
         <lastmod>2020-03-23</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>http://34.77.181.91/popweb/about</loc>
+        <loc>https://pop-web.fr/about</loc>
         <lastmod>2020-03-23</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
-        <loc>http://34.77.181.91/popweb/service</loc>
+        <loc>https://pop-web.fr/service</loc>
         <lastmod>2020-03-23</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
-        <loc>http://34.77.181.91/popweb/articles</loc>
+        <loc>https://pop-web.fr/articles</loc>
         <lastmod>2020-03-23</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.9</priority>
     </url>
     <url>
-        <loc>http://34.77.181.91/popweb/contact</loc>
+        <loc>https://pop-web.fr/contact</loc>
         <lastmod>2020-03-23</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
@@ -39,7 +39,7 @@
     {% for url in urls %}
         <url>
             {# check if hostname is not already in url #}
-            <loc>{% if url.loc|replace({hostname:''}) == url.loc %}http://{{ hostname }}{{ url.loc }}{% else %}{{ url.loc }}{% endif %}</loc>
+            <loc>{% if url.loc|replace({hostname:''}) == url.loc %}https://{{ hostname }}{{ url.loc }}{% else %}{{ url.loc }}{% endif %}</loc>
             {% if url.lastmod is defined %}
                 <lastmod>{{ url.lastmod }}</lastmod>
             {% endif %}

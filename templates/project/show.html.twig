@@ -42,7 +42,12 @@
             {{ message }}
         </div>
     {% endfor %}
-
+    <div class="img-banner">
+        <img src="{{ asset('pho/banner-recrutement.jpg') }}" alt="Bannière recrutement" class="banner">
+        <div class="text">
+            <h1>{{ project.title }}</h1>
+        </div>
+    </div>
     <div class="container">
         <div class="row">
             <div class="col-md-12 article-item-show">
@@ -53,7 +58,6 @@
                          alt="{{ project.imgAlternate }}"
                          height="290px"/>
                     <img src="{{ app_path_default_images }}bg3.gif" class="animated" id="anim" alt="">
-                    <h1 class="p-title">{{ project.title }}</h1>
                 </div>
 
                 <div class="p-text">
