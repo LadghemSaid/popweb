@@ -29,6 +29,7 @@ App\Entity\Job:
   job_{1..10}:
     title: <fr_FR:catchPhrase()> <current()>
     image: 'img1.jpg'
+    imgAlternate: 'img1.jpg'
     text: <fr_FR:text(200)>
     description: <fr_FR:catchPhrase()> <current()>
     published: 'true'
@@ -39,6 +40,7 @@ App\Entity\Project:
   project_{1..10}:
     title: <fr_FR:catchPhrase()> <current()>
     image: 'img2.jpg'
+    imgAlternate: 'img2.jpg'
     text: <fr_FR:text(200)>
     tags: '3x @tag*'
     description: <fr_FR:catchPhrase()> <current()>
@@ -52,6 +54,7 @@ App\Entity\Article:
   article_{1..10}:
     title: <fr_FR:catchPhrase()> <current()>
     image: 'img2.jpg'
+    imgAlternate: 'img2.jpg'
     text: <fr_FR:text(200)>
     tags: '3x @tag*'
     description: <fr_FR:catchPhrase()> <current()>
