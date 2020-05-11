@@ -1,87 +1,80 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}
-    PopWeb - {{ project.title }}
+	PopWeb -
+	{{ project.title }}
 {% endblock %}
 {% block gtag %}
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-107718823-2"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-166106615-1"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
         function gtag() {
-            dataLayer.push(arguments);
+        dataLayer.push(arguments);
         }
-
         gtag('js', new Date());
 
-        gtag('config', 'UA-107718823-2');
-    </script>
+        gtag('config', 'UA-166106615-1');
+	</script>
+
 {% endblock %}
 {% block meta_description %}
-    <meta name="description"
-          content="Agence web à Lens. Conception et développement de sites sur mesure. Communication digitale, référencement SEO Google."/>{% endblock %}
+	<meta name="description" content="Agence web à Lens. Conception et développement de sites sur mesure. Communication digitale, référencement SEO Google."/>
+{% endblock %}
 {% block meta_keywords %}
-    <meta name="keywords"
-          content="Agence web de communication web marketing, stratégie digitale à Lens, France, creation site internet, agence de développement web, Création site internet, Lens, Lille, France, creation site internet, 59, 62, Nord Pas de Calais, Nord, Haut de France, création site internet vitrine, community management entreprise, community management personnel, création boutique en ligne, site internet, site web, création site internet boutique en ligne, Création site web, 75, Paris, Création site web e commerce, agence de référencement, agence seo, seo, référencement naturel, web marketing, agence web, agence de communication, vidéo promotionnelle, vidéo commercial, création site catalogue, création site internet responsive, généré du trafic sur mon site internet, première page google, référencement google, création de site internet france, conseil et webdesign, référencement internet, agence web, site internet responsive, site responsive, création et optimisation de site web, web design et développement de site internet, communication digitale, webmarketing, création site internet boutique en ligne, boutique en ligne, créer boutique en ligne, refonte boutique en ligne, refonte site internet e-commerce, responsive web design, refonte site internet responsive, site adaptable, site internet, site web, création site internet, création site web, responsive, création site internet e-commerce"/>{% endblock %}
+	<meta name="keywords" content="Agence web de communication web marketing, stratégie digitale à Lens, France, creation site internet, agence de développement web, Création site internet, Lens, Lille, France, creation site internet, 59, 62, Nord Pas de Calais, Nord, Haut de France, création site internet vitrine, community management entreprise, community management personnel, création boutique en ligne, site internet, site web, création site internet boutique en ligne, Création site web, 75, Paris, Création site web e commerce, agence de référencement, agence seo, seo, référencement naturel, web marketing, agence web, agence de communication, vidéo promotionnelle, vidéo commercial, création site catalogue, création site internet responsive, généré du trafic sur mon site internet, première page google, référencement google, création de site internet france, conseil et webdesign, référencement internet, agence web, site internet responsive, site responsive, création et optimisation de site web, web design et développement de site internet, communication digitale, webmarketing, création site internet boutique en ligne, boutique en ligne, créer boutique en ligne, refonte boutique en ligne, refonte site internet e-commerce, responsive web design, refonte site internet responsive, site adaptable, site internet, site web, création site internet, création site web, responsive, création site internet e-commerce"/>
+{% endblock %}
 {% block meta_robots %}
-    <meta name="robots" content="unavailable_after: [date ]">{% endblock %}
+	<meta name="robots" content="unavailable_after: [date ]">
+{% endblock %}
 {% block google %}
-    <meta name="google" content="unavailable_after: [date ]">{% endblock %}
+	<meta name="google" content="unavailable_after: [date ]">
+{% endblock %}
 
 
 {% block body %}
 
-    {% for message in app.flashes('success') %}
-        <div class="alert alert-success">
-            {{ message }}
-        </div>
-    {% endfor %}
-    {% for message in app.flashes('error') %}
-        <div class="alert alert-danger">
-            {{ message }}
-        </div>
-    {% endfor %}
-    <div class="img-banner">
-        <img src="{{ asset('pho/banner-recrutement.jpg') }}" alt="Bannière recrutement" class="banner">
-        <div class="text">
-            <h1>{{ project.title }}</h1>
-        </div>
-    </div>
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12 article-item-show">
-                <div id="scene">
-                    <img class="d-block w-100 lazyload p-img"
-                         src="{{ asset("img/low_res.jpg") }}"
-                         data-src="{{ app_path_projects_images }}{{ project.image }}"
-                         alt="{{ project.imgAlternate }}"
-                         height="290px"/>
-                    <img src="{{ app_path_default_images }}bg3.gif" class="animated" id="anim" alt="">
-                </div>
+	{% for message in app.flashes('success') %}
+		<div class="alert alert-success">
+			{{ message }}
+		</div>
+	{% endfor %}
+	{% for message in app.flashes('error') %}
+		<div class="alert alert-danger">
+			{{ message }}
+		</div>
+	{% endfor %}
+	<div class="img-banner">
+		<img src="{{ asset('pho/banner-recrutement.jpg') }}" alt="Bannière recrutement" class="banner">
+		<div class="text">
+			<h1>{{ project.title }}</h1>
+		</div>
+	</div>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12 article-item-show">
+				<div id="scene">
+					<img class="d-block w-100 lazyload p-img" src="{{ asset("img/low_res.jpg") }}" data-src="{{ app_path_projects_images }}{{ project.image }}" alt="{{ project.imgAlternate }}" height="290px"/>
+					<img src="{{ app_path_default_images }}bg3.gif" class="animated" id="anim" alt="">
+				</div>
 
-                <div class="p-text">
+				<div class="p-text">
 
 
-                    <p class="p-description">{{ project.text | raw }}</p>
-                    <p class="p-date">{{ project.updatedAt | date('d/m/Y H:i', timezone='Europe/Paris') }} </p>
+					<p class="p-description">{{ project.text | raw }}</p>
+					<p class="p-date">{{ project.updatedAt | date('d/m/Y H:i', timezone='Europe/Paris') }}
+					</p>
 
-                </div>
-            </div>
-        </div>
+				</div>
+			</div>
+		</div>
 
 
-    </div>
+	</div>
 
 
 {% endblock %}
 {% block javascripts %}
-    <script>
-
-
-    </script>
+	<script></script>
 
 {% endblock %}
-
-
-

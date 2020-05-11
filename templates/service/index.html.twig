@@ -1,135 +1,148 @@
 {% extends '/base.html.twig' %}
 
 {% block title %}
-    PopWeb - Services
+	PopWeb - Services
 {% endblock %}
 {% block gtag %}
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script>
-        (tarteaucitron.job = tarteaucitron.job || []).push('gajs');
-    </script>
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-166106615-1"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+        function gtag() {
+        dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-166106615-1');
+	</script>
+
+	<script>
+		(tarteaucitron.job = tarteaucitron.job || []).push('gajs');
+	</script>
 {% endblock %}
-{% block meta_description %}<meta name="description" content="Agence web à Lens. Conception et développement de sites sur mesure. Communication digitale, référencement SEO Google."/>{% endblock %}
-{% block meta_keywords %}<meta name="keywords" content="Agence web de communication web marketing, stratégie digitale à Lens, France, creation site internet, agence de développement web, Création site internet, Lens, Lille, France, creation site internet, 59, 62, Nord Pas de Calais, Nord, Haut de France, création site internet vitrine, community management entreprise, community management personnel, création boutique en ligne, site internet, site web, création site internet boutique en ligne, Création site web, 75, Paris, Création site web e commerce, agence de référencement, agence seo, seo, référencement naturel, web marketing, agence web, agence de communication, vidéo promotionnelle, vidéo commercial, création site catalogue, création site internet responsive, généré du trafic sur mon site internet, première page google, référencement google, création de site internet france, conseil et webdesign, référencement internet, agence web, site internet responsive, site responsive, création et optimisation de site web, web design et développement de site internet, communication digitale, webmarketing, création site internet boutique en ligne, boutique en ligne, créer boutique en ligne, refonte boutique en ligne, refonte site internet e-commerce, responsive web design, refonte site internet responsive, site adaptable, site internet, site web, création site internet, création site web, responsive, création site internet e-commerce"/>{% endblock %}
-{% block meta_robots %}<meta name="robots" content="unavailable_after: [date ]">{% endblock %}
-{% block google %}<meta name="google" content="unavailable_after: [date ]">{% endblock %}
+{% block meta_description %}<meta name="description" content="Agence web à Lens. Conception et développement de sites sur mesure. Communication digitale, référencement SEO Google."/>
+{% endblock %}
+{% block meta_keywords %}<meta name="keywords" content="Agence web de communication web marketing, stratégie digitale à Lens, France, creation site internet, agence de développement web, Création site internet, Lens, Lille, France, creation site internet, 59, 62, Nord Pas de Calais, Nord, Haut de France, création site internet vitrine, community management entreprise, community management personnel, création boutique en ligne, site internet, site web, création site internet boutique en ligne, Création site web, 75, Paris, Création site web e commerce, agence de référencement, agence seo, seo, référencement naturel, web marketing, agence web, agence de communication, vidéo promotionnelle, vidéo commercial, création site catalogue, création site internet responsive, généré du trafic sur mon site internet, première page google, référencement google, création de site internet france, conseil et webdesign, référencement internet, agence web, site internet responsive, site responsive, création et optimisation de site web, web design et développement de site internet, communication digitale, webmarketing, création site internet boutique en ligne, boutique en ligne, créer boutique en ligne, refonte boutique en ligne, refonte site internet e-commerce, responsive web design, refonte site internet responsive, site adaptable, site internet, site web, création site internet, création site web, responsive, création site internet e-commerce"/>
+{% endblock %}
+{% block meta_robots %}<meta name="robots" content="unavailable_after: [date ]">
+{% endblock %}
+{% block google %}<meta name="google" content="unavailable_after: [date ]">
+{% endblock %}
 
 {% block style_custom %}
 
-    <style>
-
-    </style>
+	<style></style>
 {% endblock %}
 {% block body %}
-<div class="img-banner">
-<img src="{{ asset('pho/banner-service.jpg') }}" alt="Bannière service" class="banner">
-<div class="text">
-    <h1>Notre Offre</h1>
-    <p>Découvrez ce qui correspond à vos besoins.</p>
-    </div>
-</div>
+	<div class="img-banner">
+		<img src="{{ asset('pho/banner-service.jpg') }}" alt="Bannière service" class="banner">
+		<div class="text">
+			<h1>Notre Offre</h1>
+			<p>Découvrez ce qui correspond à vos besoins.</p>
+		</div>
+	</div>
 
-    <div class="section mt-50 mb-50">
-        <div class="container">
-            <h1 class="section--dark__title">Création de sites web</h1>
-            <div class="row services">
-                <div class="col-md-4">
-                    <img class="service__item__img" src="{{ asset("img/surmesure.svg") }}" alt="">
-                    <p class="service__item__p1">Site web sur mesure</p>
-                    <p class="service__item__p2">
-                        Conçu de A à Z pour correspondre à vos critères et répondre à vos besoins.
-                    </p>
-                </div>
+	<div class="section mt-50 mb-50">
+		<div class="container">
+			<h1 class="section--dark__title">Création de sites web</h1>
+			<div class="row services">
+				<div class="col-md-4">
+					<img class="service__item__img" src="{{ asset("img/surmesure.svg") }}" alt="">
+					<p class="service__item__p1">Site web sur mesure</p>
+					<p class="service__item__p2">
+						Conçu de A à Z pour correspondre à vos critères et répondre à vos besoins.
+					</p>
+				</div>
 
-                <div class="col-md-4">
-                    <img class="service__item__img" src="{{ asset("img/commerce_2.svg") }}" alt="">
-                    <p class="service__item__p1">Site E-commerce</p>
-                    <p class="service__item__p2">
-                        Créé à partir de WordPress, il vous permet de commercialiser vos produits.
-                    </p>
-                </div>
+				<div class="col-md-4">
+					<img class="service__item__img" src="{{ asset("img/commerce_2.svg") }}" alt="">
+					<p class="service__item__p1">Site E-commerce</p>
+					<p class="service__item__p2">
+						Créé à partir de WordPress, il vous permet de commercialiser vos produits.
+					</p>
+				</div>
 
-                <div class="col-md-4">
-                    <img class="service__item__img" src="{{ asset("img/refonte.svg") }}" alt="">
-                    <p class="service__item__p1">Refonte de site</p>
-                    <p class="service__item__p2">
-                        Mis à jour de votre <i>ancien</i> site, il présente une nouvelle image à votre offre de services.
-                    </p>
-                </div>
-
-
-            </div>
-        </div>
-    </div>
+				<div class="col-md-4">
+					<img class="service__item__img" src="{{ asset("img/refonte.svg") }}" alt="">
+					<p class="service__item__p1">Refonte de site</p>
+					<p class="service__item__p2">
+						Mis à jour de votre
+						<i>ancien</i>
+						site, il présente une nouvelle image à votre offre de services.
+					</p>
+				</div>
 
 
+			</div>
+		</div>
+	</div>
 
-    <div class="section mb-50">
-        <div class="container">
-            <h1 class="section--white__title">Élaboration de stratégie digitale </h1>
-            <div class="row services">
-                <div class="col-md-4">
-                    <img class="service__item__img" src="{{ asset("img/seo.svg") }}" alt="">
-                    <p class="service__item__p1">Référencement</p>
-                    <p class="service__item__p2">
-                        Il vous permet d’être trouvé lorsque l'on vous cherche sur internet.
-                    </p>
-                </div>
 
-                <div class="col-md-4">
-                    <img class="service__item__img" src="{{ asset("img/audit.svg") }}" alt="">
-                    <p class="service__item__p1">Audit de votre site existant </p>
-                    <p class="service__item__p2">
-                        Une étude de votre site suivie de propositinos d'axe d'améliorations.
-                    </p>
-                </div>
+	<div class="section mb-50">
+		<div class="container">
+			<h1 class="section--white__title">Élaboration de stratégie digitale
+			</h1>
+			<div class="row services">
+				<div class="col-md-4">
+					<img class="service__item__img" src="{{ asset("img/seo.svg") }}" alt="">
+					<p class="service__item__p1">Référencement</p>
+					<p class="service__item__p2">
+						Il vous permet d’être trouvé lorsque l'on vous cherche sur internet.
+					</p>
+				</div>
 
-                <div class="col-md-4">
-                    <img class="service__item__img" src="{{ asset("img/cm.svg") }}" alt="">
-                    <p class="service__item__p1">Community Management</p>
-                    <p class="service__item__p2">
-                        La gestion de vos réseaux sociaux afin de faciliter la communication de vos
-                        prestations de services.
-                    </p>
-                </div>
+				<div class="col-md-4">
+					<img class="service__item__img" src="{{ asset("img/audit.svg") }}" alt="">
+					<p class="service__item__p1">Audit de votre site existant
+					</p>
+					<p class="service__item__p2">
+						Une étude de votre site suivie de propositinos d'axe d'améliorations.
+					</p>
+				</div>
 
-                <div class="col-md-4">
-                    <img class="service__item__img" src="{{ asset("img/grap.svg") }}" alt="">
-                    <p class="service__item__p1">Conception Graphique</p>
-                    <p class="service__item__p2">
-                        Une identité visuelle qui vous représente et qui permet à vos clients de vous reconnaître
-                        (logo, cartes de visites, affiches, etc...).
-                    </p>
-                </div>
+				<div class="col-md-4">
+					<img class="service__item__img" src="{{ asset("img/cm.svg") }}" alt="">
+					<p class="service__item__p1">Community Management</p>
+					<p class="service__item__p2">
+						La gestion de vos réseaux sociaux afin de faciliter la communication de vos
+						                        prestations de services.
+					</p>
+				</div>
 
-                <div class="col-md-4">
-                    <img class="service__item__img" src="{{ asset("img/video.svg") }}" alt="">
-                    <p class="service__item__p1">Contenu Audiovisuel</p>
-                    <p class="service__item__p2">
-                        Une création pour présenter vos services (photos, vidéos, montages, etc...).
-                    </p>
-                </div>
+				<div class="col-md-4">
+					<img class="service__item__img" src="{{ asset("img/grap.svg") }}" alt="">
+					<p class="service__item__p1">Conception Graphique</p>
+					<p class="service__item__p2">
+						Une identité visuelle qui vous représente et qui permet à vos clients de vous reconnaître
+						                        (logo, cartes de visites, affiches, etc...).
+					</p>
+				</div>
 
-                <div class="col-md-4">
-                    <img class="service__item__img" src="{{ asset("img/workshop.svg") }}" alt="">
-                    <p class="service__item__p1">Workshop</p>
-                    <p class="service__item__p2">
-                        Une formation qui vous permet de comprendre le fonctionnement de votre site et de pouvoir
-                        l'utiliser au mieux.
-                    </p>
-                </div>
+				<div class="col-md-4">
+					<img class="service__item__img" src="{{ asset("img/video.svg") }}" alt="">
+					<p class="service__item__p1">Contenu Audiovisuel</p>
+					<p class="service__item__p2">
+						Une création pour présenter vos services (photos, vidéos, montages, etc...).
+					</p>
+				</div>
 
-            </div>
-        </div>
-    </div>
+				<div class="col-md-4">
+					<img class="service__item__img" src="{{ asset("img/workshop.svg") }}" alt="">
+					<p class="service__item__p1">Workshop</p>
+					<p class="service__item__p2">
+						Une formation qui vous permet de comprendre le fonctionnement de votre site et de pouvoir
+						                        l'utiliser au mieux.
+					</p>
+				</div>
+
+			</div>
+		</div>
+	</div>
 
 
 {% endblock %}
 
 
-  {% block javascripts %}
-      <script>
-
-
-      </script>
-  {% endblock %}
+{% block javascripts %}
+	<script></script>
+{% endblock %}
