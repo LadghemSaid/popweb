@@ -92,7 +92,7 @@ class ArticleController extends AbstractController
         //Pour 1 -> ...find($id);   avec une valeur de champ -> ...findOneBy(['title'=>'Article Du vendredi 13']);
         return $this->render('article/index.html.twig', [
             'current_menu' => 'articles',
-            'articles' => $articles,
+            'articles' =>array_reverse($articles),
 
 
         ]);

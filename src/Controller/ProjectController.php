@@ -41,7 +41,7 @@ class ProjectController extends AbstractController
         $projects = $this->repository->findAll(); //On récupère les projects
         return $this->render('project/index.html.twig', [
             'current_menu' => 'projects',
-            'projects' => $projects,
+            'projects' => array_reverse($projects),
         ]);
     }
 
