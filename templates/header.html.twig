@@ -5,23 +5,27 @@
         <a href="{{ path("index") }}"><img src="{{ asset("img/logo.svg") }}" alt="Agence Pop Web logo"/></a>
         <div id="menu-du-header">
 
-            <a class="nav-link {% if current_menu is defined and current_menu == 'about' %}active{% endif %}" href="{{path('about')}}">Agence</a>
-            <a class="nav-link {% if current_menu is defined and current_menu == 'service' %}active{% endif %}" href="{{path('service.index')}}">Services <span class="sr-only">(current)</span></a>
-            <a class="nav-link {% if current_menu is defined and current_menu == 'projects' %}active{% endif %}" href="{{path('project.index')}}">Réalisations <span class="sr-only">(current)</span></a>
-            <a class="nav-link {% if current_menu is defined and current_menu == 'articles' %}active{% endif %}" href="{{path('articles.index')}}">Blog <span class="sr-only">(current)</span></a>
-            <a class="nav-link {% if current_menu is defined and current_menu == 'jobs' %}active{% endif %}" href="{{path('job.index')}}">Recrutement</a>
-            <a class="nav-link {% if current_menu is defined and current_menu == 'contact' %}active{% endif %}" href="{{path('contact.show')}}">Contactez-nous</a>
+            <div id="header">
+                <div id="nav">
+                    <ul class="main-menu">
+
+                        <li><a class="nav-link {% if current_menu is defined and current_menu == 'about' %}active{% endif %}" href="{{path('about')}}">Agence</a></li>
+                        <li><a class="nav-link {% if current_menu is defined and current_menu == 'service' %}active{% endif %}" href="{{path('service.index')}}">Services <span class="sr-only">(current)</span></a></li>
+                        <li><a class="nav-link {% if current_menu is defined and current_menu == 'projects' %}active{% endif %}" href="{{path('project.index')}}">Réalisations <span class="sr-only">(current)</span></a></li>
+                        <li><a class="nav-link {% if current_menu is defined and current_menu == 'articles' %}active{% endif %}" href="{{path('articles.index')}}">Blog <span class="sr-only">(current)</span></a></li>
+                        <li><a class="nav-link {% if current_menu is defined and current_menu == 'jobs' %}active{% endif %}" href="{{path('job.index')}}">Recrutement</a></li>
+                        <li><a class="nav-link {% if current_menu is defined and current_menu == 'contact' %}active{% endif %}" href="{{path('contact.show')}}">Contactez-nous</a></li>
             {% if app.user %}
 
 
                 {% if app.environment == "dev" %}
-                <a class="nav-link " href="/admin">Admin</a>
+                    <li><a class="nav-link " href="/admin">Admin</a></li>
                 {% endif %}
 
                 {% if app.environment == "prod" %}
-                    <a class="nav-link " href="/admin">Admin</a>
+                    <li><a class="nav-link " href="/admin">Admin</a></li>
                 {% endif %}
-                <a class=" {% if current_menu is defined and current_menu == 'logout' %}active{% endif %}" href="{{ path('app_logout') }}">Se déconnecter</a>
+                <li><a class=" {% if current_menu is defined and current_menu == 'logout' %}active{% endif %}" href="{{ path('app_logout') }}">Se déconnecter</a></li>
 
             {% else %}
                 {#
@@ -29,9 +33,11 @@
                <a class=" {% if current_menu is defined and current_menu == 'register' %}active{% endif %}" href="{{ path('app_register') }}">S'inscrire</a>
                    #}
             {%  endif  %}
-
-
+                    </ul>
+                </div>
+                </div>
         </div>
+
     </div>
 </header>
 
