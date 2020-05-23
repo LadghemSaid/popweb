@@ -1,0 +1,342 @@
+/*
+@import url('https://fonts.googleapis.com/css?family=Raleway:100,300,400,500,600,700,800|Roboto:100,300,400,500,700,900&display=swap');
+
+h1, h2, h3, h4, h5 {
+  font-family: 'Raleway', sans-serif;
+}
+
+p, a, span, button, label, ::placeholder {
+  font-family: 'Roboto', sans-serif;
+}
+
+.img-banner {
+
+  .banner {
+    width: 100%;
+    height: 600px;
+    object-fit: cover;
+  }
+
+  .text {
+    position: absolute;
+    top: 250px;
+    width: 100%;
+    text-align: center;
+    color: #FFFFFF;
+  }
+}
+
+!*
+
+#nav {
+  background-color: #B0A991;
+  height: 50px;
+  margin-left: auto;
+  margin-right: auto;
+  position: fixed;
+  width: 100%;
+}*!
+!*
+.main-menu {
+  font-size: 1em;
+  position: fixed;
+  width: 100%;
+  background: purple;
+}
+
+ul {
+  list-style-type: none;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+  position: absolute;
+}
+
+ul li {
+  display: inline-block;
+  padding: 0;
+  text-transform: uppercase;
+  width: 150px;
+}
+
+ul li a {
+  color: #FFFFFF;
+  display: block;
+  height: 50px;
+  line-height: 50px;
+  margin: 0;
+  min-width: 140px;
+  text-align: center;
+  transition: all .75s;
+  -moz-transition: all .75s;
+  -webkit-transition: all .75s;
+  -o-transition: all .75s;
+}
+
+ul li:hover a {
+  color: #f3f3f3;
+}
+
+ul li:hover ul a {
+  background: #f3f3f3;
+  height: 40px;
+  line-height: 40px;
+}
+
+li:hover ul a:hover {
+  color: #ECECEC;
+}
+
+li ul {
+  display: none;
+}
+
+li ul li {
+  display: block;
+  float: none;
+}
+
+li ul li a {
+  width: auto;
+  min-width: 100px;
+  padding: 0 20px;
+}
+
+ul li a:hover + .subs, .subs:hover {
+  display: block;
+}*!
+
+
+!*======= MEDIA QUERIES FOR NAVIGATION ======*!
+
+@media screen and (max-width: 600px) {
+
+  ul li {
+    width: 100px;
+  }
+  ul li a {
+    min-width: 90px;
+  }
+  li ul li a {
+    width: auto;
+    min-width: 50px;
+  }
+
+}
+
+@media screen and (max-width: 420px) {
+
+  ul li {
+    width: 100%;
+  }
+  ul li a {
+    margin-top: 1px;
+    background: rgba(178, 169, 145, .5);
+  }
+  li ul li a {
+    width: 100%;
+    font-size: 1em;
+  }
+  ul li:hover a {
+    color: #FFFFFF;
+  }
+  ul li:hover ul a {
+    background: #F3F3F3;
+    color: #B0A991;
+  }
+  li:hover ul a:hover {
+    background-color: #F3F3F3;
+  }
+
+}
+
+
+// ADD
+!*
+
+.nav {
+  height: 50px;
+  width: 100%;
+  background-color: #4d4d4d;
+  position: relative;
+
+  .nav-header {
+    display: inline;
+
+    .nav-title {
+      display: inline-block;
+      font-size: 22px;
+      color: #fff;
+      padding: 10px 10px 10px 10px;
+    }
+  }
+
+  .nav-btn {
+    display: none;
+  }
+
+  .nav-links {
+    display: inline;
+    font-size: 18px;
+
+    a {
+      display: inline-block;
+      padding: 13px 10px 13px 10px;
+      text-decoration: none;
+      color: #efefef;
+    }
+
+    a:hover {
+      background-color: rgba(0, 0, 0, 0.3);
+    }
+  }
+
+  #nav-check {
+    display: none;
+  }
+}
+
+@media (max-width: 900px) {
+
+  .nav {
+    .nav-btn {
+      display: inline-block;
+      position: absolute;
+      right: 0px;
+      top: 0px;
+
+      label {
+        display: inline-block;
+        width: 50px;
+        height: 50px;
+        padding: 13px;
+      }
+
+      label:hover, .nav #nav-check:checked ~ .nav-btn > label {
+        background-color: rgba(0, 0, 0, 0.3);
+      }
+
+      label > span {
+        display: block;
+        width: 25px;
+        height: 10px;
+        border-top: 2px solid #eee;
+      }
+    }
+
+    .nav-links {
+      position: absolute;
+      display: block;
+      width: 100%;
+      background-color: #333;
+      height: 0px;
+      transition: all 0.3s ease-in;
+      overflow-y: hidden;
+      top: 50px;
+      left: 0px;
+
+      a {
+        display: block;
+        width: 100%;
+      }
+    }
+  }
+
+  .nav > #nav-check:not(:checked) ~ .nav-links {
+    height: 0px;
+  }
+  .nav > #nav-check:checked ~ .nav-links {
+    height: calc(100vh - 50px);
+    overflow-y: auto;
+  }
+}
+*!
+
+
+// MENU
+.nav {
+  background: #2b569a;
+  width: 100%;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  position: absolute;
+
+  .nav-links {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    ul {
+      background: #422a07;
+      align-content: center;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+
+    }
+  }
+
+  .nav-responsive {
+    background: #6b1f33;
+  }
+}
+
+
+// HAMBURGER MENU DOWN HERE
+
+.ham {
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  transition: transform 400ms;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.hamRotate.active {
+  transform: rotate(45deg);
+}
+
+.hamRotate180.active {
+  transform: rotate(180deg);
+}
+
+.line {
+  fill: none;
+  transition: stroke-dasharray 400ms, stroke-dashoffset 400ms;
+  stroke: white;
+  stroke-width: 5.5;
+  stroke-linecap: round;
+}
+
+.hammove .top {
+  stroke-dasharray: 40 160;
+}
+
+.hammove .middle {
+  stroke-dasharray: 40 142;
+  transform-origin: 50%;
+  transition: transform 400ms;
+}
+
+.hammove .bottom {
+  stroke-dasharray: 40 85;
+  transform-origin: 50%;
+  transition: transform 400ms, stroke-dashoffset 400ms;
+}
+
+.hammove.active .top {
+  stroke-dashoffset: -64px;
+}
+
+.hammove.active .middle {
+  //stroke-dashoffset: -20px;
+  transform: rotate(90deg);
+}
+
+.hammove.active .bottom {
+  stroke-dashoffset: -64px;
+}
+*/

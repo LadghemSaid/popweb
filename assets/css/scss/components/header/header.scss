@@ -1,140 +1,123 @@
 @import url('https://fonts.googleapis.com/css?family=Raleway:100,300,400,500,600,700,800|Roboto:100,300,400,500,700,900&display=swap');
 
 h1, h2, h3, h4, h5 {
-    font-family: 'Raleway', sans-serif;
+  font-family: 'Raleway', sans-serif;
 }
 
 p, a, span, button, label, ::placeholder {
-    font-family: 'Roboto', sans-serif;
+  font-family: 'Roboto', sans-serif;
 }
 
 .img-banner {
 
-    .banner {
-        width: 100%;
-        height: 600px;
-        object-fit: cover;
-    }
-
-    .text {
-        position: absolute;
-        top: 250px;
-        width: 100%;
-        text-align: center;
-        color: #FFFFFF;
-    }
-}
-
-
-
-#nav {
-    background-color: #B0A991;
-    height: 50px;
-    margin-left: auto;
-    margin-right: auto;
-    position: fixed;
+  .banner {
     width: 100%;
-}
+    height: 600px;
+    object-fit: cover;
+  }
 
-.main-menu {
-    font-size: 1em;
-    position: fixed;
-    width: 100%;
-}
-
-ul {
-    list-style-type: none;
-    text-align: center;
-    margin: 0;
-    padding: 0;
+  .text {
     position: absolute;
-}
-
-ul li {
-    display: inline-block;
-    padding: 0;
-    text-transform: uppercase;
-    width: 150px;
-}
-
-ul li a {
-    color: #FFFFFF;
-    display: block;
-    height: 50px;
-    line-height: 50px;
-    margin: 0;
-    min-width: 140px;
+    top: 250px;
+    width: 100%;
     text-align: center;
-    transition: all .75s;
-    -moz-transition: all .75s;
-    -webkit-transition: all .75s;
-    -o-transition: all .75s;
+    color: #FFFFFF;
+  }
 }
 
-ul li:hover a {
-    color: #f3f3f3;
-}
+// MENU HERE
 
-ul li:hover ul a {
-    background: #f3f3f3;
-    height: 40px;
-    line-height: 40px;
-}
+.nav {
+  display: flex;
+  justify-content: space-around;
+  font-size: 1em;
+  text-transform: uppercase;
 
-li:hover ul a:hover {
-    color: #ECECEC;
-}
+  .nav-logo {
+  }
 
-li ul { display: none; }
+  .nav-menu {
+    display: flex;
+    justify-content: space-between;
 
-li ul li {
-    display: block;
-    float: none;
-}
+    .nav-links {
+      width: 800px;
+      display: flex;
+      justify-content: space-evenly;
 
-li ul li a {
-    width: auto;
-    min-width: 100px;
-    padding: 0 20px;
-}
+      a {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        color: #ffffff;
+      }
 
-ul li a:hover + .subs, .subs:hover { display: block; }
-
-
-/*======= MEDIA QUERIES FOR NAVIGATION ======*/
-
-@media screen and (max-width: 600px) {
-
-    ul li { width: 100px; }
-    ul li a { min-width: 90px; }
-    li ul li a {
-        width: auto;
-        min-width: 50px;
+      a:hover{
+        color: #F7024D;
+        font-weight: bolder;
+      }
     }
 
+    .nav-responsive {
+      //background: #2b542c;
+    }
+  }
 }
 
-@media screen and (max-width: 420px) {
 
-    ul li { width: 100%; }
-    ul li a {
-        margin-top: 1px;
-        background: rgba(178,169,145,.5);
-    }
-    li ul li a {
-        width: 100%;
-        font-size: 1em;
-    }
-    ul li:hover a {
-        color: #FFFFFF;
-    }
-    ul li:hover ul a {
-        background: #F3F3F3;
-        color: #B0A991;
-    }
-    li:hover ul a:hover {
-        background-color: #F3F3F3;
-    }
+// HAMBURGER MENU DOWN HERE
 
+.ham {
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  transition: transform 400ms;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
+.hamRotate.active {
+  transform: rotate(45deg);
+}
+
+.hamRotate180.active {
+  transform: rotate(180deg);
+}
+
+.line {
+  fill: none;
+  transition: stroke-dasharray 400ms, stroke-dashoffset 400ms;
+  stroke: white;
+  stroke-width: 5.5;
+  stroke-linecap: round;
+}
+
+.hammove .top {
+  stroke-dasharray: 40 160;
+}
+
+.hammove .middle {
+  stroke-dasharray: 40 142;
+  transform-origin: 50%;
+  transition: transform 400ms;
+}
+
+.hammove .bottom {
+  stroke-dasharray: 40 85;
+  transform-origin: 50%;
+  transition: transform 400ms, stroke-dashoffset 400ms;
+}
+
+.hammove.active .top {
+  stroke-dashoffset: -64px;
+}
+
+.hammove.active .middle {
+  //stroke-dashoffset: -20px;
+  transform: rotate(90deg);
+}
+
+.hammove.active .bottom {
+  stroke-dashoffset: -64px;
+}
