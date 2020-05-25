@@ -46,13 +46,9 @@
                 {% if app.user %}
 
 
-                    {% if app.environment == "dev" %}
-                        <a class="nav-link " href="/admin">Admin</a>
-                    {% endif %}
 
-                    {% if app.environment == "prod" %}
-                        <a class="nav-link " href="/admin">Admin</a>
-                    {% endif %}
+                    <a class="nav-link " href="/admin">Admin</a>
+
                     <a class=" {% if current_menu is defined and current_menu == 'logout' %}active{% endif %}"
                        href="{{ path('app_logout') }}">Se déconnecter</a>
 
