@@ -1,4 +1,4 @@
-/*
+
 @import url('https://fonts.googleapis.com/css?family=Raleway:100,300,400,500,600,700,800|Roboto:100,300,400,500,700,900&display=swap');
 
 h1, h2, h3, h4, h5 {
@@ -41,7 +41,6 @@ p, a, span, button, label, ::placeholder {
   font-size: 1em;
   position: fixed;
   width: 100%;
-  background: purple;
 }
 
 ul {
@@ -254,6 +253,7 @@ ul li a:hover + .subs, .subs:hover {
 
 
 // MENU
+/*
 .nav {
   background: #2b569a;
   width: 100%;
@@ -339,4 +339,5 @@ ul li a:hover + .subs, .subs:hover {
 .hammove.active .bottom {
   stroke-dashoffset: -64px;
 }
+
 */
