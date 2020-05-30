@@ -34,6 +34,7 @@ p, a, span, button, label, ::placeholder {
   height: 100px;
 
   .nav_right {
+    padding: 8px 0;
 
     ul {
       display: flex;
@@ -42,8 +43,186 @@ p, a, span, button, label, ::placeholder {
       margin-left: 200px;
       font-size: 1.2em;
 
+      a {
+        position: relative;
+      }
+
+      a:hover{
+        color: #F7024D;
+      }
+
+      a::after {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        height: 4px;
+        background: #fff;
+        content: '';
+        opacity: 0;
+        -webkit-transition: opacity 0.3s, -webkit-transform 0.3s;
+        -moz-transition: opacity 0.3s, -moz-transform 0.3s;
+        transition: opacity 0.3s, transform 0.3s;
+        -webkit-transform: translateY(10px);
+        -moz-transform: translateY(10px);
+        transform: translateY(10px);
+      }
+
+      a:hover::after,
+      a:focus::after,
+      {
+        opacity: 1;
+        -webkit-transform: translateY(0px);
+        -moz-transform: translateY(0px);
+        transform: translateY(0px);
+      }
+
+      a.nav-link.active {
+        color: #F7024D;
+      }
+
+      a.nav-link.active::after{
+        background: #F7024D;
+        content: '';
+        opacity: 1;
+      }
+
+      a.nav-link.active::after {
+        margin: auto;
+        border-bottom: 0;
+      }
+
+
     }
   }
 
+}
+
+@media (max-width: 900px) {
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    height: 125px;
+
+    .navbar-toggler {
+      height: auto;
+      width: auto;
+      z-index: 2;
+    }
+
+    .navbar-toggler-icon {
+      height: auto;
+      width: auto;
+    }
+  }
+
+  #navbarSupportedContent {
+    background: #0b0d40;
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    overflow-x: hidden;
+    transition: 0.5s;
+
+    .navbar-nav {
+      position: relative;
+      top: 15%;
+      width: 100%;
+      text-align: center;
+      margin-top: 30px;
+
+      a {
+        padding: 8px;
+        text-decoration: none;
+        font-size: 2em;
+        color: white;
+        display: block;
+        transition: 0.3s;
+      }
+
+      a.active {
+        color: #F7024D;
+      }
+      a::after {
+       width: 0;
+      }
+
+
+
+    }
+  }
+
+  .navbar .nav_right ul {
+    margin-left: 0;
+  }
+
+  a.nav-link.active::after {
+    margin: auto;
+    width: 20%;
+    border-bottom: 0;
+  }
+
+}
+
+
+//MENU HAMBURGER
+
+
+.ham {
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  transition: transform 400ms;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.hamRotate.active {
+  transform: rotate(45deg);
+}
+
+.hamRotate180.active {
+  transform: rotate(180deg);
+}
+
+.line {
+  fill: none;
+  transition: stroke-dasharray 400ms, stroke-dashoffset 400ms;
+  stroke: white;
+  stroke-width: 5.5;
+  stroke-linecap: round;
+}
+
+.hammove .top {
+  stroke-dasharray: 40 160;
+}
+
+.hammove .middle {
+  stroke-dasharray: 40 142;
+  transform-origin: 50%;
+  transition: transform 400ms;
+}
+
+.hammove .bottom {
+  stroke-dasharray: 40 85;
+  transform-origin: 50%;
+  transition: transform 400ms, stroke-dashoffset 400ms;
+}
+
+.hammove.active .top {
+  stroke-dashoffset: -64px;
+}
+
+.hammove.active .middle {
+  //stroke-dashoffset: -20px;
+  transform: rotate(90deg);
+}
+
+.hammove.active .bottom {
+  stroke-dashoffset: -64px;
 }
 

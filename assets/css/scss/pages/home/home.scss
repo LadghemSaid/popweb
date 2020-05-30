@@ -142,7 +142,7 @@ header img {
   transition: all 0.3s ease;
 
 }
-.active::after{
+/*.active::after{
   position: relative;
   content: " ";
   display: block;
@@ -151,7 +151,7 @@ header img {
   width: 100%!important;
   height: 2px;
   border-bottom: 3px $red solid;
-}
+}*/
 
 #menu-du-header a:hover:not(.active):after {
     width: 100%;
