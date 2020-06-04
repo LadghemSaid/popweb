@@ -31,8 +31,6 @@ class ArticleController extends AbstractController
     }
 
 
-
-
     /**
      * @Route("/article/{slug}" , name="article.show", requirements={"slug"="[a-z0-9\-]*"})
      * @param Article $article
@@ -92,7 +90,7 @@ class ArticleController extends AbstractController
         //Pour 1 -> ...find($id);   avec une valeur de champ -> ...findOneBy(['title'=>'Article Du vendredi 13']);
         return $this->render('article/index.html.twig', [
             'current_menu' => 'articles',
-            'articles' =>array_reverse($articles),
+            'articles' => array_reverse($articles),
 
 
         ]);
