@@ -64,7 +64,8 @@
                         <h2> {{ project.title|striptags|length >20 ? project.title|striptags|slice(0, 50) ~ '...' : project.title|striptags }}  </h2>
                     </a>
                     <p class="p-date">Jan 18, 2019 </p>
-                    <p class="p-description">{{ project.text|striptags|length > 100 ? project.text|striptags|slice(0, 100) ~ '...' : project.text|striptags }}</p>
+
+                    <p class="p-description">{{ project.description|striptags|length > 100 ? project.description|striptags|slice(0, 100) ~ '...' : project.description|striptags }}</p>
                     <a href="{{ path('project.show',{'slug':project.slug}) }}" class="more">Voir plus</a>
                 </div>
 
