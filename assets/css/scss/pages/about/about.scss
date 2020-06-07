@@ -4,23 +4,7 @@
   }
 }
 
-.card-trombi-grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(200px, 1fr));
-  grid-gap: 15px;
-
-  @include breakpoint(tablet) {
-    grid-template-columns: repeat(3, minmax(200px, 1fr)) !important;
-  }
-
-  @include breakpoint(desktop) {
-    grid-template-columns: repeat(4, minmax(200px, 1fr)) !important;
-  }
-
-}
-
 .card-trombi {
-  max-width: 350px;
   background-color: #dcdcdc;
   box-shadow: 4px 7px 40px 0px #0000005c;
   display: flex;

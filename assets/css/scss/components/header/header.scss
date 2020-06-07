@@ -38,10 +38,23 @@ p, a, span, button, label, ::placeholder {
 
     ul {
       display: flex;
-      justify-content: space-between;
+      justify-content: flex-end;
       width: 100%;
-      margin-left: 200px;
+      margin-left: auto;
       font-size: 1.2em;
+
+      li {
+        padding-right: .5rem !important;
+        padding-left: .5rem !important;
+
+        &:first-of-type {
+          padding-left: 0 !important;
+        }
+
+        &:last-of-type {
+          padding-right: 0 !important;
+        }
+      }
 
       a {
         position: relative;
@@ -57,7 +70,7 @@ p, a, span, button, label, ::placeholder {
         left: 0;
         width: 100%;
         height: 4px;
-        background: #fff;
+        background: #F7024D;
         content: '';
         opacity: 0;
         -webkit-transition: opacity 0.3s, -webkit-transform 0.3s;
@@ -85,13 +98,10 @@ p, a, span, button, label, ::placeholder {
         background: #F7024D;
         content: '';
         opacity: 1;
-      }
-
-      a.nav-link.active::after {
         margin: auto;
         border-bottom: 0;
+        transform: translateY(0px);
       }
-
 
     }
   }
@@ -99,6 +109,13 @@ p, a, span, button, label, ::placeholder {
 }
 
 @media (max-width: 900px) {
+  header img {
+    height: 90px !important;
+    padding: 15px;
+    width: 135px;
+    object-fit: cover;
+  }
+
   .navbar {
     display: flex;
     justify-content: space-between;
@@ -108,6 +125,7 @@ p, a, span, button, label, ::placeholder {
       height: auto;
       width: auto;
       z-index: 2;
+      outline: none;
     }
 
     .navbar-toggler-icon {
