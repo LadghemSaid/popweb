@@ -1,0 +1,58 @@
+version: "3.4"
+
+services:
+  php:
+    container_name: popweb_php
+    build:
+      context: .
+      target: symfony_php
+      args:
+        SYMFONY_VERSION: ${SYMFONY_VERSION:-}
+        STABILITY: ${STABILITY:-stable}
+        SERVER_NAME: ${SERVER_NAME:-localhost}
+    healthcheck:
+      interval: 10s
+      timeout: 3s
+      retries: 3
+      start_period: 30s
+    volumes:
+      # Comment out the next line in production
+      - ./:/srv/app:rw,cached
+      # If you develop on Linux, comment out the following volumes to just use bind-mounted project directory from host
+      - /srv/app/var/
+      - /srv/app/var/cache/
+      - /srv/app/var/logs/
+      - /srv/app/var/sessions/
+    environment:
+      - SYMFONY_VERSION
+
+  mysql:
+    container_name: popweb_mysql
+    image: mysql:8.0
+    restart: on-failure
+    environment:
+      MYSQL_ROOT_PASSWORD: Azerty123321!
+      MYSQL_DATABASE: popweb
+
+  adminer:
+    container_name: popweb_adminer
+    image: adminer
+    restart: on-failure
+    ports:
+      - "8080:8080"
+    depends_on:
+      - mysql
+
+  nginx:
+    container_name: popweb_nginx
+    build:
+      context: .
+      target: symfony_nginx
+    depends_on:
+      - php
+    volumes:
+      # Comment out the next line in production
+      - ./docker/nginx/conf.d:/etc/nginx/conf.d:ro
+      - ./public:/srv/app/public:ro
+    ports:
+      - "80:80"
