@@ -77,8 +77,14 @@
             "cache:clear": "symfony-cmd",
             "assets:install %PUBLIC_DIR%": "symfony-cmd"
         },
+        "assets-install": {
+            "install": "npm install",
+            "build": "npm run build"
+        },
         "post-install-cmd": [
-            "@auto-scripts"
+            "@auto-scripts",
+            "@assets-install"
+
         ],
         "post-update-cmd": [
             "@auto-scripts"

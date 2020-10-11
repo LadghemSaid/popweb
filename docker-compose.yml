@@ -1,7 +1,7 @@
 version: "3.4"
 
 services:
-  php:
+  popweb_php:
     container_name: popweb_php
     build:
       context: .
@@ -19,40 +19,41 @@ services:
       # Comment out the next line in production
       - ./:/srv/app:rw,cached
       # If you develop on Linux, comment out the following volumes to just use bind-mounted project directory from host
-      - /srv/app/var/
-      - /srv/app/var/cache/
-      - /srv/app/var/logs/
-      - /srv/app/var/sessions/
+      # - /srv/app/var/
+      # - /srv/app/var/cache/
+      # - /srv/app/var/logs/
+      # - /srv/app/var/sessions/
     environment:
       - SYMFONY_VERSION
+    networks:
+      - nginx_main
+      - backend
 
-  mysql:
-    container_name: popweb_mysql
-    image: mysql:8.0
-    restart: on-failure
-    environment:
-      MYSQL_ROOT_PASSWORD: Azerty123321!
-      MYSQL_DATABASE: popweb
-
-  adminer:
-    container_name: popweb_adminer
-    image: adminer
-    restart: on-failure
-    ports:
-      - "8080:8080"
-    depends_on:
-      - mysql
-
-  nginx:
+  popweb_nginx:
     container_name: popweb_nginx
     build:
       context: .
       target: symfony_nginx
     depends_on:
-      - php
+      - popweb_php
     volumes:
       # Comment out the next line in production
       - ./docker/nginx/conf.d:/etc/nginx/conf.d:ro
       - ./public:/srv/app/public:ro
-    ports:
-      - "80:80"
+    expose:
+      - "80"
+      # - "9000"
+    environment:
+      VIRTUAL_HOST: popweb.s-website.ga
+    networks:
+      - nginx_main
+
+volumes:
+  popweb-data:
+    driver: local
+
+networks:
+  nginx_main:
+    external: true
+  backend:
+    external: true
